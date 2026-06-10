@@ -9,15 +9,55 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
-
 model User {
+  id           String   @id @default(cuid())
+  username     String?  @unique
+  email        String   @unique
+
+  passwordHash String
+
+  role         String   @default("admin")
+  isActive     Boolean  @default(true)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  otps         Otp[]
+  sessions     Session[]
+}
+
+model Otp {
   id        String   @id @default(cuid())
-  name      String?
-  email     String   @unique
+  userId    String
+  code      String
+
+  type      String   @default("login")
+
+  expiresAt DateTime
+  attempts  Int      @default(0)
+
   createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+
+  token     String
+
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
 }
