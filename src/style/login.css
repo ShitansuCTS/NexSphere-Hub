@@ -1,0 +1,208 @@
+.bjd-login-page {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  background: #008b25;
+}
+
+.bjd-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bjd-green-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 130, 28, 0.78);
+  z-index: 1;
+}
+
+.bjd-login-box {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 1280px;
+  height: 620px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+.bjd-login-left {
+  height: 100%;
+  background: #eefbea;
+}
+
+.bjd-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bjd-login-right {
+  position: relative;
+  padding: 75px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.bjd-watermark {
+  position: absolute;
+  inset: 0;
+  background: url("https://demo.testctsl.in/tushar/assets/BJD.jpg") center/70%
+    no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.bjd-login-right h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 32px;
+  font-weight: 800;
+  color: #233044;
+  margin-bottom: 32px;
+}
+
+.bjd-follow {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 28px;
+}
+
+.bjd-follow p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.bjd-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.bjd-socials span {
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid #48bd4a;
+  color: #48bd4a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.bjd-field {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 28px;
+}
+
+.bjd-field label {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.bjd-field input {
+  width: 100%;
+  height: 56px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: #c9ffd1;
+  padding: 0 18px;
+  font-size: 17px;
+  color: #111;
+}
+
+.bjd-login-btn {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 5px;
+  background: #48bd3f;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.bjd-login-btn:hover {
+  background: #249b26;
+}
+
+@media (max-width: 991px) {
+  .bjd-login-page {
+    padding: 18px;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .bjd-login-box {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .bjd-login-left {
+    display: none;
+  }
+
+  .bjd-login-right {
+    padding: 45px 25px;
+  }
+
+  .bjd-login-right h2 {
+    font-size: 26px;
+  }
+}
+
+
+
+
+.otp-box {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  background: #f3f4f6;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.otp-box:focus {
+  border-color: #16a34a;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15);
+}
+
+@media (max-width: 576px) {
+  .otp-box {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

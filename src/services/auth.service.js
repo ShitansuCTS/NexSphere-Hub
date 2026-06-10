@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { generateOtp } from "@/lib/auth";
+import { sendOtpEmail } from "@/services/email.service";
 
 export const loginService = async ({ email, password }) => {
     const user = await prisma.user.findUnique({
@@ -40,7 +41,11 @@ export const loginService = async ({ email, password }) => {
         },
     });
 
-    console.log("OTP:", otp);
+    // Send OTP Email
+    await sendOtpEmail(
+        user.email,
+        otp
+    );
 
     return {
         success: true,

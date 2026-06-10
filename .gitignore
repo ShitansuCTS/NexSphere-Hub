@@ -16,6 +16,8 @@
 # production
 /build
 
+/scripts/seed-admin.js
+
 # misc
 .DS_Store
 *.pem
