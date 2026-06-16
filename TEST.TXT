@@ -1,0 +1,558 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+  BLOCKED
+}
+
+enum UserAssignmentType {
+  STATE
+  DISTRICT
+  BLOCK
+  GP
+  VILLAGE
+  WARD
+  BOOTH
+}
+
+enum ContactStatus {
+  ACTIVE
+  INACTIVE
+  MOVED
+  DECEASED
+  DUPLICATE
+}
+
+enum ImportStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Role {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  slug        String  @unique
+  description String?
+
+  users           User[]
+  rolePermissions RolePermission[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("roles")
+}
+
+model Menu {
+  id String @id @default(uuid())
+
+  name String
+  slug String @unique
+
+  path String?
+  icon String?
+
+  parentId String?
+
+  parent   Menu?  @relation("MenuHierarchy", fields: [parentId], references: [id])
+  children Menu[] @relation("MenuHierarchy")
+
+  sortOrder Int @default(0)
+
+  isActive Boolean @default(true)
+
+  permissions RolePermission[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("menus")
+}
+
+model RolePermission {
+  id String @id @default(uuid())
+
+  roleId String
+  menuId String
+
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  menu Menu @relation(fields: [menuId], references: [id], onDelete: Cascade)
+
+  canView   Boolean @default(false)
+  canAdd    Boolean @default(false)
+  canEdit   Boolean @default(false)
+  canDelete Boolean @default(false)
+
+  canImport Boolean @default(false)
+  canExport Boolean @default(false)
+
+  canDownload Boolean @default(false)
+  canPrint    Boolean @default(false)
+
+  canApprove Boolean @default(false)
+  canReject  Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@unique([roleId, menuId])
+  @@index([roleId])
+  @@index([menuId])
+  @@map("role_permissions")
+}
+
+model User {
+  id String @id @default(uuid())
+
+  username String  @unique
+  email    String? @unique
+  mobile   String  @unique
+
+  passwordHash String
+
+  firstName String
+  lastName  String?
+
+  roleId String
+  role   Role   @relation(fields: [roleId], references: [id])
+
+  status Status @default(ACTIVE)
+
+  isVerified Boolean @default(false)
+
+  lastLoginAt DateTime?
+
+  sessions   UserSession[]
+  otpRecords OtpVerification[]
+
+  assignments UserAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deletedAt DateTime?
+
+  @@index([roleId])
+  @@index([status])
+  @@map("users")
+}
+
+model UserAssignment {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type UserAssignmentType
+
+  stateId    String?
+  districtId String?
+  blockId    String?
+  gpId       String?
+  villageId  String?
+  wardId     String?
+  boothId    String?
+
+  state    State?    @relation(fields: [stateId], references: [id])
+  district District? @relation(fields: [districtId], references: [id])
+  block    Block?    @relation(fields: [blockId], references: [id])
+  gp       GP?       @relation(fields: [gpId], references: [id])
+  village  Village?  @relation(fields: [villageId], references: [id])
+  ward     Ward?     @relation(fields: [wardId], references: [id])
+  booth    Booth?    @relation(fields: [boothId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("user_assignments")
+}
+
+model UserSession {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  jwtId String @unique
+
+  ipAddress String?
+  userAgent String?
+
+  expiresAt DateTime
+
+  revokedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("user_sessions")
+}
+
+model OtpVerification {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  otpCode String
+
+  attempts Int @default(0)
+
+  expiresAt DateTime
+
+  verifiedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("otp_verifications")
+}
+
+model State {
+  id String @id @default(uuid())
+
+  name String
+  code String @unique
+
+  districts District[]
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("states")
+}
+
+model District {
+  id String @id @default(uuid())
+
+  stateId String
+  state   State  @relation(fields: [stateId], references: [id])
+
+  name String
+  code String @unique
+
+  blocks Block[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([stateId])
+  @@map("districts")
+}
+
+model Block {
+  id String @id @default(uuid())
+
+  districtId String
+  district   District @relation(fields: [districtId], references: [id])
+
+  name String
+  code String @unique
+
+  gps GP[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([districtId])
+  @@map("blocks")
+}
+
+model GP {
+  id String @id @default(uuid())
+
+  blockId String
+  block   Block  @relation(fields: [blockId], references: [id])
+
+  name String
+  code String @unique
+
+  villages Village[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([blockId])
+  @@map("gps")
+}
+
+model Village {
+  id String @id @default(uuid())
+
+  gpId String
+  gp   GP     @relation(fields: [gpId], references: [id])
+
+  name String
+  code String @unique
+
+  wards Ward[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([gpId])
+  @@map("villages")
+}
+
+model Ward {
+  id String @id @default(uuid())
+
+  villageId String
+  village   Village @relation(fields: [villageId], references: [id])
+
+  wardNo String
+
+  booths Booth[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+  contacts        Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([villageId])
+  @@map("wards")
+}
+
+model Booth {
+  id String @id @default(uuid())
+
+  wardId String
+  ward   Ward   @relation(fields: [wardId], references: [id])
+
+  boothNo String
+
+  contacts Contact[]
+
+  // Opposite relations added here
+  userAssignments UserAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([wardId])
+  @@map("booths")
+}
+
+model Occupation {
+  id String @id @default(uuid())
+
+  name String @unique
+
+  status Status @default(ACTIVE)
+
+  contacts Contact[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("occupations")
+}
+
+model Contact {
+  id String @id @default(uuid())
+
+  fullName String
+
+  fatherHusbandName String?
+
+  gender String?
+
+  email String?
+
+  whatsapp String?
+
+  address String?
+
+  photoUrl String?
+
+  occupationId String?
+  occupation   Occupation? @relation(fields: [occupationId], references: [id])
+
+  stateId    String
+  districtId String
+  blockId    String
+  gpId       String
+  villageId  String
+  wardId     String
+  boothId    String
+
+  state    State    @relation(fields: [stateId], references: [id])
+  district District @relation(fields: [districtId], references: [id])
+  block    Block    @relation(fields: [blockId], references: [id])
+  gp       GP       @relation(fields: [gpId], references: [id])
+  village  Village  @relation(fields: [villageId], references: [id])
+  ward     Ward     @relation(fields: [wardId], references: [id])
+  booth    Booth    @relation(fields: [boothId], references: [id])
+
+  phones ContactPhone[]
+
+  remarks String?
+
+  status ContactStatus @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deletedAt DateTime?
+
+  @@index([fullName])
+  @@index([occupationId])
+  @@index([stateId])
+  @@index([districtId])
+  @@index([blockId])
+  @@index([gpId])
+  @@index([villageId])
+  @@index([wardId])
+  @@index([boothId])
+  @@map("contacts")
+}
+
+model ContactPhone {
+  id String @id @default(uuid())
+
+  contactId String
+
+  contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  phone String
+
+  isPrimary Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([contactId])
+  @@index([phone])
+  @@map("contact_phones")
+}
+
+model LoginLog {
+  id String @id @default(uuid())
+
+  userId String?
+
+  action String
+
+  ipAddress String?
+
+  userAgent String?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("login_logs")
+}
+
+model ActivityLog {
+  id String @id @default(uuid())
+
+  userId String?
+
+  module String
+
+  action String
+
+  recordId String?
+
+  metadata Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("activity_logs")
+}
+
+model ContactViewLog {
+  id String @id @default(uuid())
+
+  userId String?
+
+  contactId String
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([contactId])
+  @@map("contact_view_logs")
+}
+
+model VCardDownloadLog {
+  id String @id @default(uuid())
+
+  userId String?
+
+  contactId String
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([contactId])
+  @@map("vcard_download_logs")
+}
+
+model ImportBatch {
+  id String @id @default(uuid())
+
+  fileName String
+
+  totalRows Int
+
+  successRows Int @default(0)
+
+  failedRows Int @default(0)
+
+  status ImportStatus @default(PENDING)
+
+  createdById String?
+
+  createdAt DateTime @default(now())
+
+  @@map("import_batches")
+}
+
+model ImportError {
+  id String @id @default(uuid())
+
+  batchId String
+
+  rowNumber Int
+
+  errorMessage String
+
+  rowData Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([batchId])
+  @@map("import_errors")
+}

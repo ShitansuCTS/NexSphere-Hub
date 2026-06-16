@@ -14,29 +14,37 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+///////////////////////////////////////////////////AUTH MODELS START HERE///////////////////////////////////////////////////
+
+//////////////////////
+///////USER MODEL
+/////////////////////
 model User {
-  id           String   @id @default(cuid())
-  username     String?  @unique
-  email        String   @unique
+  id       String  @id @default(cuid())
+  username String? @unique
+  email    String  @unique
 
   passwordHash String
 
-  role         String   @default("admin")
-  isActive     Boolean  @default(true)
+  role     String  @default("admin")
+  isActive Boolean @default(true)
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  otps         Otp[]
-  sessions     Session[]
+  otps     Otp[]
+  sessions Session[]
 }
 
+//////////////////////
+///////OTP MODEL
+/////////////////////
 model Otp {
-  id        String   @id @default(cuid())
-  userId    String
-  code      String
+  id     String @id @default(cuid())
+  userId String
+  code   String
 
-  type      String   @default("login")
+  type String @default("login")
 
   expiresAt DateTime
   attempts  Int      @default(0)
@@ -48,11 +56,14 @@ model Otp {
   @@index([userId])
 }
 
+//////////////////////
+///////SESSION MODEL
+/////////////////////
 model Session {
-  id        String   @id @default(cuid())
-  userId    String
+  id     String @id @default(cuid())
+  userId String
 
-  token     String
+  token String
 
   expiresAt DateTime
   createdAt DateTime @default(now())
@@ -61,3 +72,126 @@ model Session {
 
   @@index([userId])
 }
+
+///////////////////////////////////////////////////AUTH MODELS ENDS HERE///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////LOCATION MODELS START HERE///////////////////////////////////////////////////
+model State {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  districts District[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model District {
+  id      String @id @default(cuid())
+  name    String
+  stateId String
+
+  state  State   @relation(fields: [stateId], references: [id])
+  blocks Block[]
+  nacs   NAC[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, stateId])
+  @@index([stateId])
+}
+
+model Block {
+  id         String @id @default(cuid())
+  name       String
+  districtId String
+
+  district District @relation(fields: [districtId], references: [id])
+  gps      GP[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, districtId])
+  @@index([districtId])
+}
+
+model NAC {
+  id         String @id @default(cuid())
+  name       String
+  districtId String
+
+  district District @relation(fields: [districtId], references: [id])
+  wards    Ward[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, districtId])
+  @@index([districtId])
+}
+
+model GP {
+  id      String @id @default(cuid())
+  name    String
+  blockId String
+
+  block    Block     @relation(fields: [blockId], references: [id])
+  villages Village[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, blockId])
+  @@index([blockId])
+}
+
+model Village {
+  id   String @id @default(cuid())
+  name String
+  gpId String
+
+  gp    GP     @relation(fields: [gpId], references: [id])
+  wards Ward[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, gpId])
+  @@index([gpId])
+}
+
+model Ward {
+  id   String @id @default(cuid())
+  name String
+
+  villageId String?
+  nacId     String?
+
+  village Village? @relation(fields: [villageId], references: [id])
+  nac     NAC?     @relation(fields: [nacId], references: [id])
+
+  booths Booth[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([villageId])
+  @@index([nacId])
+}
+
+model Booth {
+  id     String @id @default(cuid())
+  name   String
+  wardId String
+
+  ward Ward @relation(fields: [wardId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, wardId])
+  @@index([wardId])
+}
+
+///////////////////////////////////////////////////LOCATION MODELS ENDS HERE///////////////////////////////////////////////////

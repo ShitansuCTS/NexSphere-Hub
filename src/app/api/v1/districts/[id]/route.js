@@ -1,0 +1,75 @@
+import { NextResponse } from "next/server";
+
+import {
+    getDistrictByIdController,
+    updateDistrictController,
+    deleteDistrictController,
+} from "@/controllers/district/district.controller";
+
+export async function GET(request, { params }) {
+    try {
+        const response =
+            await getDistrictByIdController(params.id);
+
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
+    } catch (error) {
+        console.error("GET DISTRICT ERROR:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Internal server error",
+            },
+            { status: 500 }
+        );
+    }
+}
+
+export async function PATCH(request, { params }) {
+    try {
+        const body = await request.json();
+
+        const response =
+            await updateDistrictController(
+                params.id,
+                body
+            );
+
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
+    } catch (error) {
+        console.error("UPDATE DISTRICT ERROR:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Internal server error",
+            },
+            { status: 500 }
+        );
+    }
+}
+
+export async function DELETE(request, { params }) {
+    try {
+        const response =
+            await deleteDistrictController(params.id);
+
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
+    } catch (error) {
+        console.error("DELETE DISTRICT ERROR:", error);
+
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Internal server error",
+            },
+            { status: 500 }
+        );
+    }
+}
