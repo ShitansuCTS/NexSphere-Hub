@@ -1,10 +1,6 @@
----
-
 # 🔴 Phase 1 — Authentication & Security Core
 
 Build a fully secure login system with username/password + OTP verification, JWT authentication, secure cookies, role-based access, and protected routes so only authorized users (admin initially) can access the system.
-
----
 
 # 🟡 Phase 2 — Hierarchy Listing System
 

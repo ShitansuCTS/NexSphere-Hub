@@ -106,8 +106,9 @@ model Block {
   name       String
   districtId String
 
-  district District @relation(fields: [districtId], references: [id])
+  district District  @relation(fields: [districtId], references: [id])
   gps      GP[]
+  contacts Contact[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -121,8 +122,9 @@ model NAC {
   name       String
   districtId String
 
-  district District @relation(fields: [districtId], references: [id])
+  district District  @relation(fields: [districtId], references: [id])
   wards    Ward[]
+  contacts Contact[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -138,6 +140,7 @@ model GP {
 
   block    Block     @relation(fields: [blockId], references: [id])
   villages Village[]
+  contacts Contact[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -151,8 +154,9 @@ model Village {
   name String
   gpId String
 
-  gp    GP     @relation(fields: [gpId], references: [id])
-  wards Ward[]
+  gp       GP        @relation(fields: [gpId], references: [id])
+  wards    Ward[]
+  contacts Contact[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -168,8 +172,9 @@ model Ward {
   villageId String?
   nacId     String?
 
-  village Village? @relation(fields: [villageId], references: [id])
-  nac     NAC?     @relation(fields: [nacId], references: [id])
+  village  Village?  @relation(fields: [villageId], references: [id])
+  nac      NAC?      @relation(fields: [nacId], references: [id])
+  contacts Contact[]
 
   booths Booth[]
 
@@ -185,7 +190,8 @@ model Booth {
   name   String
   wardId String
 
-  ward Ward @relation(fields: [wardId], references: [id])
+  ward     Ward      @relation(fields: [wardId], references: [id])
+  contacts Contact[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -195,3 +201,51 @@ model Booth {
 }
 
 ///////////////////////////////////////////////////LOCATION MODELS ENDS HERE///////////////////////////////////////////////////
+
+model Contact {
+  id String @id @default(cuid())
+
+  // Basic Information
+  name            String
+  mobile          String
+  alternateMobile String?
+  email           String?
+
+  // Additional Information
+  designation String?
+  address     String?
+
+  // Urban Hierarchy (NAC)
+  nacId String?
+
+  // Rural Hierarchy
+  blockId   String?
+  gpId      String?
+  villageId String?
+
+  // Common
+  wardId  String?
+  boothId String?
+
+  // Relations
+  nac     NAC?     @relation(fields: [nacId], references: [id])
+  block   Block?   @relation(fields: [blockId], references: [id])
+  gp      GP?      @relation(fields: [gpId], references: [id])
+  village Village? @relation(fields: [villageId], references: [id])
+  ward    Ward?    @relation(fields: [wardId], references: [id])
+  booth   Booth?   @relation(fields: [boothId], references: [id])
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([mobile])
+  @@index([name])
+  @@index([nacId])
+  @@index([blockId])
+  @@index([gpId])
+  @@index([villageId])
+  @@index([wardId])
+  @@index([boothId])
+}
