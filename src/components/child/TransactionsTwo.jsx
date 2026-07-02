@@ -23,7 +23,7 @@ const TransactionsTwo = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-success-200 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/payment1.png'
+                    src='/assets/images/home-nine/payment1.png'
                     alt=''
                     className=''
                   />
@@ -43,7 +43,7 @@ const TransactionsTwo = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-info-200 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/payment2.png'
+                    src='/assets/images/home-nine/payment2.png'
                     alt=''
                     className=''
                   />
@@ -63,7 +63,7 @@ const TransactionsTwo = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-warning-200 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/payment3.png'
+                    src='/assets/images/home-nine/payment3.png'
                     alt=''
                     className=''
                   />
@@ -83,7 +83,7 @@ const TransactionsTwo = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-lilac-200 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/payment4.png'
+                    src='/assets/images/home-nine/payment4.png'
                     alt=''
                     className=''
                   />

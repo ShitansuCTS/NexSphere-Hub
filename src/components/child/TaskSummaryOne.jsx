@@ -18,7 +18,7 @@ const TaskSummaryOne = () => {
                     <div className="col-xxxl-3 col-sm-6">
                         <div className="radius-12 overflow-hidden p-20 position-relative z-1 bg-gradient-custom-1">
                             <img
-                                src="assets/images/homeThirteen/shape/moon-shape-border.png"
+                                src="/assets/images/homeThirteen/shape/moon-shape-border.png"
                                 alt="Shape"
                                 className="position-absolute start-0 bottom-0 mb-10 z-n1"
                             />
@@ -27,7 +27,7 @@ const TaskSummaryOne = () => {
                                 <h5 className="text-base">2.5k</h5>
                                 <span className="opacity-25">
                                     <img
-                                        src="assets/images/homeThirteen/icon/task-summary-icon1.svg"
+                                        src="/assets/images/homeThirteen/icon/task-summary-icon1.svg"
                                         alt="Icon"
                                         className=""
                                     />
@@ -38,7 +38,7 @@ const TaskSummaryOne = () => {
                     <div className="col-xxxl-3 col-sm-6">
                         <div className="radius-12 overflow-hidden p-20 position-relative z-1 bg-gradient-custom-2">
                             <img
-                                src="assets/images/homeThirteen/shape/moon-shape-border.png"
+                                src="/assets/images/homeThirteen/shape/moon-shape-border.png"
                                 alt="Shape"
                                 className="position-absolute start-0 bottom-0 mb-10 z-n1"
                             />
@@ -47,7 +47,7 @@ const TaskSummaryOne = () => {
                                 <h5 className="text-base">2.5k</h5>
                                 <span className="opacity-25">
                                     <img
-                                        src="assets/images/homeThirteen/icon/task-summary-icon2.svg"
+                                        src="/assets/images/homeThirteen/icon/task-summary-icon2.svg"
                                         alt="Icon"
                                         className=""
                                     />
@@ -58,7 +58,7 @@ const TaskSummaryOne = () => {
                     <div className="col-xxxl-3 col-sm-6">
                         <div className="radius-12 overflow-hidden p-20 position-relative z-1 bg-gradient-custom-3">
                             <img
-                                src="assets/images/homeThirteen/shape/moon-shape-border.png"
+                                src="/assets/images/homeThirteen/shape/moon-shape-border.png"
                                 alt="Shape"
                                 className="position-absolute start-0 bottom-0 mb-10 z-n1"
                             />
@@ -67,7 +67,7 @@ const TaskSummaryOne = () => {
                                 <h5 className="text-base">2.5k</h5>
                                 <span className="opacity-25">
                                     <img
-                                        src="assets/images/homeThirteen/icon/task-summary-icon3.svg"
+                                        src="/assets/images/homeThirteen/icon/task-summary-icon3.svg"
                                         alt="Icon"
                                         className=""
                                     />
@@ -78,7 +78,7 @@ const TaskSummaryOne = () => {
                     <div className="col-xxxl-3 col-sm-6">
                         <div className="radius-12 overflow-hidden p-20 position-relative z-1 bg-gradient-custom-4">
                             <img
-                                src="assets/images/homeThirteen/shape/moon-shape-border.png"
+                                src="/assets/images/homeThirteen/shape/moon-shape-border.png"
                                 alt="Shape"
                                 className="position-absolute start-0 bottom-0 mb-10 z-n1"
                             />
@@ -87,7 +87,7 @@ const TaskSummaryOne = () => {
                                 <h5 className="text-base">2.5k</h5>
                                 <span className="opacity-25">
                                     <img
-                                        src="assets/images/homeThirteen/icon/task-summary-icon4.svg"
+                                        src="/assets/images/homeThirteen/icon/task-summary-icon4.svg"
                                         alt="Icon"
                                         className=""
                                     />

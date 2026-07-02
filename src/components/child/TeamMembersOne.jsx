@@ -35,7 +35,7 @@ const TeamMembersOne = () => {
                                     <td className="border-neutral-100">
                                         <div className="d-flex align-items-center gap-12">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img5.png"
+                                                src="/assets/images/user-grid/user-grid-img5.png"
                                                 alt="User"
                                                 className="object-fit-cover rounded-circle w-40-px h-40-px radius-8 flex-shrink-0 overflow-hidden"
                                             />
@@ -72,7 +72,7 @@ const TeamMembersOne = () => {
                                     <td className="border-neutral-100">
                                         <div className="d-flex align-items-center gap-12">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img4.png"
+                                                src="/assets/images/user-grid/user-grid-img4.png"
                                                 alt="User"
                                                 className="object-fit-cover rounded-circle w-40-px h-40-px radius-8 flex-shrink-0 overflow-hidden"
                                             />
@@ -109,7 +109,7 @@ const TeamMembersOne = () => {
                                     <td className="border-neutral-100">
                                         <div className="d-flex align-items-center gap-12">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img3.png"
+                                                src="/assets/images/user-grid/user-grid-img3.png"
                                                 alt="User"
                                                 className="object-fit-cover rounded-circle w-40-px h-40-px radius-8 flex-shrink-0 overflow-hidden"
                                             />
@@ -146,7 +146,7 @@ const TeamMembersOne = () => {
                                     <td className="border-neutral-100">
                                         <div className="d-flex align-items-center gap-12">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img2.png"
+                                                src="/assets/images/user-grid/user-grid-img2.png"
                                                 alt="User"
                                                 className="object-fit-cover rounded-circle w-40-px h-40-px radius-8 flex-shrink-0 overflow-hidden"
                                             />
@@ -183,7 +183,7 @@ const TeamMembersOne = () => {
                                     <td className="border-neutral-100">
                                         <div className="d-flex align-items-center gap-12">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img1.png"
+                                                src="/assets/images/user-grid/user-grid-img1.png"
                                                 alt="User"
                                                 className="object-fit-cover rounded-circle w-40-px h-40-px radius-8 flex-shrink-0 overflow-hidden"
                                             />

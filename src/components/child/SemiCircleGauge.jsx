@@ -29,7 +29,7 @@ const SemiCircleGauge = () => {
 
             <span className='w-90-px h-90-px rounded-circle bg-primary-50 d-flex justify-content-center align-items-center position-absolute start-50 translate-middle-x top-50'>
               <img
-                src='assets/images/home-twelve/icons/home.png'
+                src='/assets/images/home-twelve/icons/home.png'
                 alt='Home Icon'
               />
             </span>

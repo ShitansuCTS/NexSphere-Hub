@@ -10,7 +10,7 @@ const UnitCountEight = () => {
               <div className='d-flex align-items-center gap-10'>
                 <span className='mb-0 w-48-px h-48-px bg-cyan-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0'>
                   <img
-                    src='assets/images/home-eleven/icons/home-eleven-icon1.svg'
+                    src='/assets/images/home-eleven/icons/home-eleven-icon1.svg'
                     alt=''
                   />
                 </span>
@@ -38,7 +38,7 @@ const UnitCountEight = () => {
               <div className='d-flex align-items-center gap-10'>
                 <span className='mb-0 w-48-px h-48-px bg-warning-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0'>
                   <img
-                    src='assets/images/home-eleven/icons/home-eleven-icon2.svg'
+                    src='/assets/images/home-eleven/icons/home-eleven-icon2.svg'
                     alt=''
                   />
                 </span>
@@ -66,7 +66,7 @@ const UnitCountEight = () => {
               <div className='d-flex align-items-center gap-10'>
                 <span className='mb-0 w-48-px h-48-px bg-lilac-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0'>
                   <img
-                    src='assets/images/home-eleven/icons/home-eleven-icon3.svg'
+                    src='/assets/images/home-eleven/icons/home-eleven-icon3.svg'
                     alt=''
                   />
                 </span>
@@ -94,7 +94,7 @@ const UnitCountEight = () => {
               <div className='d-flex align-items-center gap-10'>
                 <span className='mb-0 w-48-px h-48-px bg-success-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0'>
                   <img
-                    src='assets/images/home-eleven/icons/home-eleven-icon4.svg'
+                    src='/assets/images/home-eleven/icons/home-eleven-icon4.svg'
                     alt=''
                   />
                 </span>

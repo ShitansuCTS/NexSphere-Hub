@@ -315,7 +315,7 @@ const OrderByFollowingStep = () => {
               >
                 <div className='text-center mb-40'>
                   <img
-                    src='assets/images/gif/success-img3.gif'
+                    src='/assets/images/gif/success-img3.gif'
                     alt=''
                     className='gif-image mb-24'
                   />

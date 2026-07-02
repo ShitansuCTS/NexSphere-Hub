@@ -76,7 +76,7 @@ const TravelSliderOne = () => {
           <div className='bg-base p-6 radius-12'>
             <div className='radius-8 overflow-hidden'>
               <img
-                src='assets/images/home-twelve/travel-img1.png'
+                src='/assets/images/home-twelve/travel-img1.png'
                 alt='Image'
                 className='w-100 h-100 object-fit-cover'
               />
@@ -100,7 +100,7 @@ const TravelSliderOne = () => {
           <div className='bg-base p-6 radius-12'>
             <div className='radius-8 overflow-hidden'>
               <img
-                src='assets/images/home-twelve/travel-img2.png'
+                src='/assets/images/home-twelve/travel-img2.png'
                 alt='Image'
                 className='w-100 h-100 object-fit-cover'
               />
@@ -124,7 +124,7 @@ const TravelSliderOne = () => {
           <div className='bg-base p-6 radius-12'>
             <div className='radius-8 overflow-hidden'>
               <img
-                src='assets/images/home-twelve/travel-img3.png'
+                src='/assets/images/home-twelve/travel-img3.png'
                 alt='Image'
                 className='w-100 h-100 object-fit-cover'
               />
@@ -148,7 +148,7 @@ const TravelSliderOne = () => {
           <div className='bg-base p-6 radius-12'>
             <div className='radius-8 overflow-hidden'>
               <img
-                src='assets/images/home-twelve/travel-img4.png'
+                src='/assets/images/home-twelve/travel-img4.png'
                 alt='Image'
                 className='w-100 h-100 object-fit-cover'
               />
@@ -172,7 +172,7 @@ const TravelSliderOne = () => {
           <div className='bg-base p-6 radius-12'>
             <div className='radius-8 overflow-hidden'>
               <img
-                src='assets/images/home-twelve/travel-img2.png'
+                src='/assets/images/home-twelve/travel-img2.png'
                 alt='Image'
                 className='w-100 h-100 object-fit-cover'
               />

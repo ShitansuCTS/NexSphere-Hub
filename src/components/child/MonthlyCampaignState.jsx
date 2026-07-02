@@ -14,7 +14,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-lilac-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials1.png'
+                    src='/assets/images/home-nine/socials1.png'
                     alt=''
                     className=''
                   />
@@ -34,7 +34,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-warning-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials2.png'
+                    src='/assets/images/home-nine/socials2.png'
                     alt=''
                     className=''
                   />
@@ -54,7 +54,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-info-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials3.png'
+                    src='/assets/images/home-nine/socials3.png'
                     alt=''
                     className=''
                   />
@@ -74,7 +74,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-success-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials4.png'
+                    src='/assets/images/home-nine/socials4.png'
                     alt=''
                     className=''
                   />
@@ -94,7 +94,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-danger-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials5.png'
+                    src='/assets/images/home-nine/socials5.png'
                     alt=''
                     className=''
                   />
@@ -114,7 +114,7 @@ const MonthlyCampaignState = () => {
               <div className='d-flex align-items-center gap-3'>
                 <div className='w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-info-100 flex-shrink-0'>
                   <img
-                    src='assets/images/home-nine/socials3.png'
+                    src='/assets/images/home-nine/socials3.png'
                     alt=''
                     className=''
                   />

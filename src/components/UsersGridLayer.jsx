@@ -53,7 +53,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg1.png'
+                src='/assets/images/user-grid/user-grid-bg1.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -87,7 +87,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img1.png'
+                  src='/assets/images/user-grid/user-grid-img1.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -125,7 +125,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg2.png'
+                src='/assets/images/user-grid/user-grid-bg2.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -159,7 +159,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img2.png'
+                  src='/assets/images/user-grid/user-grid-img2.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -197,7 +197,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg3.png'
+                src='/assets/images/user-grid/user-grid-bg3.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -231,7 +231,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img3.png'
+                  src='/assets/images/user-grid/user-grid-img3.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -269,7 +269,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg4.png'
+                src='/assets/images/user-grid/user-grid-bg4.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -303,7 +303,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img4.png'
+                  src='/assets/images/user-grid/user-grid-img4.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -341,7 +341,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg5.png'
+                src='/assets/images/user-grid/user-grid-bg5.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -375,7 +375,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img5.png'
+                  src='/assets/images/user-grid/user-grid-img5.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -413,7 +413,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg6.png'
+                src='/assets/images/user-grid/user-grid-bg6.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -447,7 +447,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img6.png'
+                  src='/assets/images/user-grid/user-grid-img6.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -485,7 +485,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg7.png'
+                src='/assets/images/user-grid/user-grid-bg7.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -519,7 +519,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img7.png'
+                  src='/assets/images/user-grid/user-grid-img7.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -557,7 +557,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg8.png'
+                src='/assets/images/user-grid/user-grid-bg8.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -591,7 +591,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img8.png'
+                  src='/assets/images/user-grid/user-grid-img8.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -629,7 +629,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg9.png'
+                src='/assets/images/user-grid/user-grid-bg9.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -663,7 +663,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img9.png'
+                  src='/assets/images/user-grid/user-grid-img9.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -701,7 +701,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg10.png'
+                src='/assets/images/user-grid/user-grid-bg10.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -735,7 +735,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img10.png'
+                  src='/assets/images/user-grid/user-grid-img10.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -773,7 +773,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg11.png'
+                src='/assets/images/user-grid/user-grid-bg11.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -807,7 +807,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img11.png'
+                  src='/assets/images/user-grid/user-grid-img11.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />
@@ -845,7 +845,7 @@ const UsersGridLayer = () => {
           <div className='col-xxl-3 col-md-6 user-grid-card   '>
             <div className='position-relative border radius-16 overflow-hidden'>
               <img
-                src='assets/images/user-grid/user-grid-bg12.png'
+                src='/assets/images/user-grid/user-grid-bg12.png'
                 alt=''
                 className='w-100 object-fit-cover'
               />
@@ -879,7 +879,7 @@ const UsersGridLayer = () => {
               </div>
               <div className='ps-16 pb-16 pe-16 text-center mt--50'>
                 <img
-                  src='assets/images/user-grid/user-grid-img12.png'
+                  src='/assets/images/user-grid/user-grid-img12.png'
                   alt=''
                   className='border br-white border-width-2-px w-100-px h-100-px rounded-circle object-fit-cover'
                 />

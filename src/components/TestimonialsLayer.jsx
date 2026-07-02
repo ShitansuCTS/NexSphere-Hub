@@ -10,7 +10,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -54,7 +54,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list2.png'
+                    src='/assets/images/user-list/user-list2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -98,7 +98,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list3.png'
+                    src='/assets/images/user-list/user-list3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -142,7 +142,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list4.png'
+                    src='/assets/images/user-list/user-list4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -186,7 +186,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list5.png'
+                    src='/assets/images/user-list/user-list5.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -230,7 +230,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list7.png'
+                    src='/assets/images/user-list/user-list7.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -274,7 +274,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list8.png'
+                    src='/assets/images/user-list/user-list8.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -318,7 +318,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list9.png'
+                    src='/assets/images/user-list/user-list9.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />
@@ -362,7 +362,7 @@ const TestimonialsLayer = () => {
               <div className='d-flex align-items-center gap-12 flex-wrap'>
                 <div className='w-56-px h-56-px overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/user-list/user-list10.png'
+                    src='/assets/images/user-list/user-list10.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover rounded-circle'
                   />

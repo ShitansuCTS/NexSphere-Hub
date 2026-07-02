@@ -19,7 +19,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment1.png'
+                  src='/assets/images/payment/payment1.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -35,7 +35,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment2.png'
+                  src='/assets/images/payment/payment2.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -51,7 +51,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment3.png'
+                  src='/assets/images/payment/payment3.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -67,7 +67,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment4.png'
+                  src='/assets/images/payment/payment4.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -83,7 +83,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment1.png'
+                  src='/assets/images/payment/payment1.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -99,7 +99,7 @@ const TransactionsOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/payment/payment3.png'
+                  src='/assets/images/payment/payment3.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />

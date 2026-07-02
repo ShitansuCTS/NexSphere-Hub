@@ -116,7 +116,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img1.png'
+                      src='/assets/images/crypto/crypto-img1.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -179,7 +179,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img2.png'
+                      src='/assets/images/crypto/crypto-img2.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -242,7 +242,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img3.png'
+                      src='/assets/images/crypto/crypto-img3.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -305,7 +305,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img4.png'
+                      src='/assets/images/crypto/crypto-img4.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -368,7 +368,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img6.png'
+                      src='/assets/images/crypto/crypto-img6.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -431,7 +431,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -494,7 +494,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -557,7 +557,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -620,7 +620,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -683,7 +683,7 @@ const PortfolioLayer = () => {
                     className='d-flex align-items-center'
                   >
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />

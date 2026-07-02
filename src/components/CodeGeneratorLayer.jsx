@@ -181,7 +181,7 @@ const CodeGeneratorLayer = () => {
               <div className='d-flex align-items-center gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='image_icon'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -205,7 +205,7 @@ const CodeGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='image_icon'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />
@@ -294,7 +294,7 @@ const CodeGeneratorLayer = () => {
               <div className='d-flex align-items-center gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='image_icon'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />

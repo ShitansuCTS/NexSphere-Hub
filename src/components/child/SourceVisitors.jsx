@@ -28,7 +28,7 @@ const SourceVisitors = () => {
                 >
                   <span className='w-40-px h-40-px d-flex flex-shrink-0 justify-content-center align-items-center bg-warning-600 rounded-circle mb-12'>
                     <img
-                      src='assets/images/home-nine/source-icon1.png'
+                      src='/assets/images/home-nine/source-icon1.png'
                       alt=''
                     />
                   </span>
@@ -43,7 +43,7 @@ const SourceVisitors = () => {
                 >
                   <span className='w-40-px h-40-px d-flex flex-shrink-0 justify-content-center align-items-center bg-lilac-600 rounded-circle mb-12'>
                     <img
-                      src='assets/images/home-nine/source-icon2.png'
+                      src='/assets/images/home-nine/source-icon2.png'
                       alt=''
                     />
                   </span>
@@ -58,7 +58,7 @@ const SourceVisitors = () => {
                 >
                   <span className='w-40-px h-40-px d-flex flex-shrink-0 justify-content-center align-items-center bg-primary-600 rounded-circle mb-12'>
                     <img
-                      src='assets/images/home-nine/source-icon3.png'
+                      src='/assets/images/home-nine/source-icon3.png'
                       alt=''
                     />
                   </span>
@@ -73,7 +73,7 @@ const SourceVisitors = () => {
                 >
                   <span className='w-40-px h-40-px d-flex flex-shrink-0 justify-content-center align-items-center bg-success-600 rounded-circle mb-12'>
                     <img
-                      src='assets/images/home-nine/source-icon4.png'
+                      src='/assets/images/home-nine/source-icon4.png'
                       alt=''
                     />
                   </span>

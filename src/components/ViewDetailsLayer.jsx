@@ -212,7 +212,7 @@ const ViewDetailsLayer = () => {
               <div className='py-16 px-24 border-bottom'>
                 <div className='d-flex align-items-start gap-3'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt='Wowdash'
                     className='w-40-px h-40-px rounded-pill'
                   />
@@ -247,7 +247,7 @@ const ViewDetailsLayer = () => {
               <div className='py-16 px-24 border-bottom'>
                 <div className='d-flex align-items-start gap-3'>
                   <img
-                    src='assets/images/user-list/user-list2.png'
+                    src='/assets/images/user-list/user-list2.png'
                     alt='Wowdash'
                     className='w-40-px h-40-px rounded-pill'
                   />

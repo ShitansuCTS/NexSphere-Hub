@@ -24,7 +24,7 @@ const MarketplaceDetailsLayer = () => {
               <div className='d-flex align-items-center justify-content-between mb-24'>
                 <div className='d-flex align-items-center'>
                   <img
-                    src='assets/images/crypto/bitcoin.png'
+                    src='/assets/images/crypto/bitcoin.png'
                     alt=''
                     className='w-72-px h-72-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                   />
@@ -254,7 +254,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/crypto-img1.png'
+                                src='/assets/images/crypto/crypto-img1.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -279,7 +279,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/paypal.png'
+                                src='/assets/images/crypto/paypal.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -336,7 +336,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/crypto-img1.png'
+                                src='/assets/images/crypto/crypto-img1.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -361,7 +361,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/paypal.png'
+                                src='/assets/images/crypto/paypal.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -418,7 +418,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/crypto-img1.png'
+                                src='/assets/images/crypto/crypto-img1.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -443,7 +443,7 @@ const MarketplaceDetailsLayer = () => {
                           <div className='d-flex align-items-center justify-content-between flex-grow-1 ps-16'>
                             <div className='d-flex align-items-center gap-8'>
                               <img
-                                src='assets/images/crypto/paypal.png'
+                                src='/assets/images/crypto/paypal.png'
                                 alt=''
                                 className='w-24-px h-24-px rounded-circle flex-shrink-0 overflow-hidden'
                               />
@@ -484,7 +484,7 @@ const MarketplaceDetailsLayer = () => {
                 <div className='d-flex align-items-center justify-content-between flex-wrap gap-8 py-16 border-bottom'>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/crypto/crypto-img1.png'
+                      src='/assets/images/crypto/crypto-img1.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -509,7 +509,7 @@ const MarketplaceDetailsLayer = () => {
                 <div className='d-flex align-items-center justify-content-between flex-wrap gap-8 py-16 border-bottom'>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/crypto/crypto-img2.png'
+                      src='/assets/images/crypto/crypto-img2.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -534,7 +534,7 @@ const MarketplaceDetailsLayer = () => {
                 <div className='d-flex align-items-center justify-content-between flex-wrap gap-8 py-16 border-bottom'>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/crypto/crypto-img5.png'
+                      src='/assets/images/crypto/crypto-img5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -559,7 +559,7 @@ const MarketplaceDetailsLayer = () => {
                 <div className='d-flex align-items-center justify-content-between flex-wrap gap-8 py-16'>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/crypto/crypto-img6.png'
+                      src='/assets/images/crypto/crypto-img6.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />

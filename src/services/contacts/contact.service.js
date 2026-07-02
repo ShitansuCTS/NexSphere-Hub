@@ -107,6 +107,7 @@ export const createContactService = async (data) => {
         }
     }
 
+
     if (data.gpId) {
         const gp = await prisma.gP.findUnique({
             where: { id: data.gpId },

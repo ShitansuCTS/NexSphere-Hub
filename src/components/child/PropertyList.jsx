@@ -20,13 +20,13 @@ const PropertyList = () => {
                             <div className="bg-base rounded-3 overflow-hidden border border-neutral-200">
                                 <figure className="position-relative mb-0">
                                     <img
-                                        src="assets/images/home-nineteen/property-list-img1.png"
+                                        src="/assets/images/home-nineteen/property-list-img1.png"
                                         alt="Property List Image One"
                                         className="w-100"
                                     />
                                     <span className="bg-danger-600 text-white rounded d-inline-flex align-items-center gap-8 text-uppercase px-16 py-6 text-sm position-absolute top-0 start-0 mt-20 ms-20">
                                         <img
-                                            src="assets/images/home-nineteen/icons/featured-icon.png"
+                                            src="/assets/images/home-nineteen/icons/featured-icon.png"
                                             alt="Feature Icon"
                                         />
                                         Featured
@@ -44,7 +44,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon1.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -54,7 +54,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon2.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -64,7 +64,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon3.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -81,7 +81,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon1.png"
                                                     alt="Link Button"
                                                     className="dark-img-white"
                                                 />
@@ -91,7 +91,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon2.png"
                                                     alt="Wishlist Button"
                                                     className="dark-img-white"
                                                 />
@@ -101,7 +101,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon3.png"
                                                     alt="Export Button"
                                                     className="dark-img-white"
                                                 />
@@ -115,13 +115,13 @@ const PropertyList = () => {
                             <div className="bg-base rounded-3 overflow-hidden border border-neutral-200">
                                 <figure className="position-relative mb-0">
                                     <img
-                                        src="assets/images/home-nineteen/property-list-img2.png"
+                                        src="/assets/images/home-nineteen/property-list-img2.png"
                                         alt="Property List Image Two"
                                         className="w-100"
                                     />
                                     <span className="bg-danger-600 text-white rounded d-inline-flex align-items-center gap-8 text-uppercase px-16 py-6 text-sm position-absolute top-0 start-0 mt-20 ms-20">
                                         <img
-                                            src="assets/images/home-nineteen/icons/featured-icon.png"
+                                            src="/assets/images/home-nineteen/icons/featured-icon.png"
                                             alt="Feature Icon"
                                         />
                                         Featured
@@ -139,7 +139,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon1.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -149,7 +149,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon2.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -159,7 +159,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon3.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -176,7 +176,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon1.png"
                                                     alt="Link Button"
                                                     className="dark-img-white"
                                                 />
@@ -186,7 +186,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon2.png"
                                                     alt="Wishlist Button"
                                                     className="dark-img-white"
                                                 />
@@ -196,7 +196,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon3.png"
                                                     alt="Export Button"
                                                     className="dark-img-white"
                                                 />
@@ -210,13 +210,13 @@ const PropertyList = () => {
                             <div className="bg-base rounded-3 overflow-hidden border border-neutral-200">
                                 <figure className="position-relative mb-0">
                                     <img
-                                        src="assets/images/home-nineteen/property-list-img3.png"
+                                        src="/assets/images/home-nineteen/property-list-img3.png"
                                         alt="Property List Image One"
                                         className="w-100"
                                     />
                                     <span className="bg-danger-600 text-white rounded d-inline-flex align-items-center gap-8 text-uppercase px-16 py-6 text-sm position-absolute top-0 start-0 mt-20 ms-20">
                                         <img
-                                            src="assets/images/home-nineteen/icons/featured-icon.png"
+                                            src="/assets/images/home-nineteen/icons/featured-icon.png"
                                             alt="Feature Icon"
                                         />
                                         Featured
@@ -234,7 +234,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon1.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -244,7 +244,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon2.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -254,7 +254,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon3.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -271,7 +271,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon1.png"
                                                     alt="Link Button"
                                                     className="dark-img-white"
                                                 />
@@ -281,7 +281,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon2.png"
                                                     alt="Wishlist Button"
                                                     className="dark-img-white"
                                                 />
@@ -291,7 +291,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon3.png"
                                                     alt="Export Button"
                                                     className="dark-img-white"
                                                 />
@@ -305,13 +305,13 @@ const PropertyList = () => {
                             <div className="bg-base rounded-3 overflow-hidden border border-neutral-200">
                                 <figure className="position-relative mb-0">
                                     <img
-                                        src="assets/images/home-nineteen/property-list-img4.png"
+                                        src="/assets/images/home-nineteen/property-list-img4.png"
                                         alt="Property List Image One"
                                         className="w-100"
                                     />
                                     <span className="bg-danger-600 text-white rounded d-inline-flex align-items-center gap-8 text-uppercase px-16 py-6 text-sm position-absolute top-0 start-0 mt-20 ms-20">
                                         <img
-                                            src="assets/images/home-nineteen/icons/featured-icon.png"
+                                            src="/assets/images/home-nineteen/icons/featured-icon.png"
                                             alt="Feature Icon"
                                         />
                                         Featured
@@ -329,7 +329,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon1.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -339,7 +339,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon2.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -349,7 +349,7 @@ const PropertyList = () => {
                                         <div className="d-flex align-items-center gap-8">
                                             <span className="text-primary-light d-flex">
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/amenities-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/amenities-icon3.png"
                                                     alt="Bed Icon"
                                                     className="dark-img-white"
                                                 />
@@ -366,7 +366,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon1.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon1.png"
                                                     alt="Link Button"
                                                     className="dark-img-white"
                                                 />
@@ -376,7 +376,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon2.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon2.png"
                                                     alt="Wishlist Button"
                                                     className="dark-img-white"
                                                 />
@@ -386,7 +386,7 @@ const PropertyList = () => {
                                                 className="cursor-pointer d-flex hover-scale-16"
                                             >
                                                 <img
-                                                    src="assets/images/home-nineteen/icons/link-icon3.png"
+                                                    src="/assets/images/home-nineteen/icons/link-icon3.png"
                                                     alt="Export Button"
                                                     className="dark-img-white"
                                                 />

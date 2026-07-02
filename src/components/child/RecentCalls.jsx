@@ -41,7 +41,7 @@ const RecentCalls = () => {
                                     <td className="py-1">
                                         <div className="d-flex align-items-center">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img1.png"
+                                                src="/assets/images/user-grid/user-grid-img1.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                             />
@@ -69,7 +69,7 @@ const RecentCalls = () => {
                                     <td className="py-1">
                                         <div className="d-flex align-items-center">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img2.png"
+                                                src="/assets/images/user-grid/user-grid-img2.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                             />
@@ -97,7 +97,7 @@ const RecentCalls = () => {
                                     <td className="py-1">
                                         <div className="d-flex align-items-center">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img3.png"
+                                                src="/assets/images/user-grid/user-grid-img3.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                             />
@@ -125,7 +125,7 @@ const RecentCalls = () => {
                                     <td className="py-1">
                                         <div className="d-flex align-items-center">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img4.png"
+                                                src="/assets/images/user-grid/user-grid-img4.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                             />
@@ -153,7 +153,7 @@ const RecentCalls = () => {
                                     <td className="py-1">
                                         <div className="d-flex align-items-center">
                                             <img
-                                                src="assets/images/user-grid/user-grid-img5.png"
+                                                src="/assets/images/user-grid/user-grid-img5.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                             />

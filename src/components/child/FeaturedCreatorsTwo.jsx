@@ -19,7 +19,7 @@ const FeaturedCreatorsTwo = () => {
           <div className='d-flex align-items-center justify-content-between gap-8 flex-wrap mb-32'>
             <div className='d-flex align-items-center'>
               <img
-                src='assets/images/nft/creator-img1.png'
+                src='/assets/images/nft/creator-img1.png'
                 alt=''
                 className='flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12'
               />
@@ -40,7 +40,7 @@ const FeaturedCreatorsTwo = () => {
           <div className='d-flex align-items-center justify-content-between gap-8 flex-wrap mb-32'>
             <div className='d-flex align-items-center'>
               <img
-                src='assets/images/nft/creator-img2.png'
+                src='/assets/images/nft/creator-img2.png'
                 alt=''
                 className='flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12'
               />
@@ -61,7 +61,7 @@ const FeaturedCreatorsTwo = () => {
           <div className='d-flex align-items-center justify-content-between gap-8 flex-wrap mb-32'>
             <div className='d-flex align-items-center'>
               <img
-                src='assets/images/nft/creator-img3.png'
+                src='/assets/images/nft/creator-img3.png'
                 alt=''
                 className='flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12'
               />
@@ -82,7 +82,7 @@ const FeaturedCreatorsTwo = () => {
           <div className='d-flex align-items-center justify-content-between gap-8 flex-wrap mb-32'>
             <div className='d-flex align-items-center'>
               <img
-                src='assets/images/nft/creator-img4.png'
+                src='/assets/images/nft/creator-img4.png'
                 alt=''
                 className='flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12'
               />
@@ -103,7 +103,7 @@ const FeaturedCreatorsTwo = () => {
           <div className='d-flex align-items-center justify-content-between gap-8 flex-wrap mb-0'>
             <div className='d-flex align-items-center'>
               <img
-                src='assets/images/nft/creator-img5.png'
+                src='/assets/images/nft/creator-img5.png'
                 alt=''
                 className='flex-shrink-0 me-12 w-40-px h-40-px rounded-circle me-12'
               />

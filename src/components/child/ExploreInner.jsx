@@ -5,7 +5,7 @@ const ExploreInner = () => {
             <div
                 className="bg-img rounded-3 overflow-hidden d-flex align-items-end justify-content-between flex-sm-nowrap flex-wrap"
                 style={{
-                    backgroundImage: 'url("assets/images/home-nineteen/home-card-bg.png")'
+                    backgroundImage: 'url("/assets/images/home-nineteen/home-card-bg.png")'
                 }}
             >
                 <div className="py-40 ps-36 pe-20">
@@ -20,7 +20,7 @@ const ExploreInner = () => {
                     </a>
                 </div>
                 <div className="pe-36">
-                    <img src="assets/images/home-nineteen/home-png.png" alt="Home Image" />
+                    <img src="/assets/images/home-nineteen/home-png.png" alt="Home Image" />
                 </div>
             </div>
         </div>

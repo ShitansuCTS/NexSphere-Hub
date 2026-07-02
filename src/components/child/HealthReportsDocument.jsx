@@ -28,7 +28,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-pdf.png'
+                    src='/assets/images/home-eight/icon-pdf.png'
                     alt=''
                     className=''
                   />
@@ -59,7 +59,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-text.png'
+                    src='/assets/images/home-eight/icon-text.png'
                     alt=''
                     className=''
                   />
@@ -90,7 +90,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-pdf.png'
+                    src='/assets/images/home-eight/icon-pdf.png'
                     alt=''
                     className=''
                   />
@@ -121,7 +121,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-text.png'
+                    src='/assets/images/home-eight/icon-text.png'
                     alt=''
                     className=''
                   />
@@ -152,7 +152,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-pdf.png'
+                    src='/assets/images/home-eight/icon-pdf.png'
                     alt=''
                     className=''
                   />
@@ -185,7 +185,7 @@ const HealthReportsDocument = () => {
               <div className='d-flex align-items-center gap-12'>
                 <div className='flex-shrink-0'>
                   <img
-                    src='assets/images/home-eight/icon-text.png'
+                    src='/assets/images/home-eight/icon-text.png'
                     alt=''
                     className=''
                   />

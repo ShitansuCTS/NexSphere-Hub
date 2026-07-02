@@ -256,7 +256,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog1.png'
+                    src='/assets/images/blog/blog1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -283,7 +283,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog2.png'
+                    src='/assets/images/blog/blog2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -310,7 +310,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog3.png'
+                    src='/assets/images/blog/blog3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -337,7 +337,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog4.png'
+                    src='/assets/images/blog/blog4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -364,7 +364,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog5.png'
+                    src='/assets/images/blog/blog5.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -391,7 +391,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog6.png'
+                    src='/assets/images/blog/blog6.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -418,7 +418,7 @@ const AddBlogLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog7.png'
+                    src='/assets/images/blog/blog7.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />

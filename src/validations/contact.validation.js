@@ -44,12 +44,23 @@ export const createContactSchema = z.object({
         .optional()
         .or(z.literal("")),
 
+    wardId: z
+        .string({
+            required_error: "Ward is required",
+        })
+        .trim()
+        .min(1, "Ward is required"),
+    boothId: z
+        .string({
+            required_error: "Booth is required",
+        })
+        .trim()
+        .min(1, "Booth is required"),
+
     nacId: z.string().trim().optional().or(z.literal("")),
     blockId: z.string().trim().optional().or(z.literal("")),
     gpId: z.string().trim().optional().or(z.literal("")),
     villageId: z.string().trim().optional().or(z.literal("")),
-    wardId: z.string().trim().optional().or(z.literal("")),
-    boothId: z.string().trim().optional().or(z.literal("")),
 });
 
 export const updateContactSchema = createContactSchema.partial();

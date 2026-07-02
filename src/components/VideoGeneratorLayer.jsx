@@ -205,7 +205,7 @@ const VideoGeneratorLayer = () => {
               <div className='d-flex align-items-start gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='Wowdash'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -233,7 +233,7 @@ const VideoGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='Wowdash'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />
@@ -244,7 +244,7 @@ const VideoGeneratorLayer = () => {
                   <div className='col-xl-4 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator5.png'
+                        src='/assets/images/chatgpt/image-generator5.png'
                         alt='Wowdash'
                         className='w-100 h-100 object-fit-cover'
                       />
@@ -298,7 +298,7 @@ const VideoGeneratorLayer = () => {
               <div className='d-flex align-items-start gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='Wowdash'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -326,7 +326,7 @@ const VideoGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='Wowdash'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />
@@ -337,7 +337,7 @@ const VideoGeneratorLayer = () => {
                   <div className='col-xl-4 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator5.png'
+                        src='/assets/images/chatgpt/image-generator5.png'
                         alt='Wowdash'
                         className='w-100 h-100 object-fit-cover'
                       />

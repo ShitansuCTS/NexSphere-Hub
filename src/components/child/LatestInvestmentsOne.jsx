@@ -34,7 +34,7 @@ const LatestInvestmentsOne = () => {
                   <td>
                     <div className='d-flex align-items-center'>
                       <img
-                        src='assets/images/asset/asset-img1.png'
+                        src='/assets/images/asset/asset-img1.png'
                         alt=''
                         className='flex-shrink-0 me-12 w-40-px h-40-px radius-8 me-12'
                       />
@@ -64,7 +64,7 @@ const LatestInvestmentsOne = () => {
                   <td>
                     <div className='d-flex align-items-center'>
                       <img
-                        src='assets/images/asset/asset-img2.png'
+                        src='/assets/images/asset/asset-img2.png'
                         alt=''
                         className='flex-shrink-0 me-12 w-40-px h-40-px radius-8 me-12'
                       />
@@ -94,7 +94,7 @@ const LatestInvestmentsOne = () => {
                   <td>
                     <div className='d-flex align-items-center'>
                       <img
-                        src='assets/images/asset/asset-img3.png'
+                        src='/assets/images/asset/asset-img3.png'
                         alt=''
                         className='flex-shrink-0 me-12 w-40-px h-40-px radius-8 me-12'
                       />
@@ -124,7 +124,7 @@ const LatestInvestmentsOne = () => {
                   <td>
                     <div className='d-flex align-items-center'>
                       <img
-                        src='assets/images/asset/asset-img4.png'
+                        src='/assets/images/asset/asset-img4.png'
                         alt=''
                         className='flex-shrink-0 me-12 w-40-px h-40-px radius-8 me-12'
                       />
@@ -154,7 +154,7 @@ const LatestInvestmentsOne = () => {
                   <td>
                     <div className='d-flex align-items-center'>
                       <img
-                        src='assets/images/asset/asset-img5.png'
+                        src='/assets/images/asset/asset-img5.png'
                         alt=''
                         className='flex-shrink-0 me-12 w-40-px h-40-px radius-8 me-12'
                       />

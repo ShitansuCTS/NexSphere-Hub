@@ -10,7 +10,7 @@ const HorizontalCard = () => {
           <div className='card radius-12 overflow-hidden h-100 d-flex align-items-center flex-nowrap flex-row'>
             <div className='d-flex flex-shrink-0 w-170-px h-100'>
               <img
-                src='assets/images/card-component/horizontal-card-img1.png'
+                src='/assets/images/card-component/horizontal-card-img1.png'
                 className='h-100 w-100 object-fit-cover'
                 alt=''
               />
@@ -38,7 +38,7 @@ const HorizontalCard = () => {
           <div className='card radius-12 overflow-hidden h-100 d-flex align-items-center flex-nowrap flex-row flex-row-reverse'>
             <div className='d-flex flex-shrink-0 w-170-px h-100'>
               <img
-                src='assets/images/card-component/horizontal-card-img2.png'
+                src='/assets/images/card-component/horizontal-card-img2.png'
                 className='h-100 w-100 object-fit-cover'
                 alt=''
               />
@@ -66,7 +66,7 @@ const HorizontalCard = () => {
           <div className='card radius-12 overflow-hidden h-100 d-flex align-items-center flex-nowrap flex-row'>
             <div className='d-flex flex-shrink-0 w-170-px h-100'>
               <img
-                src='assets/images/card-component/horizontal-card-img3.png'
+                src='/assets/images/card-component/horizontal-card-img3.png'
                 className='h-100 w-100 object-fit-cover'
                 alt=''
               />
@@ -94,7 +94,7 @@ const HorizontalCard = () => {
           <div className='card radius-12 overflow-hidden h-100 d-flex align-items-center flex-nowrap flex-row flex-row-reverse'>
             <div className='d-flex flex-shrink-0 w-170-px h-100'>
               <img
-                src='assets/images/card-component/horizontal-card-img4.png'
+                src='/assets/images/card-component/horizontal-card-img4.png'
                 className='h-100 w-100 object-fit-cover'
                 alt=''
               />

@@ -45,7 +45,7 @@ const TransactionHistoryTwo = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user1.png"
+                                                    src="/assets/images/users/user1.png"
                                                     alt="Image"
                                                     className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                                 />
@@ -85,7 +85,7 @@ const TransactionHistoryTwo = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user2.png"
+                                                    src="/assets/images/users/user2.png"
                                                     alt="Image"
                                                     className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                                 />
@@ -125,7 +125,7 @@ const TransactionHistoryTwo = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user3.png"
+                                                    src="/assets/images/users/user3.png"
                                                     alt="Image"
                                                     className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                                 />
@@ -165,7 +165,7 @@ const TransactionHistoryTwo = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user4.png"
+                                                    src="/assets/images/users/user4.png"
                                                     alt="Image"
                                                     className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                                 />
@@ -205,7 +205,7 @@ const TransactionHistoryTwo = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user5.png"
+                                                    src="/assets/images/users/user5.png"
                                                     alt="Image"
                                                     className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                                 />

@@ -20,7 +20,7 @@ const RecentlyPlayed = () => {
                             <div className="">
                                 <div className="radius-8 overflow-hidden position-relative">
                                     <img
-                                        src="assets/images/home-fourteen/podcast-img1.png"
+                                        src="/assets/images/home-fourteen/podcast-img1.png"
                                         alt="Thumb"
                                         className="w-100 h-100 object-fit-cover"
                                     />
@@ -43,7 +43,7 @@ const RecentlyPlayed = () => {
                             <div className="">
                                 <div className="radius-8 overflow-hidden position-relative">
                                     <img
-                                        src="assets/images/home-fourteen/podcast-img2.png"
+                                        src="/assets/images/home-fourteen/podcast-img2.png"
                                         alt="Thumb"
                                         className="w-100 h-100 object-fit-cover"
                                     />
@@ -66,7 +66,7 @@ const RecentlyPlayed = () => {
                             <div className="">
                                 <div className="radius-8 overflow-hidden position-relative">
                                     <img
-                                        src="assets/images/home-fourteen/podcast-img3.png"
+                                        src="/assets/images/home-fourteen/podcast-img3.png"
                                         alt="Thumb"
                                         className="w-100 h-100 object-fit-cover"
                                     />
@@ -89,7 +89,7 @@ const RecentlyPlayed = () => {
                             <div className="">
                                 <div className="radius-8 overflow-hidden position-relative">
                                     <img
-                                        src="assets/images/home-fourteen/podcast-img4.png"
+                                        src="/assets/images/home-fourteen/podcast-img4.png"
                                         alt="Thumb"
                                         className="w-100 h-100 object-fit-cover"
                                     />

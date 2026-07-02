@@ -12,7 +12,7 @@ const ChatProfileLayer = () => {
         </div>
         <div className='chat-main-profile'>
           <div className='img'>
-            <img src='assets/images/chat/chat-main.png' alt='image_icon' />
+            <img src='/assets/images/chat/chat-main.png' alt='image_icon' />
           </div>
           <div className='text-center'>
             <h6 className='text-md mb-0'>Kathryn Murphy</h6>
@@ -107,7 +107,7 @@ const ChatProfileLayer = () => {
       <div className='chat-main card'>
         <div className='chat-sidebar-single active'>
           <div className='img'>
-            <img src='assets/images/chat/11.png' alt='image_icon' />
+            <img src='/assets/images/chat/11.png' alt='image_icon' />
           </div>
           <div className='info'>
             <h6 className='text-md mb-0'>Kathryn Murphy</h6>
@@ -157,7 +157,7 @@ const ChatProfileLayer = () => {
         <div className='chat-message-list'>
           <div className='chat-single-message left'>
             <img
-              src='assets/images/chat/11.png'
+              src='/assets/images/chat/11.png'
               alt='image_icon'
               className='avatar-lg object-fit-cover rounded-circle'
             />
@@ -190,7 +190,7 @@ const ChatProfileLayer = () => {
           {/* chat-single-message end */}
           <div className='chat-single-message left'>
             <img
-              src='assets/images/chat/11.png'
+              src='/assets/images/chat/11.png'
               alt='image_icon'
               className='avatar-lg object-fit-cover rounded-circle'
             />

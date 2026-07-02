@@ -177,7 +177,7 @@ const CodeGeneratorNewLayer = () => {
           {/* chat-sidebar-single end */}
           <div className='chat-message-list max-h-612-px min-h-612-px position-relative'>
             <div className='d-flex align-items-center justify-content-center flex-column h-100 position-absolute top-50 start-50 translate-middle'>
-              <img src='assets/images/chatgpt/empty-message-icon2.png' alt='' />
+              <img src='/assets/images/chatgpt/empty-message-icon2.png' alt='' />
               <span className='text-secondary-light text-md mt-16'>
                 Type New Message{" "}
               </span>

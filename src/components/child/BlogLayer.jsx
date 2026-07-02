@@ -12,7 +12,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog1.png'
+                src='/assets/images/blog/blog1.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -63,7 +63,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog2.png'
+                src='/assets/images/blog/blog2.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -114,7 +114,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog3.png'
+                src='/assets/images/blog/blog3.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -164,7 +164,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog4.png'
+                src='/assets/images/blog/blog4.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -215,7 +215,7 @@ const BlogLayer = () => {
               className='w-100 max-h-266-px radius-0 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog5.png'
+                src='/assets/images/blog/blog5.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -238,7 +238,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -266,7 +266,7 @@ const BlogLayer = () => {
               className='w-100 max-h-266-px radius-0 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog6.png'
+                src='/assets/images/blog/blog6.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -289,7 +289,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list2.png'
+                    src='/assets/images/user-list/user-list2.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -317,7 +317,7 @@ const BlogLayer = () => {
               className='w-100 max-h-266-px radius-0 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog7.png'
+                src='/assets/images/blog/blog7.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -340,7 +340,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list3.png'
+                    src='/assets/images/user-list/user-list3.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -368,7 +368,7 @@ const BlogLayer = () => {
               className='w-100 max-h-266-px radius-0 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog6.png'
+                src='/assets/images/blog/blog6.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -391,7 +391,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list5.png'
+                    src='/assets/images/user-list/user-list5.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -439,7 +439,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog1.png'
+                src='/assets/images/blog/blog1.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -454,7 +454,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -501,7 +501,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog2.png'
+                src='/assets/images/blog/blog2.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -516,7 +516,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -562,7 +562,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog3.png'
+                src='/assets/images/blog/blog3.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -577,7 +577,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />
@@ -623,7 +623,7 @@ const BlogLayer = () => {
               className='w-100 max-h-194-px radius-8 overflow-hidden'
             >
               <img
-                src='assets/images/blog/blog4.png'
+                src='/assets/images/blog/blog4.png'
                 alt=''
                 className='w-100 h-100 object-fit-cover'
               />
@@ -638,7 +638,7 @@ const BlogLayer = () => {
               <div className='d-flex align-items-center justify-content-between flex-wrap gap-6'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-40-px h-40-px rounded-circle object-fit-cover'
                   />

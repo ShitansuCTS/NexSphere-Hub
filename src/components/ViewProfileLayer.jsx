@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const ViewProfileLayer = () => {
   const [imagePreview, setImagePreview] = useState(
-    "assets/images/user-grid/user-grid-img13.png"
+    "/assets/images/user-grid/user-grid-img13.png"
   );
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -33,14 +33,14 @@ const ViewProfileLayer = () => {
       <div className='col-lg-4'>
         <div className='user-grid-card position-relative border radius-16 overflow-hidden bg-base h-100'>
           <img
-            src='assets/images/user-grid/user-grid-bg1.png'
+            src='/assets/images/user-grid/user-grid-bg1.png'
             alt=''
             className='w-100 object-fit-cover'
           />
           <div className='pb-24 ms-16 mb-24 me-16  mt--100'>
             <div className='text-center border border-top-0 border-start-0 border-end-0'>
               <img
-                src='assets/images/user-grid/user-grid-img14.png'
+                src='/assets/images/user-grid/user-grid-img14.png'
                 alt=''
                 className='border br-white border-width-2-px w-200-px h-200-px rounded-circle object-fit-cover'
               />

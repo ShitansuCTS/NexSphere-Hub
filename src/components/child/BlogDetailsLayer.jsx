@@ -8,7 +8,7 @@ const BlogDetailsLayer = () => {
         <div className='card p-0 radius-12 overflow-hidden'>
           <div className='card-body p-0'>
             <img
-              src='assets/images/blog/blog-details.png'
+              src='/assets/images/blog/blog-details.png'
               alt=''
               className='w-100 h-100 object-fit-cover'
             />
@@ -16,7 +16,7 @@ const BlogDetailsLayer = () => {
               <div className='d-flex align-items-center gap-16 justify-content-between flex-wrap mb-24'>
                 <div className='d-flex align-items-center gap-8'>
                   <img
-                    src='assets/images/user-list/user-list1.png'
+                    src='/assets/images/user-list/user-list1.png'
                     alt=''
                     className='w-48-px h-48-px rounded-circle object-fit-cover'
                   />
@@ -77,7 +77,7 @@ const BlogDetailsLayer = () => {
                 <div className='d-flex align-items-start gap-16'>
                   <div className='flex-shrink-0'>
                     <img
-                      src='assets/images/user-list/user-list1.png'
+                      src='/assets/images/user-list/user-list1.png'
                       alt=''
                       className='w-60-px h-60-px rounded-circle object-fit-cover'
                     />
@@ -116,7 +116,7 @@ const BlogDetailsLayer = () => {
                 <div className='d-flex align-items-start gap-16'>
                   <div className='flex-shrink-0'>
                     <img
-                      src='assets/images/user-list/user-list2.png'
+                      src='/assets/images/user-list/user-list2.png'
                       alt=''
                       className='w-60-px h-60-px rounded-circle object-fit-cover'
                     />
@@ -155,7 +155,7 @@ const BlogDetailsLayer = () => {
                 <div className='d-flex align-items-start gap-16'>
                   <div className='flex-shrink-0'>
                     <img
-                      src='assets/images/user-list/user-list3.png'
+                      src='/assets/images/user-list/user-list3.png'
                       alt=''
                       className='w-60-px h-60-px rounded-circle object-fit-cover'
                     />
@@ -194,7 +194,7 @@ const BlogDetailsLayer = () => {
                 <div className='d-flex align-items-start gap-16'>
                   <div className='flex-shrink-0'>
                     <img
-                      src='assets/images/user-list/user-list4.png'
+                      src='/assets/images/user-list/user-list4.png'
                       alt=''
                       className='w-60-px h-60-px rounded-circle object-fit-cover'
                     />
@@ -233,7 +233,7 @@ const BlogDetailsLayer = () => {
                 <div className='d-flex align-items-start gap-16'>
                   <div className='flex-shrink-0'>
                     <img
-                      src='assets/images/user-list/user-list6.png'
+                      src='/assets/images/user-list/user-list6.png'
                       alt=''
                       className='w-60-px h-60-px rounded-circle object-fit-cover'
                     />
@@ -354,7 +354,7 @@ const BlogDetailsLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog5.png'
+                    src='/assets/images/blog/blog5.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -381,7 +381,7 @@ const BlogDetailsLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog6.png'
+                    src='/assets/images/blog/blog6.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -408,7 +408,7 @@ const BlogDetailsLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog7.png'
+                    src='/assets/images/blog/blog7.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -435,7 +435,7 @@ const BlogDetailsLayer = () => {
                   className='blog__thumb w-100 radius-12 overflow-hidden'
                 >
                   <img
-                    src='assets/images/blog/blog6.png'
+                    src='/assets/images/blog/blog6.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />

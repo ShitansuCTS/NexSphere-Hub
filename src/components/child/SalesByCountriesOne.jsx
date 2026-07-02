@@ -111,7 +111,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3 mb-16 pb-2">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag1.png"
+                                                src="/assets/images/flags/flag1.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />
@@ -146,7 +146,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3 mb-16 pb-2">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag2.png"
+                                                src="/assets/images/flags/flag2.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />
@@ -181,7 +181,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3 mb-16 pb-2">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag3.png"
+                                                src="/assets/images/flags/flag3.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />
@@ -216,7 +216,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3 mb-16 pb-2">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag4.png"
+                                                src="/assets/images/flags/flag4.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />
@@ -251,7 +251,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3 mb-16 pb-2">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag5.png"
+                                                src="/assets/images/flags/flag5.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />
@@ -286,7 +286,7 @@ const SalesByCountriesOne = () => {
                                     <div className="d-flex align-items-center justify-content-between gap-3">
                                         <div className="d-flex align-items-center w-100">
                                             <img
-                                                src="assets/images/flags/flag1.png"
+                                                src="/assets/images/flags/flag1.png"
                                                 alt="Image"
                                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12"
                                             />

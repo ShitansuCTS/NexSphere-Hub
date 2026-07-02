@@ -7,7 +7,7 @@ const CallCenterInit = () => {
                     <div className="hover-gradient text-center py-24 px-16">
                         <span className="">
                             <img
-                                src="assets/images/home-sixteen/icon/phone-icon1.png"
+                                src="/assets/images/home-sixteen/icon/phone-icon1.png"
                                 alt="Icon"
                             />
                         </span>
@@ -19,7 +19,7 @@ const CallCenterInit = () => {
                     <div className="hover-gradient text-center py-24 px-16">
                         <span className="">
                             <img
-                                src="assets/images/home-sixteen/icon/phone-icon2.png"
+                                src="/assets/images/home-sixteen/icon/phone-icon2.png"
                                 alt="Icon"
                             />
                         </span>
@@ -31,7 +31,7 @@ const CallCenterInit = () => {
                     <div className="hover-gradient text-center py-24 px-16">
                         <span className="">
                             <img
-                                src="assets/images/home-sixteen/icon/phone-icon3.png"
+                                src="/assets/images/home-sixteen/icon/phone-icon3.png"
                                 alt="Icon"
                             />
                         </span>

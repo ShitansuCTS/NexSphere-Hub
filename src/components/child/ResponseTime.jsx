@@ -39,7 +39,7 @@ const ResponseTime = () => {
                                 </div>
                                 <span className="w-90-px h-90-px rounded-circle bg-neutral-50 d-flex justify-content-center align-items-center position-absolute start-50 translate-middle-x top-50">
                                     <img
-                                        src="assets/images/homeThirteen/icon/time-icon.svg"
+                                        src="/assets/images/homeThirteen/icon/time-icon.svg"
                                         alt="Icon"
                                     />
                                 </span>

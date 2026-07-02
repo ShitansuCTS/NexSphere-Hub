@@ -98,7 +98,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img1.png'
+                    src='/assets/images/nft/nft-img1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -109,7 +109,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img1.png'
+                      src='/assets/images/nft/nft-user-img1.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -149,7 +149,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img2.png'
+                    src='/assets/images/nft/nft-img2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -160,7 +160,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img2.png'
+                      src='/assets/images/nft/nft-user-img2.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -200,7 +200,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img3.png'
+                    src='/assets/images/nft/nft-img3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -211,7 +211,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img3.png'
+                      src='/assets/images/nft/nft-user-img3.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -251,7 +251,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img4.png'
+                    src='/assets/images/nft/nft-img4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -262,7 +262,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img4.png'
+                      src='/assets/images/nft/nft-user-img4.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -312,7 +312,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img1.png'
+                    src='/assets/images/nft/nft-img1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -323,7 +323,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img1.png'
+                      src='/assets/images/nft/nft-user-img1.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -363,7 +363,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img2.png'
+                    src='/assets/images/nft/nft-img2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -374,7 +374,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img2.png'
+                      src='/assets/images/nft/nft-user-img2.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -414,7 +414,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img3.png'
+                    src='/assets/images/nft/nft-img3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -425,7 +425,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img3.png'
+                      src='/assets/images/nft/nft-user-img3.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -465,7 +465,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img4.png'
+                    src='/assets/images/nft/nft-img4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -476,7 +476,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img4.png'
+                      src='/assets/images/nft/nft-user-img4.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -526,7 +526,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img1.png'
+                    src='/assets/images/nft/nft-img1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -537,7 +537,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img1.png'
+                      src='/assets/images/nft/nft-user-img1.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -577,7 +577,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img2.png'
+                    src='/assets/images/nft/nft-img2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -588,7 +588,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img2.png'
+                      src='/assets/images/nft/nft-user-img2.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -628,7 +628,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img3.png'
+                    src='/assets/images/nft/nft-img3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -639,7 +639,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img3.png'
+                      src='/assets/images/nft/nft-user-img3.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -679,7 +679,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img4.png'
+                    src='/assets/images/nft/nft-img4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -690,7 +690,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img4.png'
+                      src='/assets/images/nft/nft-user-img4.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -740,7 +740,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img1.png'
+                    src='/assets/images/nft/nft-img1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -751,7 +751,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img1.png'
+                      src='/assets/images/nft/nft-user-img1.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -791,7 +791,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img2.png'
+                    src='/assets/images/nft/nft-img2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -802,7 +802,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img2.png'
+                      src='/assets/images/nft/nft-user-img2.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -842,7 +842,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img3.png'
+                    src='/assets/images/nft/nft-img3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -853,7 +853,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img3.png'
+                      src='/assets/images/nft/nft-user-img3.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -893,7 +893,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img4.png'
+                    src='/assets/images/nft/nft-img4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -904,7 +904,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img4.png'
+                      src='/assets/images/nft/nft-user-img4.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -954,7 +954,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img1.png'
+                    src='/assets/images/nft/nft-img1.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -965,7 +965,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img1.png'
+                      src='/assets/images/nft/nft-user-img1.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -1005,7 +1005,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img2.png'
+                    src='/assets/images/nft/nft-img2.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -1016,7 +1016,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img2.png'
+                      src='/assets/images/nft/nft-user-img2.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -1056,7 +1056,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img3.png'
+                    src='/assets/images/nft/nft-img3.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -1067,7 +1067,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img3.png'
+                      src='/assets/images/nft/nft-user-img3.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />
@@ -1107,7 +1107,7 @@ const TrendingNFTsOne = () => {
               <div className='nft-card bg-base radius-16 overflow-hidden'>
                 <div className='radius-16 overflow-hidden'>
                   <img
-                    src='assets/images/nft/nft-img4.png'
+                    src='/assets/images/nft/nft-img4.png'
                     alt=''
                     className='w-100 h-100 object-fit-cover'
                   />
@@ -1118,7 +1118,7 @@ const TrendingNFTsOne = () => {
                   </h6>
                   <div className='d-flex align-items-center gap-8'>
                     <img
-                      src='assets/images/nft/nft-user-img4.png'
+                      src='/assets/images/nft/nft-user-img4.png'
                       className='w-28-px h-28-px rounded-circle object-fit-cover'
                       alt=''
                     />

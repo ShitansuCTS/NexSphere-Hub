@@ -25,7 +25,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-info-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon1.png'
+                  src='/assets/images/home-eight/treatment-icon1.png'
                   alt=''
                   className=''
                 />
@@ -43,7 +43,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-success-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon2.png'
+                  src='/assets/images/home-eight/treatment-icon2.png'
                   alt=''
                   className=''
                 />
@@ -61,7 +61,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-lilac-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon3.png'
+                  src='/assets/images/home-eight/treatment-icon3.png'
                   alt=''
                   className=''
                 />
@@ -79,7 +79,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-warning-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon4.png'
+                  src='/assets/images/home-eight/treatment-icon4.png'
                   alt=''
                   className=''
                 />
@@ -97,7 +97,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-danger-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon5.png'
+                  src='/assets/images/home-eight/treatment-icon5.png'
                   alt=''
                   className=''
                 />
@@ -115,7 +115,7 @@ const AvailableTreatments = () => {
             <div className='d-flex align-items-center gap-12'>
               <div className='w-40-px h-40-px rounded-circle flex-shrink-0 bg-primary-50 d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-eight/treatment-icon6.png'
+                  src='/assets/images/home-eight/treatment-icon6.png'
                   alt=''
                   className=''
                 />

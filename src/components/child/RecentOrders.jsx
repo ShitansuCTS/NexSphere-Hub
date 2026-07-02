@@ -45,7 +45,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img5.png"
+                                                    src="/assets/images/user-grid/user-grid-img5.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -70,7 +70,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img4.png"
+                                                    src="/assets/images/user-grid/user-grid-img4.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -95,7 +95,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img3.png"
+                                                    src="/assets/images/user-grid/user-grid-img3.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -120,7 +120,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img2.png"
+                                                    src="/assets/images/user-grid/user-grid-img2.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -145,7 +145,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img1.png"
+                                                    src="/assets/images/user-grid/user-grid-img1.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -170,7 +170,7 @@ const RecentOrders = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/user-grid/user-grid-img7.png"
+                                                    src="/assets/images/user-grid/user-grid-img7.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />

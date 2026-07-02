@@ -29,7 +29,7 @@ const RecentSale = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img6.png"
+                                    src="/assets/images/home-nineteen/property-img6.png"
                                     alt="Property Image One"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -54,7 +54,7 @@ const RecentSale = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img7.png"
+                                    src="/assets/images/home-nineteen/property-img7.png"
                                     alt="Property Image Two"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -79,7 +79,7 @@ const RecentSale = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img8.png"
+                                    src="/assets/images/home-nineteen/property-img8.png"
                                     alt="Property Image Three"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -104,7 +104,7 @@ const RecentSale = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img9.png"
+                                    src="/assets/images/home-nineteen/property-img9.png"
                                     alt="Property Image Four"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -129,7 +129,7 @@ const RecentSale = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img10.png"
+                                    src="/assets/images/home-nineteen/property-img10.png"
                                     alt="Property Image Five"
                                     className="w-40-px h-40-px rounded-2"
                                 />

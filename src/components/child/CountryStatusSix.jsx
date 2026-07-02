@@ -113,7 +113,7 @@ const CountryStatusSix = () => {
                         <div className="d-flex align-items-center justify-content-between gap-3">
                             <div className="d-flex align-items-center w-100">
                                 <img
-                                    src="assets/images/flags/flag1.png"
+                                    src="/assets/images/flags/flag1.png"
                                     alt="Image"
                                     className="w-32-px h-32-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                 />
@@ -148,7 +148,7 @@ const CountryStatusSix = () => {
                         <div className="d-flex align-items-center justify-content-between gap-3">
                             <div className="d-flex align-items-center w-100">
                                 <img
-                                    src="assets/images/flags/flag2.png"
+                                    src="/assets/images/flags/flag2.png"
                                     alt="Image"
                                     className="w-32-px h-32-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                 />
@@ -183,7 +183,7 @@ const CountryStatusSix = () => {
                         <div className="d-flex align-items-center justify-content-between gap-3">
                             <div className="d-flex align-items-center w-100">
                                 <img
-                                    src="assets/images/flags/flag3.png"
+                                    src="/assets/images/flags/flag3.png"
                                     alt="Image"
                                     className="w-32-px h-32-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                 />
@@ -218,7 +218,7 @@ const CountryStatusSix = () => {
                         <div className="d-flex align-items-center justify-content-between gap-3">
                             <div className="d-flex align-items-center w-100">
                                 <img
-                                    src="assets/images/flags/flag4.png"
+                                    src="/assets/images/flags/flag4.png"
                                     alt="Image"
                                     className="w-32-px h-32-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                                 />

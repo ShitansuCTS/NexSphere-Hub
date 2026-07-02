@@ -6,13 +6,13 @@ const UnitCountNine = () => {
           <div className='col-sm-6 col-xs-6'>
             <div className='py-20 px-24 radius-8 position-relative z-1 h-100 bg-blue-light'>
               <img
-                src='assets/images/home-twelve/icons/booking-card-big-icon1.png'
+                src='/assets/images/home-twelve/icons/booking-card-big-icon1.png'
                 alt='Big Icon'
                 className='position-absolute end-0 bottom-0 me-8 z-n1'
               />
               <span className='w-44-px h-44-px radius-8 bg-white d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-twelve/icons/booking-card-icon1.png'
+                  src='/assets/images/home-twelve/icons/booking-card-icon1.png'
                   alt='Icon'
                 />
               </span>
@@ -25,13 +25,13 @@ const UnitCountNine = () => {
           <div className='col-sm-6 col-xs-6'>
             <div className='py-20 px-24 radius-8 position-relative z-1 h-100 bg-green-light'>
               <img
-                src='assets/images/home-twelve/icons/booking-card-big-icon2.png'
+                src='/assets/images/home-twelve/icons/booking-card-big-icon2.png'
                 alt='Big Icon'
                 className='position-absolute end-0 bottom-0 me-4 z-n1'
               />
               <span className='w-44-px h-44-px radius-8 bg-white d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-twelve/icons/booking-card-icon2.png'
+                  src='/assets/images/home-twelve/icons/booking-card-icon2.png'
                   alt='Icon'
                 />
               </span>
@@ -44,13 +44,13 @@ const UnitCountNine = () => {
           <div className='col-sm-6 col-xs-6'>
             <div className='py-20 px-24 radius-8 position-relative z-1 h-100 bg-red-light'>
               <img
-                src='assets/images/home-twelve/icons/booking-card-big-icon3.png'
+                src='/assets/images/home-twelve/icons/booking-card-big-icon3.png'
                 alt='Big Icon'
                 className='position-absolute end-0 bottom-0 me-8 z-n1'
               />
               <span className='w-44-px h-44-px radius-8 bg-white d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-twelve/icons/booking-card-icon3.png'
+                  src='/assets/images/home-twelve/icons/booking-card-icon3.png'
                   alt='Icon'
                 />
               </span>
@@ -63,13 +63,13 @@ const UnitCountNine = () => {
           <div className='col-sm-6 col-xs-6'>
             <div className='py-20 px-24 radius-8 position-relative z-1 h-100 bg-warning-light'>
               <img
-                src='assets/images/home-twelve/icons/booking-card-big-icon4.png'
+                src='/assets/images/home-twelve/icons/booking-card-big-icon4.png'
                 alt='Big Icon'
                 className='position-absolute end-0 bottom-0 me-8 z-n1'
               />
               <span className='w-44-px h-44-px radius-8 bg-white d-flex justify-content-center align-items-center'>
                 <img
-                  src='assets/images/home-twelve/icons/booking-card-icon4.png'
+                  src='/assets/images/home-twelve/icons/booking-card-icon4.png'
                   alt='Icon'
                 />
               </span>

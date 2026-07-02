@@ -23,7 +23,16 @@ export async function POST(request) {
             "CREATE CONTACT ERROR:",
             error
         );
-
+        if (error.name === "ZodError" || error.issues) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: error.issues?.[0]?.message || "Validation error",
+                    errors: error.issues,
+                },
+                { status: 400 }
+            );
+        }
         return NextResponse.json(
             {
                 success: false,
@@ -35,6 +44,7 @@ export async function POST(request) {
                 status: 500,
             }
         );
+
     }
 }
 

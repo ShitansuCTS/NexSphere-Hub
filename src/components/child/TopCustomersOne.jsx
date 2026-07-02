@@ -20,7 +20,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user6.png'
+                  src='/assets/images/users/user6.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -38,7 +38,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user1.png'
+                  src='/assets/images/users/user1.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -56,7 +56,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user2.png'
+                  src='/assets/images/users/user2.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -74,7 +74,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user3.png'
+                  src='/assets/images/users/user3.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -92,7 +92,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3 mb-32'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user4.png'
+                  src='/assets/images/users/user4.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />
@@ -110,7 +110,7 @@ const TopCustomersOne = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center gap-2'>
                 <img
-                  src='assets/images/users/user6.png'
+                  src='/assets/images/users/user6.png'
                   alt=''
                   className='w-40-px h-40-px radius-8 flex-shrink-0'
                 />

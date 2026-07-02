@@ -8,7 +8,7 @@ const DefaultCard = () => {
         <div className='col-xxl-3 col-sm-6'>
           <div className='card h-100 radius-12'>
             <img
-              src='assets/images/card-component/card-img1.png'
+              src='/assets/images/card-component/card-img1.png'
               className='card-img-top'
               alt=''
             />
@@ -37,7 +37,7 @@ const DefaultCard = () => {
         <div className='col-xxl-3 col-sm-6'>
           <div className='card h-100 radius-12'>
             <img
-              src='assets/images/card-component/card-img2.png'
+              src='/assets/images/card-component/card-img2.png'
               className='card-img-top'
               alt=''
             />
@@ -66,7 +66,7 @@ const DefaultCard = () => {
         <div className='col-xxl-3 col-sm-6'>
           <div className='card h-100 radius-12'>
             <img
-              src='assets/images/card-component/card-img3.png'
+              src='/assets/images/card-component/card-img3.png'
               className='card-img-top'
               alt=''
             />
@@ -101,7 +101,7 @@ const DefaultCard = () => {
         <div className='col-xxl-3 col-sm-6'>
           <div className='card h-100 radius-12'>
             <img
-              src='assets/images/card-component/card-img4.png'
+              src='/assets/images/card-component/card-img4.png'
               className='card-img-top'
               alt=''
             />

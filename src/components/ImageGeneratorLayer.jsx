@@ -143,7 +143,7 @@ const ImageGeneratorLayer = () => {
               <div className='d-flex align-items-center gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='image_icon'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -168,7 +168,7 @@ const ImageGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='image_icon'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />
@@ -179,7 +179,7 @@ const ImageGeneratorLayer = () => {
                   <div className='col-xl-3 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator1.png'
+                        src='/assets/images/chatgpt/image-generator1.png'
                         alt=''
                         className='w-100 h-100 object-fit-cover'
                       />
@@ -200,7 +200,7 @@ const ImageGeneratorLayer = () => {
                   <div className='col-xl-3 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator2.png'
+                        src='/assets/images/chatgpt/image-generator2.png'
                         alt=''
                         className='w-100 h-100 object-fit-cover'
                       />
@@ -221,7 +221,7 @@ const ImageGeneratorLayer = () => {
                   <div className='col-xl-3 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator3.png'
+                        src='/assets/images/chatgpt/image-generator3.png'
                         alt=''
                         className='w-100 h-100 object-fit-cover'
                       />
@@ -242,7 +242,7 @@ const ImageGeneratorLayer = () => {
                   <div className='col-xl-3 col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator4.png'
+                        src='/assets/images/chatgpt/image-generator4.png'
                         alt=''
                         className='w-100 h-100 object-fit-cover'
                       />
@@ -321,7 +321,7 @@ const ImageGeneratorLayer = () => {
               <div className='d-flex align-items-center gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='image_icon'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -346,7 +346,7 @@ const ImageGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='image_icon'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />
@@ -357,7 +357,7 @@ const ImageGeneratorLayer = () => {
                   <div className='col-sm-6'>
                     <div className='generated-image-item radius-8 overflow-hidden position-relative'>
                       <img
-                        src='assets/images/chatgpt/image-generator5.png'
+                        src='/assets/images/chatgpt/image-generator5.png'
                         alt=''
                         className='w-100 h-100 object-fit-cover'
                       />

@@ -27,7 +27,7 @@ const AgentAvgEarnings = () => {
                     <div className="d-inline-flex align-items-center gap-12">
                         <span className="bg-success-100 w-48-px h-48-px text-xxl rounded-circle d-flex justify-content-center align-items-center text-secondary-light">
                             <img
-                                src="assets/images/home-sixteen/icon/dollar-bag.png"
+                                src="/assets/images/home-sixteen/icon/dollar-bag.png"
                                 alt="Icon"
                             />
                         </span>

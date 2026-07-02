@@ -25,7 +25,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img1.png'
+                  src='/assets/images/home-eight/doctor-img1.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />
@@ -43,7 +43,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img2.png'
+                  src='/assets/images/home-eight/doctor-img2.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />
@@ -61,7 +61,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img3.png'
+                  src='/assets/images/home-eight/doctor-img3.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />
@@ -79,7 +79,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img4.png'
+                  src='/assets/images/home-eight/doctor-img4.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />
@@ -97,7 +97,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img6.png'
+                  src='/assets/images/home-eight/doctor-img6.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />
@@ -115,7 +115,7 @@ const TopPerformanceTwo = () => {
             <div className='d-flex align-items-center justify-content-between gap-3'>
               <div className='d-flex align-items-center'>
                 <img
-                  src='assets/images/home-eight/doctor-img5.png'
+                  src='/assets/images/home-eight/doctor-img5.png'
                   alt=''
                   className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                 />

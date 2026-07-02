@@ -81,7 +81,7 @@ const LiveTracking = () => {
                             <div className="d-flex align-items-center gap-12">
                                 <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                     <img
-                                        src="assets/images/users/user1.png"
+                                        src="/assets/images/users/user1.png"
                                         alt="Image"
                                         className="w-40-px h-40-px rounded-circle flex-shrink-0 overflow-hidden"
                                     />

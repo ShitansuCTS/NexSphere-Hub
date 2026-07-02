@@ -18,7 +18,7 @@ const TopPodcaster = () => {
                     <div className="d-flex align-items-center justify-content-between gap-3">
                         <div className="d-flex align-items-center">
                             <img
-                                src="assets/images/homeThirteen/podcaster-img1.png"
+                                src="/assets/images/homeThirteen/podcaster-img1.png"
                                 alt="Image"
                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                             />
@@ -39,7 +39,7 @@ const TopPodcaster = () => {
                     <div className="d-flex align-items-center justify-content-between gap-3">
                         <div className="d-flex align-items-center">
                             <img
-                                src="assets/images/homeThirteen/podcaster-img2.png"
+                                src="/assets/images/homeThirteen/podcaster-img2.png"
                                 alt="Image"
                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                             />
@@ -60,7 +60,7 @@ const TopPodcaster = () => {
                     <div className="d-flex align-items-center justify-content-between gap-3">
                         <div className="d-flex align-items-center">
                             <img
-                                src="assets/images/homeThirteen/podcaster-img3.png"
+                                src="/assets/images/homeThirteen/podcaster-img3.png"
                                 alt="Image"
                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                             />
@@ -81,7 +81,7 @@ const TopPodcaster = () => {
                     <div className="d-flex align-items-center justify-content-between gap-3">
                         <div className="d-flex align-items-center">
                             <img
-                                src="assets/images/homeThirteen/podcaster-img4.png"
+                                src="/assets/images/homeThirteen/podcaster-img4.png"
                                 alt="Image"
                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                             />
@@ -102,7 +102,7 @@ const TopPodcaster = () => {
                     <div className="d-flex align-items-center justify-content-between gap-3">
                         <div className="d-flex align-items-center">
                             <img
-                                src="assets/images/homeThirteen/podcaster-img5.png"
+                                src="/assets/images/homeThirteen/podcaster-img5.png"
                                 alt="Image"
                                 className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"
                             />

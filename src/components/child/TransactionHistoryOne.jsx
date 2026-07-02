@@ -46,7 +46,7 @@ const TransactionHistoryOne = () => {
                                     <div className="d-flex align-items-center gap-12">
                                         <span className="w-40-px h-40-px radius-4 overflow-hidden">
                                             <img
-                                                src="assets/images/home-twelve/transaction-img1.png"
+                                                src="/assets/images/home-twelve/transaction-img1.png"
                                                 alt="Avatar"
                                                 className="w-100 h-100 object-fit-cover"
                                             />
@@ -69,7 +69,7 @@ const TransactionHistoryOne = () => {
                                     <div className="d-flex align-items-center gap-12">
                                         <span className="w-40-px h-40-px radius-4 overflow-hidden">
                                             <img
-                                                src="assets/images/home-twelve/transaction-img2.png"
+                                                src="/assets/images/home-twelve/transaction-img2.png"
                                                 alt="Avatar"
                                                 className="w-100 h-100 object-fit-cover"
                                             />
@@ -92,7 +92,7 @@ const TransactionHistoryOne = () => {
                                     <div className="d-flex align-items-center gap-12">
                                         <span className="w-40-px h-40-px radius-4 overflow-hidden">
                                             <img
-                                                src="assets/images/home-twelve/transaction-img3.png"
+                                                src="/assets/images/home-twelve/transaction-img3.png"
                                                 alt="Avatar"
                                                 className="w-100 h-100 object-fit-cover"
                                             />
@@ -115,7 +115,7 @@ const TransactionHistoryOne = () => {
                                     <div className="d-flex align-items-center gap-12">
                                         <span className="w-40-px h-40-px radius-4 overflow-hidden">
                                             <img
-                                                src="assets/images/home-twelve/transaction-img4.png"
+                                                src="/assets/images/home-twelve/transaction-img4.png"
                                                 alt="Avatar"
                                                 className="w-100 h-100 object-fit-cover"
                                             />
@@ -138,7 +138,7 @@ const TransactionHistoryOne = () => {
                                     <div className="d-flex align-items-center gap-12">
                                         <span className="w-40-px h-40-px radius-4 overflow-hidden">
                                             <img
-                                                src="assets/images/home-twelve/transaction-img5.png"
+                                                src="/assets/images/home-twelve/transaction-img5.png"
                                                 alt="Avatar"
                                                 className="w-100 h-100 object-fit-cover"
                                             />

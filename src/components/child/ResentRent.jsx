@@ -29,7 +29,7 @@ const ResentRent = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img1.png"
+                                    src="/assets/images/home-nineteen/property-img1.png"
                                     alt="Property Image One"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -49,7 +49,7 @@ const ResentRent = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img2.png"
+                                    src="/assets/images/home-nineteen/property-img2.png"
                                     alt="Property Image Two"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -69,7 +69,7 @@ const ResentRent = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img3.png"
+                                    src="/assets/images/home-nineteen/property-img3.png"
                                     alt="Property Image Three"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -89,7 +89,7 @@ const ResentRent = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img4.png"
+                                    src="/assets/images/home-nineteen/property-img4.png"
                                     alt="Property Image Four"
                                     className="w-40-px h-40-px rounded-2"
                                 />
@@ -109,7 +109,7 @@ const ResentRent = () => {
                         <div className="d-flex align-items-center gap-12">
                             <div className="">
                                 <img
-                                    src="assets/images/home-nineteen/property-img5.png"
+                                    src="/assets/images/home-nineteen/property-img5.png"
                                     alt="Property Image Five"
                                     className="w-40-px h-40-px rounded-2"
                                 />

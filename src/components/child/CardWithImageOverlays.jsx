@@ -10,7 +10,7 @@ const CardWithImageOverlays = () => {
           <div className='card h-100 radius-12 p-0 overflow-hidden position-relative'>
             <div className='card-body p-0 gradient-overlay bottom-0 start-0'>
               <img
-                src='assets/images/card-component/card-overlay-img1.png'
+                src='/assets/images/card-component/card-overlay-img1.png'
                 alt=''
                 className='w-100 h-100'
               />
@@ -41,7 +41,7 @@ const CardWithImageOverlays = () => {
           <div className='card h-100 radius-12 p-0 overflow-hidden position-relative'>
             <div className='card-body p-0 gradient-overlay top-0 start-0'>
               <img
-                src='assets/images/card-component/card-overlay-img1.png'
+                src='/assets/images/card-component/card-overlay-img1.png'
                 alt=''
                 className='w-100 h-100'
               />
@@ -72,7 +72,7 @@ const CardWithImageOverlays = () => {
           <div className='card h-100 radius-12 p-0 overflow-hidden position-relative'>
             <div className='card-body p-0 gradient-overlay bottom-0 start-0'>
               <img
-                src='assets/images/card-component/card-overlay-img1.png'
+                src='/assets/images/card-component/card-overlay-img1.png'
                 alt=''
                 className='w-100 h-100'
               />

@@ -43,7 +43,7 @@ const SimplePricingPlan = () => {
                 <div className='pricing-plan position-relative radius-24 overflow-hidden border bg-base'>
                   <div className='d-flex align-items-center gap-16'>
                     <span className='w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-primary-50'>
-                      <img src='assets/images/pricing/price-icon4.png' alt='' />
+                      <img src='/assets/images/pricing/price-icon4.png' alt='' />
                     </span>
                     <div className=''>
                       <span className='fw-medium text-md text-secondary-light'>
@@ -117,7 +117,7 @@ const SimplePricingPlan = () => {
               <div className='col-xxl-4 col-sm-6'>
                 <div className='pricing-plan featured-item position-relative radius-24 overflow-hidden border bg-primary-600 text-white z-1'>
                   <img
-                    src='assets/images/pricing/pricing-shape.png'
+                    src='/assets/images/pricing/pricing-shape.png'
                     alt=''
                     className='position-absolute end-0 top-10 z-n1'
                   />
@@ -126,7 +126,7 @@ const SimplePricingPlan = () => {
                   </span>
                   <div className='d-flex align-items-center gap-16'>
                     <span className='w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base'>
-                      <img src='assets/images/pricing/price-icon2.png' alt='' />
+                      <img src='/assets/images/pricing/price-icon2.png' alt='' />
                     </span>
                     <div className=''>
                       <span className='fw-medium text-md text-white'>
@@ -199,7 +199,7 @@ const SimplePricingPlan = () => {
                 <div className='pricing-plan position-relative radius-24 overflow-hidden border bg-base'>
                   <div className='d-flex align-items-center gap-16'>
                     <span className='w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-primary-50'>
-                      <img src='assets/images/pricing/price-icon5.png' alt='' />
+                      <img src='/assets/images/pricing/price-icon5.png' alt='' />
                     </span>
                     <div className=''>
                       <span className='fw-medium text-md text-secondary-light'>

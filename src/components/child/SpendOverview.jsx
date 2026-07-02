@@ -19,7 +19,7 @@ const SpendOverview = () => {
                         <div className="d-flex align-items-center gap-12">
                             <span className="w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-blue-light-two">
                                 <img
-                                    src="assets/images/home-twelve/icons/spen-icon1.png"
+                                    src="/assets/images/home-twelve/icons/spen-icon1.png"
                                     alt="Icon"
                                 />
                             </span>
@@ -63,7 +63,7 @@ const SpendOverview = () => {
                         <div className="d-flex align-items-center gap-12">
                             <span className="w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-red-light-two">
                                 <img
-                                    src="assets/images/home-twelve/icons/spen-icon2.png"
+                                    src="/assets/images/home-twelve/icons/spen-icon2.png"
                                     alt="Icon"
                                 />
                             </span>
@@ -107,7 +107,7 @@ const SpendOverview = () => {
                         <div className="d-flex align-items-center gap-12">
                             <span className="w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-red-light-two">
                                 <img
-                                    src="assets/images/home-twelve/icons/spen-icon2.png"
+                                    src="/assets/images/home-twelve/icons/spen-icon2.png"
                                     alt="Icon"
                                 />
                             </span>
@@ -151,7 +151,7 @@ const SpendOverview = () => {
                         <div className="d-flex align-items-center gap-12">
                             <span className="w-40-px h-40-px rounded-circle d-flex justify-content-center align-items-center bg-green-light-two">
                                 <img
-                                    src="assets/images/home-twelve/icons/spen-icon4.png"
+                                    src="/assets/images/home-twelve/icons/spen-icon4.png"
                                     alt="Icon"
                                 />
                             </span>

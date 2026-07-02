@@ -127,7 +127,7 @@ const VoiceGeneratorLayer = () => {
               <div className='d-flex align-items-start gap-16'>
                 <div className='img overflow-hidden flex-shrink-0'>
                   <img
-                    src='assets/images/chat/1.png'
+                    src='/assets/images/chat/1.png'
                     alt='Wowdash'
                     className='w-44-px h-44-px rounded-circle object-fit-cover'
                   />
@@ -155,7 +155,7 @@ const VoiceGeneratorLayer = () => {
             <div className='d-flex align-items-start gap-16 border-bottom border-neutral-200 pb-16 mb-16'>
               <div className='img overflow-hidden flex-shrink-0'>
                 <img
-                  src='assets/images/wow-dash-favicon.png'
+                  src='/assets/images/wow-dash-favicon.png'
                   alt='Wowdash'
                   className='w-44-px h-44-px rounded-circle object-fit-cover'
                 />

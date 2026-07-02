@@ -68,28 +68,28 @@ const ToDoList = () => {
                                         <div className="d-flex align-items-center">
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img1.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img1.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img2.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img2.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img3.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img3.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img4.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img4.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -129,21 +129,21 @@ const ToDoList = () => {
                                         <div className="d-flex align-items-center">
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img1.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img1.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img2.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img2.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img3.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img3.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -176,14 +176,14 @@ const ToDoList = () => {
                                         <div className="d-flex align-items-center">
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img1.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img1.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img2.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img2.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -216,21 +216,21 @@ const ToDoList = () => {
                                         <div className="d-flex align-items-center">
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img1.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img1.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img2.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img2.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
                                             </span>
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8 ms--10px">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img3.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img3.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -263,7 +263,7 @@ const ToDoList = () => {
                                         <div className="d-flex align-items-center">
                                             <span className="w-36-px h-36-px border border-white rounded-circle shadow-8">
                                                 <img
-                                                    src="assets/images/homeThirteen/todo-list-img1.png"
+                                                    src="/assets/images/homeThirteen/todo-list-img1.png"
                                                     alt="Image"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />

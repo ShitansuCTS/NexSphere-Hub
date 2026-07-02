@@ -46,7 +46,7 @@ const PerformanceAgents = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user1.png"
+                                                    src="/assets/images/users/user1.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -84,7 +84,7 @@ const PerformanceAgents = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user2.png"
+                                                    src="/assets/images/users/user2.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -122,7 +122,7 @@ const PerformanceAgents = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user3.png"
+                                                    src="/assets/images/users/user3.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -160,7 +160,7 @@ const PerformanceAgents = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user4.png"
+                                                    src="/assets/images/users/user4.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />
@@ -198,7 +198,7 @@ const PerformanceAgents = () => {
                                         <div className="d-flex align-items-center gap-12">
                                             <span className="w-40-px h-40-px radius-4 overflow-hidden rounded-circle">
                                                 <img
-                                                    src="assets/images/users/user1.png"
+                                                    src="/assets/images/users/user1.png"
                                                     alt="Avatar"
                                                     className="w-100 h-100 object-fit-cover"
                                                 />

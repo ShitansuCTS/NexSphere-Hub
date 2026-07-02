@@ -134,17 +134,17 @@ const MasterLayout = ({ children }) => {
         <div>
           <Link href="/" className="sidebar-logo">
             <img
-              src="assets/images/logo.png"
+              src="/assets/images/logo.png"
               alt="site logo"
               className="light-logo"
             />
             <img
-              src="assets/images/logo-light.png"
+              src="/assets/images/logo-light.png"
               alt="site logo"
               className="dark-logo"
             />
             <img
-              src="assets/images/logo-icon.png"
+              src="/assets/images/logo-icon.png"
               alt="site logo"
               className="logo-icon"
             />
@@ -383,6 +383,110 @@ const MasterLayout = ({ children }) => {
                 />
                 <span>Kanban</span>
               </Link>
+            </li>
+
+            {/* Location Directory Dropdown */}
+            <li className="dropdown">
+              <Link href="#">
+                <Icon icon="hugeicons:maps-location-01" className="menu-icon" />
+                <span>Location Directory</span>
+              </Link>
+
+              <ul className="sidebar-submenu">
+                <li>
+                  <Link
+                    href="/location/states"
+                    className={pathname === "/states" ? "active-page" : ""}
+                  >
+                    <i className="ri-circle-fill circle-icon text-primary-600 w-auto" />
+                    States
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/districts"
+                    className={
+                      pathname === "/location/districts" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-success-main w-auto" />
+                    Districts
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/nacs"
+                    className={
+                      pathname === "/location/nacs" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-warning-main w-auto" />
+                    NACs
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/blocks"
+                    className={
+                      pathname === "/location/blocks" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-info-main w-auto" />
+                    Blocks
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/gps"
+                    className={
+                      pathname === "/location/gps" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-secondary-main w-auto" />
+                    GPs
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/villages"
+                    className={
+                      pathname === "/location/villages" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-danger-main w-auto" />
+                    Villages
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/wards"
+                    className={
+                      pathname === "/location/wards" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-warning-main w-auto" />
+                    Wards
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    href="/location/booths"
+                    className={
+                      pathname === "/location/booths" ? "active-page" : ""
+                    }
+                  >
+                    <i className="ri-circle-fill circle-icon text-info-main w-auto" />
+                    Booths
+                  </Link>
+                </li>
+              </ul>
             </li>
 
             {/* Invoice Dropdown */}
@@ -1318,7 +1422,7 @@ const MasterLayout = ({ children }) => {
                     data-bs-toggle="dropdown"
                   >
                     <img
-                      src="assets/images/lang-flag.png"
+                      src="/assets/images/lang-flag.png"
                       alt="Wowdash"
                       className="w-24 h-24 object-fit-cover rounded-circle"
                     />
@@ -1339,7 +1443,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag1.png"
+                              src="/assets/images/flags/flag1.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1362,7 +1466,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag2.png"
+                              src="/assets/images/flags/flag2.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1385,7 +1489,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag3.png"
+                              src="/assets/images/flags/flag3.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1408,7 +1512,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag4.png"
+                              src="/assets/images/flags/flag4.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1431,7 +1535,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag5.png"
+                              src="/assets/images/flags/flag5.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1454,7 +1558,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag6.png"
+                              src="/assets/images/flags/flag6.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1477,7 +1581,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag7.png"
+                              src="/assets/images/flags/flag7.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1500,7 +1604,7 @@ const MasterLayout = ({ children }) => {
                         >
                           <span className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                             <img
-                              src="assets/images/flags/flag8.png"
+                              src="/assets/images/flags/flag8.png"
                               alt=""
                               className="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0"
                             />
@@ -1550,7 +1654,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
                             <img
-                              src="assets/images/notification/profile-3.png"
+                              src="/assets/images/notification/profile-3.png"
                               alt=""
                             />
                             <span className="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0" />
@@ -1580,7 +1684,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
                             <img
-                              src="assets/images/notification/profile-4.png"
+                              src="/assets/images/notification/profile-4.png"
                               alt=""
                             />
                             <span className="w-8-px h-8-px  bg-neutral-300 rounded-circle position-absolute end-0 bottom-0" />
@@ -1610,7 +1714,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
                             <img
-                              src="assets/images/notification/profile-5.png"
+                              src="/assets/images/notification/profile-5.png"
                               alt=""
                             />
                             <span className="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0" />
@@ -1640,7 +1744,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
                             <img
-                              src="assets/images/notification/profile-6.png"
+                              src="/assets/images/notification/profile-6.png"
                               alt=""
                             />
                             <span className="w-8-px h-8-px bg-neutral-300 rounded-circle position-absolute end-0 bottom-0" />
@@ -1670,7 +1774,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-40-px h-40-px rounded-circle flex-shrink-0 position-relative">
                             <img
-                              src="assets/images/notification/profile-7.png"
+                              src="/assets/images/notification/profile-7.png"
                               alt=""
                             />
                             <span className="w-8-px h-8-px bg-success-main rounded-circle position-absolute end-0 bottom-0" />
@@ -1760,7 +1864,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
                             <img
-                              src="assets/images/notification/profile-1.png"
+                              src="/assets/images/notification/profile-1.png"
                               alt=""
                             />
                           </span>
@@ -1805,7 +1909,7 @@ const MasterLayout = ({ children }) => {
                         <div className="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
                           <span className="w-44-px h-44-px bg-success-subtle text-success-main rounded-circle d-flex justify-content-center align-items-center flex-shrink-0">
                             <img
-                              src="assets/images/notification/profile-2.png"
+                              src="/assets/images/notification/profile-2.png"
                               alt=""
                             />
                           </span>
@@ -1862,7 +1966,7 @@ const MasterLayout = ({ children }) => {
                     data-bs-toggle="dropdown"
                   >
                     <img
-                      src="assets/images/user.png"
+                      src="/assets/images/user.png"
                       alt="image_user"
                       className="w-40-px h-40-px object-fit-cover rounded-circle"
                     />

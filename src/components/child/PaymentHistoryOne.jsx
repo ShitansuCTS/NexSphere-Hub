@@ -49,7 +49,7 @@ const PaymentHistoryOne = () => {
                 <td className=''>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/users/user1.png'
+                      src='/assets/images/users/user1.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -73,7 +73,7 @@ const PaymentHistoryOne = () => {
                 <td className=''>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/users/user2.png'
+                      src='/assets/images/users/user2.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -97,7 +97,7 @@ const PaymentHistoryOne = () => {
                 <td className=''>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/users/user3.png'
+                      src='/assets/images/users/user3.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -121,7 +121,7 @@ const PaymentHistoryOne = () => {
                 <td className=''>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/users/user4.png'
+                      src='/assets/images/users/user4.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />
@@ -145,7 +145,7 @@ const PaymentHistoryOne = () => {
                 <td className=''>
                   <div className='d-flex align-items-center'>
                     <img
-                      src='assets/images/users/user5.png'
+                      src='/assets/images/users/user5.png'
                       alt=''
                       className='w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden'
                     />

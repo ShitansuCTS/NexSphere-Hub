@@ -31,7 +31,7 @@ const initialData = {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore",
       tag: "UI Design",
       date: "2024-08-25",
-      image: "assets/images/kanban/kanban-1.png",
+      image: "/assets/images/kanban/kanban-1.png",
     },
     "task-2": {
       id: "task-2",
@@ -40,7 +40,7 @@ const initialData = {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore",
       tag: "UI Design",
       date: "2024-08-25",
-      image: "assets/images/kanban/kanban-2.png",
+      image: "/assets/images/kanban/kanban-2.png",
     },
     "task-3": {
       id: "task-3",
@@ -58,7 +58,7 @@ const initialData = {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore",
       tag: "UI Design",
       date: "2024-08-25",
-      image: "assets/images/kanban/kanban-2.png",
+      image: "/assets/images/kanban/kanban-2.png",
     },
     "task-5": {
       id: "task-5",
@@ -84,7 +84,7 @@ const initialData = {
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore",
       tag: "UI Design",
       date: "2024-08-25",
-      image: "assets/images/kanban/kanban-2.png",
+      image: "/assets/images/kanban/kanban-2.png",
     },
   },
   columnOrder: ["column-1", "column-2", "column-3"],

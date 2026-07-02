@@ -13,7 +13,7 @@ const FaqLayer = () => {
               </p>
             </div>
             <div className='col-xl-5 d-xl-block d-none'>
-              <img src='assets/images/faq-img.png' alt='' />
+              <img src='/assets/images/faq-img.png' alt='' />
             </div>
           </div>
         </div>

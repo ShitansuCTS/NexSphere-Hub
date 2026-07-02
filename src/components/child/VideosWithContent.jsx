@@ -18,7 +18,7 @@ const VideosWithContent = () => {
               <div className='border bg-base radius-8 overflow-hidden '>
                 <div className='position-relative max-h-258-px overflow-hidden'>
                   <img
-                    src='assets/images/videos/video-img2.png'
+                    src='/assets/images/videos/video-img2.png'
                     className='w-100 object-fit-cover'
                     alt=''
                   />
@@ -46,7 +46,7 @@ const VideosWithContent = () => {
               <div className='border bg-base radius-8 overflow-hidden '>
                 <div className='position-relative max-h-258-px overflow-hidden'>
                   <img
-                    src='assets/images/videos/video-img3.png'
+                    src='/assets/images/videos/video-img3.png'
                     className='w-100 object-fit-cover'
                     alt=''
                   />
