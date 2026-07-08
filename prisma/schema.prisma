@@ -249,3 +249,19 @@ model Contact {
   @@index([wardId])
   @@index([boothId])
 }
+
+model ContactImportBatch {
+  id String @id @default(cuid())
+
+  totalRows  Int
+  validCount Int
+  errorCount Int
+
+  validRows Json
+  errorRows Json
+
+  status String @default("PENDING")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
