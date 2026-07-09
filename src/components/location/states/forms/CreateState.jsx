@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 
 export default function CreateState({ onSuccess }) {
@@ -20,7 +20,7 @@ export default function CreateState({ onSuccess }) {
       toast.success(response.message || "State created successfully");
 
       setName("");
-      await fetchLocations("states", true); // ✅ refresh list
+      // await fetchLocations("states", true); // ✅ refresh list
       onSuccess?.();
     } else {
       toast.error(response.message || "Failed to create state");
