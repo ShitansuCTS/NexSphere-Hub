@@ -8,6 +8,7 @@ import {
 export async function POST(request) {
     try {
         const body = await request.json();
+        console.log("The body we are gettong is_____________:",body)
 
         const response =
             await createDistrictController(body);

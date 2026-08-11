@@ -343,7 +343,6 @@ const MasterLayout = ({ children }) => {
                 </li>
               </ul>
             </li>
-
             <li className="sidebar-menu-group-title">Application</li>
             <li>
               <Link
@@ -384,7 +383,6 @@ const MasterLayout = ({ children }) => {
                 <span>Kanban</span>
               </Link>
             </li>
-
             {/* Location Directory Dropdown */}
             <li className="dropdown">
               <Link href="#">

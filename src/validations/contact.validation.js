@@ -64,3 +64,6 @@ export const createContactSchema = z.object({
 });
 
 export const updateContactSchema = createContactSchema.partial();
+
+export const validateCreateContact = (data) => createContactSchema.safeParse(data);
+export const validateUpdateContact = (data) => updateContactSchema.safeParse(data);

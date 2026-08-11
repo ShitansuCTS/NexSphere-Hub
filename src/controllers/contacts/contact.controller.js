@@ -1,99 +1,154 @@
 import {
-    createContactService,
-    deleteContactService,
-    getContactByIdService,
-    getContactsService,
-    updateContactService,
+  createContactService,
+  updateContactService,
+  deleteContactService,
+  getContactService,
+  getContactsService,
+  bulkDeleteContactsService,
 } from "@/services/contacts/contact.service";
 
-import {
-    createContactSchema,
-    updateContactSchema,
-} from "@/validations/contact.validation";
+/**
+ * Create Contact
+ */
+export const createContact = async (req) => {
+  try {
+    const body = await req.json();
 
-export const createContactController = async (body) => {
-    const validatedData =
-        createContactSchema.parse(body);
+    const result = await createContactService(body);
 
-    const contact =
-        await createContactService(validatedData);
-
-    return {
-        status: 201,
-        data: {
-            success: true,
-            message: "Contact created successfully",
-            data: contact,
-        },
-    };
+    return Response.json(result, {
+      status: result.success ? 201 : 400,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 400 }
+    );
+  }
 };
 
-export const getContactsController = async (
-    query
-) => {
-    const result =
-        await getContactsService(query);
+/**
+ * Get All Contacts
+ */
+export const getContacts = async (req) => {
+  try {
+    const { searchParams } = new URL(req.url);
 
-    return {
-        status: 200,
-        data: {
-            success: true,
-            message: "Contacts fetched successfully",
-            data: result.data,
-            pagination: result.pagination,
-        },
-    };
+    const page = searchParams.get("page") || 1;
+    const limit = searchParams.get("limit") || 10;
+    const search = searchParams.get("search") || "";
+
+    const result = await getContactsService({
+      page,
+      limit,
+      search,
+    });
+
+    return Response.json(result, {
+      status: result.success ? 200 : 400,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 400 }
+    );
+  }
 };
 
-export const getContactByIdController = async (
-    id
-) => {
-    const contact =
-        await getContactByIdService(id);
+/**
+ * Get Contact By Id
+ */
+export const getContact = async (req, context) => {
+  try {
+    const params = await context.params;
+    const result = await getContactService(params.id);
 
-    return {
-        status: 200,
-        data: {
-            success: true,
-            message: "Contact fetched successfully",
-            data: contact,
-        },
-    };
+    return Response.json(result, {
+      status: result.success ? 200 : 404,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 404 }
+    );
+  }
 };
 
-export const updateContactController = async (
-    id,
-    body
-) => {
-    const validatedData =
-        updateContactSchema.parse(body);
+/**
+ * Update Contact
+ */
+export const updateContact = async (req, context) => {
+  try {
+    const params = await context.params;
+    const body = await req.json();
 
-    const contact =
-        await updateContactService(
-            id,
-            validatedData
-        );
+    const result = await updateContactService(params.id, body);
 
-    return {
-        status: 200,
-        data: {
-            success: true,
-            message: "Contact updated successfully",
-            data: contact,
-        },
-    };
+    return Response.json(result, {
+      status: result.success ? 200 : 400,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 400 }
+    );
+  }
 };
 
-export const deleteContactController = async (
-    id
-) => {
-    await deleteContactService(id);
+/**
+ * Delete Contact
+ */
+export const deleteContact = async (req, context) => {
+  try {
+    const params = await context.params;
+    const result = await deleteContactService(params.id);
 
-    return {
-        status: 200,
-        data: {
-            success: true,
-            message: "Contact deleted successfully",
-        },
-    };
+    return Response.json(result, {
+      status: result.success ? 200 : 404,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 404 }
+    );
+  }
+};
+
+/**
+ * Bulk Delete Contacts
+ */
+export const bulkDeleteContacts = async (req) => {
+  try {
+    const body = await req.json();
+
+    await bulkDeleteContactsService(body.ids);
+
+    return Response.json({
+      success: true,
+      message: "Contacts deleted successfully.",
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        message: error.message,
+      },
+      { status: 400 }
+    );
+  }
 };

@@ -1,15 +1,16 @@
 import { prisma } from "@/lib/prisma";
 
 export const createStateService = async (data) => {
-    const existingState =
-        await prisma.state.findFirst({
-            where: {
-                name: {
-                    equals: data.name,
-                    mode: "insensitive",
-                },
+    const name = data.name.trim();
+
+    const existingState = await prisma.state.findFirst({
+        where: {
+            name: {
+                equals: name,
+                mode: "insensitive",
             },
-        });
+        },
+    });
 
     if (existingState) {
         throw new Error("STATE_ALREADY_EXISTS");
@@ -17,7 +18,7 @@ export const createStateService = async (data) => {
 
     const state = await prisma.state.create({
         data: {
-            name: data.name.trim(),
+            name,
         },
     });
 

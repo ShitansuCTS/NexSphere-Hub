@@ -8,18 +8,13 @@ import {
 
 export async function GET(request, { params }) {
     try {
-        const response =
-            await getStateByIdController(
-                params.id
-            );
+        const { id } = await params;
 
-        return NextResponse.json(
-            response.data,
-            {
-                status: response.status,
-            }
-        );
+        const response = await getStateByIdController(id);
 
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
     } catch (error) {
         console.error("GET STATE ERROR:", error);
 
@@ -35,26 +30,20 @@ export async function GET(request, { params }) {
     }
 }
 
-export async function PATCH(
-    request,
-    { params }
-) {
+export async function PATCH(request, { params }) {
     try {
+        const { id } = await params;
+
         const body = await request.json();
 
-        const response =
-            await updateStateController(
-                params.id,
-                body
-            );
-
-        return NextResponse.json(
-            response.data,
-            {
-                status: response.status,
-            }
+        const response = await updateStateController(
+            id,
+            body
         );
 
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
     } catch (error) {
         console.error("UPDATE STATE ERROR:", error);
 
@@ -70,23 +59,17 @@ export async function PATCH(
     }
 }
 
-export async function DELETE(
-    request,
-    { params }
-) {
+export async function DELETE(request, { params }) {
     try {
-        const response =
-            await deleteStateController(
-                params.id
-            );
+        const { id } = await params;
 
-        return NextResponse.json(
-            response.data,
-            {
-                status: response.status,
-            }
-        );
+        console.log("DELETE STATE ID:", id);
 
+        const response = await deleteStateController(id);
+
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
     } catch (error) {
         console.error("DELETE STATE ERROR:", error);
 

@@ -1,405 +1,210 @@
-import { prisma } from "@/lib/prisma";
+import {
+  createContactStore,
+  updateContactStore,
+  deleteContactStore,
+  getContactByIdStore,
+  getContactByMobileStore,
+  getContactsStore,
+  bulkDeleteContactsStore,
+  updateContactProfilePictureStore,
+} from "@/store/contacts/contact.store";
 
-const contactInclude = {
-    nac: {
-        include: {
-            district: {
-                include: {
-                    state: true,
-                },
-            },
-        },
-    },
-    block: {
-        include: {
-            district: {
-                include: {
-                    state: true,
-                },
-            },
-        },
-    },
-    gp: {
-        include: {
-            block: {
-                include: {
-                    district: {
-                        include: {
-                            state: true,
-                        },
-                    },
-                },
-            },
-        },
-    },
-    village: {
-        include: {
-            gp: {
-                include: {
-                    block: {
-                        include: {
-                            district: {
-                                include: {
-                                    state: true,
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    },
-    ward: {
-        include: {
-            village: {
-                include: {
-                    gp: {
-                        include: {
-                            block: {
-                                include: {
-                                    district: {
-                                        include: {
-                                            state: true,
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-            nac: {
-                include: {
-                    district: {
-                        include: {
-                            state: true,
-                        },
-                    },
-                },
-            },
-        },
-    },
-    booth: {
-        include: {
-            ward: true,
-        },
-    },
-};
+import {
+  validateCreateContact,
+  validateUpdateContact,
+} from "@/validations/contacts.validation";
 
-export const createContactService = async (data) => {
-    if (data.nacId) {
-        const nac = await prisma.nAC.findUnique({
-            where: { id: data.nacId },
-        });
+/**
+ * Create Contact
+ */
+export async function createContactService(payload) {
+  const validation = validateCreateContact(payload);
 
-        if (!nac) {
-            throw new Error("NAC_NOT_FOUND");
-        }
-    }
-
-    if (data.blockId) {
-        const block = await prisma.block.findUnique({
-            where: { id: data.blockId },
-        });
-
-        if (!block) {
-            throw new Error("BLOCK_NOT_FOUND");
-        }
-    }
-
-
-    if (data.gpId) {
-        const gp = await prisma.gP.findUnique({
-            where: { id: data.gpId },
-        });
-
-        if (!gp) {
-            throw new Error("GP_NOT_FOUND");
-        }
-    }
-
-    if (data.villageId) {
-        const village = await prisma.village.findUnique({
-            where: { id: data.villageId },
-        });
-
-        if (!village) {
-            throw new Error("VILLAGE_NOT_FOUND");
-        }
-    }
-
-    if (data.wardId) {
-        const ward = await prisma.ward.findUnique({
-            where: { id: data.wardId },
-        });
-
-        if (!ward) {
-            throw new Error("WARD_NOT_FOUND");
-        }
-    }
-
-    if (data.boothId) {
-        const booth = await prisma.booth.findUnique({
-            where: { id: data.boothId },
-        });
-
-        if (!booth) {
-            throw new Error("BOOTH_NOT_FOUND");
-        }
-    }
-
-    const existingContact = await prisma.contact.findFirst({
-        where: {
-            mobile: data.mobile,
-            ...(data.wardId && {
-                wardId: data.wardId,
-            }),
-            ...(data.boothId && {
-                boothId: data.boothId,
-            }),
-        },
-    });
-
-    if (existingContact) {
-        throw new Error("CONTACT_ALREADY_EXISTS");
-    }
-
-    const contact = await prisma.contact.create({
-        data: {
-            name: data.name.trim(),
-            mobile: data.mobile.trim(),
-            alternateMobile: data.alternateMobile || null,
-            email: data.email || null,
-            designation: data.designation || null,
-            address: data.address || null,
-
-            nacId: data.nacId || null,
-            blockId: data.blockId || null,
-            gpId: data.gpId || null,
-            villageId: data.villageId || null,
-            wardId: data.wardId || null,
-            boothId: data.boothId || null,
-        },
-        include: contactInclude,
-    });
-
-    return contact;
-};
-
-export const getContactsService = async (query) => {
-    const page = Number(query.page) || 1;
-    const limit = Number(query.limit) || 10;
-    const skip = (page - 1) * limit;
-
-    const search = query.search?.trim();
-    const nacId = query.nacId?.trim();
-    const blockId = query.blockId?.trim();
-    const gpId = query.gpId?.trim();
-    const villageId = query.villageId?.trim();
-    const wardId = query.wardId?.trim();
-    const boothId = query.boothId?.trim();
-
-    const where = {
-        isActive: true,
-
-        ...(search && {
-            OR: [
-                {
-                    name: {
-                        contains: search,
-                        mode: "insensitive",
-                    },
-                },
-                {
-                    mobile: {
-                        contains: search,
-                    },
-                },
-                {
-                    designation: {
-                        contains: search,
-                        mode: "insensitive",
-                    },
-                },
-            ],
-        }),
-
-        ...(nacId && { nacId }),
-        ...(blockId && { blockId }),
-        ...(gpId && { gpId }),
-        ...(villageId && { villageId }),
-        ...(wardId && { wardId }),
-        ...(boothId && { boothId }),
-    };
-
-    const [contacts, total] = await prisma.$transaction([
-        prisma.contact.findMany({
-            where,
-            skip,
-            take: limit,
-            orderBy: {
-                createdAt: "desc",
-            },
-            include: contactInclude,
-        }),
-
-        prisma.contact.count({
-            where,
-        }),
-    ]);
-
+  if (!validation.success) {
     return {
-        data: contacts,
-        pagination: {
-            total,
-            page,
-            limit,
-            totalPages: Math.ceil(total / limit),
-            hasNext: page < Math.ceil(total / limit),
-            hasPrev: page > 1,
-        },
+      success: false,
+      message: validation.error.issues[0].message,
     };
-};
+  }
 
-export const getContactByIdService = async (id) => {
-    const contact = await prisma.contact.findUnique({
-        where: { id },
-        include: contactInclude,
-    });
+  const exists = await getContactByMobileStore(validation.data.mobile);
 
-    if (!contact || !contact.isActive) {
-        throw new Error("CONTACT_NOT_FOUND");
+  if (exists) {
+    return {
+      success: false,
+      message: "Mobile number already exists.",
+    };
+  }
+
+  const contact = await createContactStore(validation.data);
+
+  return {
+    success: true,
+    message: "Contact created successfully.",
+    data: contact,
+  };
+}
+
+/**
+ * Update Contact
+ */
+export async function updateContactService(id, payload) {
+  const contact = await getContactByIdStore(id);
+
+  if (!contact) {
+    return {
+      success: false,
+      message: "Contact not found.",
+    };
+  }
+
+  const validation = validateUpdateContact(payload);
+
+  if (!validation.success) {
+    return {
+      success: false,
+      message: validation.error.issues[0].message,
+    };
+  }
+
+  if (validation.data.mobile) {
+    const exists = await getContactByMobileStore(validation.data.mobile);
+
+    if (exists && exists.id !== id) {
+      return {
+        success: false,
+        message: "Mobile number already exists.",
+      };
     }
+  }
 
-    return contact;
-};
+  const updatedContact = await updateContactStore(id, validation.data);
 
-export const updateContactService = async (id, data) => {
-    const contact = await prisma.contact.findUnique({
-        where: { id },
-    });
+  return {
+    success: true,
+    message: "Contact updated successfully.",
+    data: updatedContact,
+  };
+}
 
-    if (!contact || !contact.isActive) {
-        throw new Error("CONTACT_NOT_FOUND");
-    }
+/**
+ * Update Contact Profile Picture
+ */
+export async function updateContactProfilePictureService(id, profilePictureUrl) {
+  const contact = await getContactByIdStore(id);
 
-    if (data.nacId) {
-        const nac = await prisma.nAC.findUnique({
-            where: { id: data.nacId },
-        });
+  if (!contact) {
+    return {
+      success: false,
+      message: "Contact not found.",
+    };
+  }
 
-        if (!nac) {
-            throw new Error("NAC_NOT_FOUND");
-        }
-    }
+  const updatedContact = await updateContactProfilePictureStore(id, profilePictureUrl);
 
-    if (data.blockId) {
-        const block = await prisma.block.findUnique({
-            where: { id: data.blockId },
-        });
+  return {
+    success: true,
+    message: "Profile picture updated successfully.",
+    data: updatedContact,
+  };
+}
 
-        if (!block) {
-            throw new Error("BLOCK_NOT_FOUND");
-        }
-    }
+/**
+ * Delete Contact
+ */
+export async function deleteContactService(id) {
+  const contact = await getContactByIdStore(id);
 
-    if (data.gpId) {
-        const gp = await prisma.gP.findUnique({
-            where: { id: data.gpId },
-        });
+  if (!contact) {
+    return {
+      success: false,
+      message: "Contact not found.",
+    };
+  }
 
-        if (!gp) {
-            throw new Error("GP_NOT_FOUND");
-        }
-    }
+  await deleteContactStore(id);
 
-    if (data.villageId) {
-        const village = await prisma.village.findUnique({
-            where: { id: data.villageId },
-        });
+  return {
+    success: true,
+    message: "Contact deleted successfully.",
+  };
+}
 
-        if (!village) {
-            throw new Error("VILLAGE_NOT_FOUND");
-        }
-    }
+/**
+ * Get Single Contact
+ */
+export async function getContactService(id) {
+  const contact = await getContactByIdStore(id);
 
-    if (data.wardId) {
-        const ward = await prisma.ward.findUnique({
-            where: { id: data.wardId },
-        });
+  if (!contact) {
+    return {
+      success: false,
+      message: "Contact not found.",
+    };
+  }
 
-        if (!ward) {
-            throw new Error("WARD_NOT_FOUND");
-        }
-    }
+  return {
+    success: true,
+    message: "Contact fetched successfully.",
+    data: contact,
+  };
+}
 
-    if (data.boothId) {
-        const booth = await prisma.booth.findUnique({
-            where: { id: data.boothId },
-        });
+/**
+ * Get Contacts
+ */
+export async function getContactsService(query = {}) {
+  const {
+    page = 1,
+    limit = 12,
+    search = "",
 
-        if (!booth) {
-            throw new Error("BOOTH_NOT_FOUND");
-        }
-    }
+    stateId,
+    districtId,
+    blockId,
+    nacId,
+    gpId,
+    villageId,
+    wardId,
+    boothId,
+  } = query;
 
-    const duplicateContact = await prisma.contact.findFirst({
-        where: {
-            id: {
-                not: id,
-            },
-            mobile: data.mobile,
-            ...(data.wardId && {
-                wardId: data.wardId,
-            }),
-            ...(data.boothId && {
-                boothId: data.boothId,
-            }),
-        },
-    });
+  const pagination = await getContactsStore({
+    page: Number(page),
+    limit: Number(limit),
+    search,
 
-    if (duplicateContact) {
-        throw new Error("CONTACT_ALREADY_EXISTS");
-    }
+    stateId,
+    districtId,
+    blockId,
+    nacId,
+    gpId,
+    villageId,
+    wardId,
+    boothId,
+  });
 
-    const updatedContact = await prisma.contact.update({
-        where: { id },
-        data: {
-            name: data.name?.trim(),
-            mobile: data.mobile?.trim(),
-            alternateMobile: data.alternateMobile || null,
-            email: data.email || null,
-            designation: data.designation || null,
-            address: data.address || null,
+  return {
+    success: true,
+    ...pagination,
+  };
+}
 
-            nacId: data.nacId || null,
-            blockId: data.blockId || null,
-            gpId: data.gpId || null,
-            villageId: data.villageId || null,
-            wardId: data.wardId || null,
-            boothId: data.boothId || null,
-        },
-        include: contactInclude,
-    });
+/**
+ * Bulk Delete Contacts
+ */
+export async function bulkDeleteContactsService(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) {
+    return {
+      success: false,
+      message: "Please select at least one contact.",
+    };
+  }
 
-    return updatedContact;
-};
+  await bulkDeleteContactsStore(ids);
 
-export const deleteContactService = async (id) => {
-    const contact = await prisma.contact.findUnique({
-        where: { id },
-    });
-
-    if (!contact || !contact.isActive) {
-        throw new Error("CONTACT_NOT_FOUND");
-    }
-
-    await prisma.contact.update({
-        where: { id },
-        data: {
-            isActive: false,
-        },
-    });
-
-    return true;
-};
+  return {
+    success: true,
+    message: "Contacts deleted successfully.",
+  };
+}

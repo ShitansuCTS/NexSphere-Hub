@@ -1,23 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { useLocationStore } from "@/store/useLocationStore";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Offcanvas from "@/components/sidebar/offcanvas";
-import StateForm from "@/components/location/districts/forms/CreateDistrict";
+import CreateDistrict from "@/components/location/districts/forms/CreateDistrict";
+import UpdateDistrict from "@/components/location/districts/forms/UpdateDistrict";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
+import toast from "react-hot-toast";
 
 const ProductInfoOne = () => {
-  const [show, setShow] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
   const [search, setSearch] = useState("");
+  const [editingDistrictId, setEditingDistrictId] = useState(null);
 
-  const { districts, loading, fetchLocations, pagination, filters, setFilter } =
-    useLocationStore();
+  const {
+    districts,
+    loading,
+    error,
+    fetchLocations,
+    pagination,
+    filters,
+    setFilter,
+    deleteLocation,
+    hasFetched,
+  } = useLocationStore();
+
   const start =
     pagination.total === 0 ? 0 : (pagination.page - 1) * pagination.limit + 1;
 
   const end = Math.min(pagination.page * pagination.limit, pagination.total);
+
+  const pageNumbers = useMemo(
+    () => Array.from({ length: Math.max(1, pagination.totalPages) }, (_, i) => i + 1),
+    [pagination.totalPages],
+  );
+
+  const hasVisibleData = districts.length > 0 || hasFetched.districts;
+
+  // Debounce search
   useEffect(() => {
     const timer = setTimeout(() => {
       setFilter("search", search);
@@ -25,24 +48,179 @@ const ProductInfoOne = () => {
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
-  useEffect(() => {
-    fetchLocations("districts", true);
-  }, [filters, fetchLocations]);
 
-  if (loading) {
+  useEffect(() => {
+    const shouldRefetch =
+      !hasFetched.districts ||
+      filters.page !== 1 ||
+      Boolean(filters.search) ||
+      filters.limit !== 10;
+
+    if (shouldRefetch && (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)) {
+      fetchLocations("districts", true);
+    }
+  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.districts, hasVisibleData]);
+
+  const handleEditClick = useCallback((districtId) => {
+    setEditingDistrictId(districtId);
+    setTimeout(() => {
+      setShowEdit(true);
+    }, 50);
+  }, []);
+
+  const handleEditSuccess = useCallback(() => {
+    setShowEdit(false);
+    setTimeout(() => {
+      setEditingDistrictId(null);
+    }, 300);
+    fetchLocations("districts", true);
+  }, [fetchLocations]);
+
+  const handleCreateSuccess = useCallback(() => {
+    setShowCreate(false);
+    fetchLocations("districts", true);
+  }, [fetchLocations]);
+
+  const handleRetry = useCallback(() => {
+    fetchLocations("districts", true);
+  }, [fetchLocations]);
+
+
+
+
+
+
+
+  // const handleDelete = useCallback((districtId, districtName) => {
+  //   let confirmToastId;
+
+  //   console.log("THE DIST ID AND STATE ID IS :-----------", districtId, districtName)
+
+
+  //   const confirmDelete = async () => {
+  //     toast.dismiss(confirmToastId);
+
+  //     const response = await deleteLocation("districts", districtId);
+  //     if (response.success) {
+  //       toast.success(response.message || "District deleted successfully");
+  //       fetchLocations("districts", true);
+  //     } else {
+  //       toast.error(response.message || "Failed to delete district");
+  //     }
+  //   };
+
+  //   confirmToastId = toast(
+  //     <div className="p-2">
+  //       <h6 className="mb-2">Delete district?</h6>
+  //       <p className="mb-3 text-secondary-light">
+  //         Are you sure you want to delete <strong>{districtName}</strong>?
+  //       </p>
+  //       <div className="d-flex justify-content-end gap-2">
+  //         <button
+  //           type="button"
+  //           className="btn btn-sm btn-light"
+  //           onClick={() => toast.dismiss(confirmToastId)}
+  //         >
+  //           Cancel
+  //         </button>
+  //         <button
+  //           type="button"
+  //           className="btn btn-sm btn-danger"
+  //           onClick={confirmDelete}
+  //         >
+  //           Delete
+  //         </button>
+  //       </div>
+  //     </div>,
+  //     {
+  //       autoClose: false,
+  //       closeButton: false,
+  //       position: "top-center",
+  //     },
+  //   );
+  // }, [deleteLocation, fetchLocations]);
+
+
+
+  const handleDelete = useCallback(
+    async (districtId, districtName) => {
+      console.log("DELETE CLICKED");
+      console.log("District ID:", districtId);
+      console.log("District Name:", districtName);
+
+      const confirmed = window.confirm(
+        `Are you sure you want to delete ${districtName}?`
+      );
+
+      if (!confirmed) return;
+
+      try {
+        const response = await deleteLocation(
+          "districts",
+          districtId
+        );
+
+        console.log("DELETE RESPONSE:", response);
+
+        if (response?.success) {
+          toast.success(
+            response.message || "District deleted successfully"
+          );
+
+          await fetchLocations("districts", true);
+        } else {
+          toast.error(
+            response?.message || "Failed to delete district"
+          );
+        }
+      } catch (error) {
+        console.error("DELETE ERROR:", error);
+        toast.error("Failed to delete district");
+      }
+    },
+    [deleteLocation, fetchLocations]
+  );
+
+
+
+
+
+  // const handleDelete = (distId, stateId) => {
+  //   alert("Deleted sucessufully...!!!1")
+  //   console.log("The State and Dist Id are :", distId, stateId)
+  // }
+
+
+
+
+
+
+
+
+  if (loading && !hasVisibleData) {
     return (
       <div className="row g-3">
         {Array.from({ length: filters.limit }).map((_, index) => (
           <div className="col-xl-3 col-sm-6" key={index}>
             <div className="card p-3">
               <SkeletonLoader height={24} width="70%" />
-
               <SkeletonLoader height={16} width="40%" className="mt-2" />
-
               <SkeletonLoader height={40} className="mt-4" />
             </div>
           </div>
         ))}
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="card border-danger-subtle p-4 text-center">
+        <h6 className="mb-2">Unable to load districts</h6>
+        <p className="text-secondary-light mb-3">{error}</p>
+        <button type="button" className="btn btn-primary btn-sm" onClick={handleRetry}>
+          Try Again
+        </button>
       </div>
     );
   }
@@ -52,19 +230,29 @@ const ProductInfoOne = () => {
       <div className="card shadow-sm mb-3 p-3">
         <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
           <div>
-            <form
-              className="navbar-search"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="text"
-                className="form-control bg-base"
-                placeholder="Search districts..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-
-              <Icon icon="ion:search-outline" className="icon" />
+            <form className="navbar-search" onSubmit={(e) => e.preventDefault()}>
+              <div className="position-relative">
+                <input
+                  type="text"
+                  className="form-control bg-base"
+                  placeholder="Search districts..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  aria-label="Search districts"
+                />
+                {search ? (
+                  <button
+                    type="button"
+                    className="btn btn-link position-absolute end-0 top-50 translate-middle-y p-0 me-2"
+                    onClick={() => setSearch("")}
+                    aria-label="Clear search"
+                  >
+                    <Icon icon="mdi:close" className="text-secondary-light" />
+                  </button>
+                ) : (
+                  <Icon icon="ion:search-outline" className="icon" />
+                )}
+              </div>
             </form>
           </div>
           <div className="d-flex align-items-center gap-3">
@@ -73,17 +261,21 @@ const ProductInfoOne = () => {
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
                 onChange={(e) => setFilter("limit", Number(e.target.value))}
+                aria-label="Select page size"
               >
                 <option value={8}>8</option>
-                <option value={12}>24</option>
-                <option value={16}>40</option>
-                <option value={16}>64</option>
+                <option value={12}>12</option>
+                <option value={16}>16</option>
+                <option value={24}>24</option>
+                <option value={64}>64</option>
               </select>
             </div>
 
             <button
               className="btn btn-primary btn-sm d-flex align-items-center gap-2"
-              onClick={() => setShow(true)}
+              onClick={() => setShowCreate(true)}
+              disabled={loading}
+              type="button"
             >
               <Icon icon="ic:baseline-plus" />
               Add District
@@ -92,15 +284,35 @@ const ProductInfoOne = () => {
         </div>
       </div>
 
+      {/* Create District Offcanvas */}
       <Offcanvas
-        show={show}
+        show={showCreate}
         title="Create District"
-        onClose={() => setShow(false)}
+        subtitle="Provide district information."
+        onClose={() => setShowCreate(false)}
       >
-        <StateForm onSuccess={() => setShow(false)} />
+        <CreateDistrict onSuccess={handleCreateSuccess} />
       </Offcanvas>
 
-      {/* Your table goes here */}
+      {/* Edit District Offcanvas */}
+      <Offcanvas
+        show={showEdit}
+        title="Update District"
+        subtitle="Modify the district details."
+        onClose={() => {
+          setShowEdit(false);
+          setTimeout(() => setEditingDistrictId(null), 300);
+        }}
+      >
+        {editingDistrictId && (
+          <UpdateDistrict
+            districtId={editingDistrictId}
+            onSuccess={handleEditSuccess}
+          />
+        )}
+      </Offcanvas>
+
+      {/* Districts Grid */}
       <div className="card h-100 rounded-4 overflow-hidden">
         <div className="card-body p-20">
           <div className="row row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-1 gy-4">
@@ -121,9 +333,8 @@ const ProductInfoOne = () => {
                         <h6 className="mb-0 fw-semibold text-truncate">
                           {district.name}
                         </h6>
-
                         <span className="text-secondary-light small">
-                          Active
+                          {district.state?.name || 'Active'}
                         </span>
                       </div>
                     </div>
@@ -146,26 +357,30 @@ const ProductInfoOne = () => {
                           )}
                         </small>
                         <div className="d-flex align-items-center gap-2">
-                          <Link
+                          {/* <Link
                             href={`/location/districts/${district.id}`}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >
                             <Icon icon="lucide:eye" />
-                          </Link>
-
-                          <Link
-                            href={`/location/districts/edit/${district.id}`}
-                            className="bg-success-focus text-success-600 bg-hover-success-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
-                            title="Edit"
-                          >
-                            <Icon icon="lucide:edit" />
-                          </Link>
+                          </Link> */}
 
                           <button
                             type="button"
+                            onClick={() => handleEditClick(district.id)}
+                            className="bg-success-focus text-success-600 bg-hover-success-200 border-0 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
+                            title="Edit"
+                            aria-label={`Edit ${district.name}`}
+                          >
+                            <Icon icon="lucide:edit" />
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(district.id, district.name)}
                             className="bg-danger-focus text-danger-600 bg-hover-danger-200 border-0 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="Delete"
+                            aria-label={`Delete ${district.name}`}
                           >
                             <Icon icon="fluent:delete-24-regular" />
                           </button>
@@ -184,9 +399,9 @@ const ProductInfoOne = () => {
                     icon="mdi:map-outline"
                     className="text-secondary-light text-4xl mb-3"
                   />
-                  <h6 className="mb-1">No districts Found</h6>
+                  <h6 className="mb-1">No Districts Found</h6>
                   <p className="text-secondary-light mb-0">
-                    Click <strong>Add District</strong> to create your first District.
+                    Click <strong>Add District</strong> to create your first district.
                   </p>
                 </div>
               </div>
@@ -194,15 +409,13 @@ const ProductInfoOne = () => {
           </div>
         </div>
 
-        {/* pagination code */}
+        {/* Pagination */}
         <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 my-3 px-3">
           <span className="text-secondary-light">
             Showing {start} to {end} of {pagination.total} entries
           </span>
 
           <ul className="pagination d-flex flex-wrap align-items-center gap-2 justify-content-center mb-0">
-            {/* Previous */}
-
             <li className="page-item">
               <button
                 type="button"
@@ -214,27 +427,21 @@ const ProductInfoOne = () => {
               </button>
             </li>
 
-            {/* Page Numbers */}
-
-            {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map(
-              (page) => (
-                <li key={page} className="page-item">
-                  <button
-                    type="button"
-                    onClick={() => setFilter("page", page)}
-                    className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${
-                      page === pagination.page
-                        ? "bg-primary-600 text-white"
-                        : "bg-primary-50 text-secondary-light"
+            {pageNumbers.map((page) => (
+              <li key={page} className="page-item">
+                <button
+                  type="button"
+                  onClick={() => setFilter("page", page)}
+                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${page === pagination.page
+                    ? "bg-primary-600 text-white"
+                    : "bg-primary-50 text-secondary-light"
                     }`}
-                  >
-                    {page}
-                  </button>
-                </li>
-              ),
-            )}
-
-            {/* Next */}
+                  disabled={loading}
+                >
+                  {page}
+                </button>
+              </li>
+            ))}
 
             <li className="page-item">
               <button

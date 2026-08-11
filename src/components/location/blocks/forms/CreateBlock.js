@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
+import { Icon } from "@iconify/react";
 
 export default function CreateBlock({ onSuccess }) {
     const [districtId, setDistrictId] = useState("");
@@ -51,7 +52,7 @@ export default function CreateBlock({ onSuccess }) {
                 {/* State */}
                 <div className="col-12 mb-3">
                     <label className="form-label">
-                        District
+                        <span className="fw-semibold text-dark">* District:</span>
                     </label>
 
                     <SearchSelect
@@ -69,12 +70,12 @@ export default function CreateBlock({ onSuccess }) {
                 {/* District Name */}
                 <div className="col-12 mb-3">
                     <label className="form-label">
-                        Block Name
+                        <span className="fw-semibold text-dark">* Block Name:</span>
                     </label>
 
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control fomr-control-sm"
                         placeholder="Enter block name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -98,19 +99,22 @@ export default function CreateBlock({ onSuccess }) {
                 </button>
 
                 <button
-                    type="submit"
-                    className="btn btn-primary"
-                    disabled={actionLoading || !districtId}
-                >
-                    {actionLoading ? (
-                        <>
-                            <span className="spinner-border spinner-border-sm me-2" />
-                            Saving...
-                        </>
-                    ) : (
-                        "Save"
-                    )}
-                </button>
+    type="submit"
+    className="btn btn-primary d-flex align-items-center"
+    disabled={actionLoading || !districtId}
+>
+    {actionLoading ? (
+        <>
+            <span className="spinner-border spinner-border-sm me-2" />
+            Saving...
+        </>
+    ) : (
+        <>
+            <Icon icon="mdi:content-save" className="me-2" />
+            Save
+        </>
+    )}
+</button>
 
             </div>
         </form>

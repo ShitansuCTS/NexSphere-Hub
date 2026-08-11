@@ -3,32 +3,44 @@
 import Select from "react-select";
 
 export default function SearchSelect({
-  label,
-  options = [],
-  value,
-  onChange,
-  placeholder = "Select...",
-  isDisabled = false,
-  required = false,
+    label,
+    options = [],
+    value,
+    onChange,
+    placeholder = "Select...",
+    isDisabled = false,
+    required = false,
 }) {
-  const selectedOption =
-    options.find((option) => option.value === value) || null;
+    const normalizedValue = value === null || value === undefined ? "" : String(value);
+    const selectedOption =
+        options.find((option) => String(option.value) === normalizedValue) || null;
 
-  return (
-    <div>
-      {label && <label className="form-label">{label}</label>}
+    return (
+        <div>
+            {label && (
+                <label className="form-label">
+                    {label}
+                </label>
+            )}
 
-      <Select
-        options={options}
-        value={selectedOption}
-        onChange={(option) => onChange(option ? option.value : "")}
-        placeholder={placeholder}
-        isSearchable
-        isClearable
-        isDisabled={isDisabled}
-        classNamePrefix="react-select"
-        required={required}
-      />
-    </div>
-  );
+            <Select
+                options={options}
+                value={selectedOption}
+                onChange={(option) =>
+                    onChange(option ? option.value : "")
+                }
+                placeholder={placeholder}
+                isSearchable
+                isClearable
+                isDisabled={isDisabled}
+                classNamePrefix="react-select"
+                required={required}
+                menuPortalTarget={typeof document !== "undefined" ? document.body : null}
+                menuPosition="fixed"
+                styles={{
+                    menuPortal: (base) => ({ ...base, zIndex: 2147483647 }),
+                }}
+            />
+        </div>
+    );
 }

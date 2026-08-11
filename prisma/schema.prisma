@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,254 +8,280 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-///////////////////////////////////////////////////AUTH MODELS START HERE///////////////////////////////////////////////////
-
-//////////////////////
-///////USER MODEL
-/////////////////////
+/// ///////////////////
+/// ////USER MODEL
+/// //////////////////
 model User {
-  id       String  @id @default(cuid())
-  username String? @unique
-  email    String  @unique
-
+  id           String    @id @default(cuid())
+  username     String?   @unique
+  email        String    @unique
   passwordHash String
-
-  role     String  @default("admin")
-  isActive Boolean @default(true)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  otps     Otp[]
-  sessions Session[]
+  role         String    @default("admin")
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  otps         Otp[]
+  sessions     Session[]
 }
 
-//////////////////////
-///////OTP MODEL
-/////////////////////
+/// ///////////////////
+/// ////OTP MODEL
+/// //////////////////
 model Otp {
-  id     String @id @default(cuid())
-  userId String
-  code   String
-
-  type String @default("login")
-
+  id        String   @id @default(cuid())
+  userId    String
+  code      String
+  type      String   @default("login")
   expiresAt DateTime
   attempts  Int      @default(0)
-
   createdAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
 
-//////////////////////
-///////SESSION MODEL
-/////////////////////
+/// ///////////////////
+/// ////SESSION MODEL
+/// //////////////////
 model Session {
-  id     String @id @default(cuid())
-  userId String
-
-  token String
-
+  id        String   @id @default(cuid())
+  userId    String
+  token     String
   expiresAt DateTime
   createdAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
 
-///////////////////////////////////////////////////AUTH MODELS ENDS HERE///////////////////////////////////////////////////
+/// ////////////////////////////////////////////////LOCATION MODELS START HERE///////////////////////////////////////////////////
 
-///////////////////////////////////////////////////LOCATION MODELS START HERE///////////////////////////////////////////////////
+enum ImportStatus {
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model ContactImport {
+  id           String         @id @default(cuid())
+
+  fileName     String
+
+  totalRows    Int
+  successRows  Int            @default(0)
+  failedRows   Int            @default(0)
+
+  failedFile   String?
+
+  status       ImportStatus   @default(PROCESSING)
+
+  contacts     Contact[]
+
+  errors       ContactImportError[]
+
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model ContactImportError {
+  id           String   @id @default(cuid())
+
+  importId     String
+
+  rowNumber    Int
+
+  errorMessage String
+
+  rawData      Json
+
+  import       ContactImport @relation(fields: [importId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime @default(now())
+
+  @@index([importId])
+}
+
 model State {
   id        String     @id @default(cuid())
   name      String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
   districts District[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model District {
-  id      String @id @default(cuid())
-  name    String
-  stateId String
-
-  state  State   @relation(fields: [stateId], references: [id])
-  blocks Block[]
-  nacs   NAC[]
-
+  id        String   @id @default(cuid())
+  name      String
+  stateId   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  blocks    Block[]
+  state     State    @relation(fields: [stateId], references: [id])
+  nacs      NAC[]
 
   @@unique([name, stateId])
   @@index([stateId])
 }
 
 model Block {
-  id         String @id @default(cuid())
+  id         String    @id @default(cuid())
   name       String
   districtId String
-
-  district District  @relation(fields: [districtId], references: [id])
-  gps      GP[]
-  contacts Contact[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  district   District  @relation(fields: [districtId], references: [id])
+  contacts   Contact[]
+  gps        GP[]
 
   @@unique([name, districtId])
   @@index([districtId])
 }
 
 model NAC {
-  id         String @id @default(cuid())
+  id         String    @id @default(cuid())
   name       String
   districtId String
-
-  district District  @relation(fields: [districtId], references: [id])
-  wards    Ward[]
-  contacts Contact[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  contacts   Contact[]
+  district   District  @relation(fields: [districtId], references: [id])
+  wards      Ward[]
 
   @@unique([name, districtId])
   @@index([districtId])
 }
 
 model GP {
-  id      String @id @default(cuid())
-  name    String
-  blockId String
-
-  block    Block     @relation(fields: [blockId], references: [id])
-  villages Village[]
-  contacts Contact[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String    @id @default(cuid())
+  name      String
+  blockId   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  contacts  Contact[]
+  block     Block     @relation(fields: [blockId], references: [id])
+  villages  Village[]
 
   @@unique([name, blockId])
   @@index([blockId])
 }
 
 model Village {
-  id   String @id @default(cuid())
-  name String
-  gpId String
-
-  gp       GP        @relation(fields: [gpId], references: [id])
-  wards    Ward[]
-  contacts Contact[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String    @id @default(cuid())
+  name      String
+  gpId      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  contacts  Contact[]
+  gp        GP        @relation(fields: [gpId], references: [id])
+  wards     Ward[]
 
   @@unique([name, gpId])
   @@index([gpId])
 }
 
 model Ward {
-  id   String @id @default(cuid())
-  name String
-
+  id        String    @id @default(cuid())
+  name      String
   villageId String?
   nacId     String?
-
-  village  Village?  @relation(fields: [villageId], references: [id])
-  nac      NAC?      @relation(fields: [nacId], references: [id])
-  contacts Contact[]
-
-  booths Booth[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  booths    Booth[]
+  contacts  Contact[]
+  nac       NAC?      @relation(fields: [nacId], references: [id])
+  village   Village?  @relation(fields: [villageId], references: [id])
 
   @@index([villageId])
   @@index([nacId])
 }
 
 model Booth {
-  id     String @id @default(cuid())
-  name   String
-  wardId String
-
-  ward     Ward      @relation(fields: [wardId], references: [id])
-  contacts Contact[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String    @id @default(cuid())
+  name      String
+  wardId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  ward      Ward      @relation(fields: [wardId], references: [id])
+  contacts  Contact[]
 
   @@unique([name, wardId])
   @@index([wardId])
 }
 
-///////////////////////////////////////////////////LOCATION MODELS ENDS HERE///////////////////////////////////////////////////
-
 model Contact {
-  id String @id @default(cuid())
+  id              String   @id @default(cuid())
 
-  // Basic Information
   name            String
+
+  profilePicture  String?
+
   mobile          String
+
   alternateMobile String?
+
   email           String?
 
-  // Additional Information
-  designation String?
-  address     String?
+  designation     String?
 
-  // Urban Hierarchy (NAC)
-  nacId String?
+  address         String?
 
-  // Rural Hierarchy
-  blockId   String?
-  gpId      String?
-  villageId String?
+  nacId           String?
 
-  // Common
-  wardId  String?
-  boothId String?
+  blockId         String?
 
+  gpId            String?
+
+  villageId       String?
+
+  wardId          String?
+
+  boothId         String?
+
+  importId        String?
+
+  isActive        Boolean  @default(true)
+
+  createdAt       DateTime @default(now())
+
+  updatedAt       DateTime @updatedAt
+
+  //------------------------
   // Relations
-  nac     NAC?     @relation(fields: [nacId], references: [id])
-  block   Block?   @relation(fields: [blockId], references: [id])
-  gp      GP?      @relation(fields: [gpId], references: [id])
-  village Village? @relation(fields: [villageId], references: [id])
-  ward    Ward?    @relation(fields: [wardId], references: [id])
-  booth   Booth?   @relation(fields: [boothId], references: [id])
+  //------------------------
 
-  isActive Boolean @default(true)
+  block           Block?   @relation(fields: [blockId], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  booth           Booth?   @relation(fields: [boothId], references: [id])
+
+  gp              GP?      @relation(fields: [gpId], references: [id])
+
+  nac             NAC?     @relation(fields: [nacId], references: [id])
+
+  village         Village? @relation(fields: [villageId], references: [id])
+
+  ward            Ward?    @relation(fields: [wardId], references: [id])
+
+  import          ContactImport? @relation(fields: [importId], references: [id], onDelete: SetNull)
+
+  //------------------------
+  // Indexes
+  //------------------------
 
   @@index([mobile])
+
   @@index([name])
+
+  @@index([importId])
+
   @@index([nacId])
+
   @@index([blockId])
+
   @@index([gpId])
+
   @@index([villageId])
+
   @@index([wardId])
+
   @@index([boothId])
-}
-
-model ContactImportBatch {
-  id String @id @default(cuid())
-
-  totalRows  Int
-  validCount Int
-  errorCount Int
-
-  validRows Json
-  errorRows Json
-
-  status String @default("PENDING")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

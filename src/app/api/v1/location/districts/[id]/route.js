@@ -8,8 +8,11 @@ import {
 
 export async function GET(request, { params }) {
     try {
+        const { id } = await params;
+
+
         const response =
-            await getDistrictByIdController(params.id);
+            await getDistrictByIdController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -29,13 +32,19 @@ export async function GET(request, { params }) {
 
 export async function PATCH(request, { params }) {
     try {
+        const { id } = await params;
+
         const body = await request.json();
 
-        const response =
-            await updateDistrictController(
-                params.id,
-                body
-            );
+        // console.log("UPDATE DISTRICT ID:", id);
+        // console.log("UPDATE DISTRICT BODY:", body);
+
+        const response = await updateDistrictController(
+            id,
+            body
+        );
+
+        console.log("UPDATE DISTRICT RESPONSE:", response);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -55,8 +64,11 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
     try {
+        const { id } = await params;
+
+        console.log("###############THE REQUESTED ID :", id)
         const response =
-            await deleteDistrictController(params.id);
+            await deleteDistrictController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,

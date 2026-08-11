@@ -60,14 +60,40 @@ export const useLocationStore = create((set, get) => ({
         wardId: "",
     },
 
+    // Track if initial fetch has been done
+    _initialized: {
+        states: false,
+        districts: false,
+        blocks: false,
+        nacs: false,
+        gps: false,
+        villages: false,
+        wards: false,
+        booths: false,
+    },
+
     setFilter: (key, value) => {
-        set((state) => ({
-            filters: {
-                ...state.filters,
-                [key]: value,
-                page: key === "page" ? value : 1,
-            },
-        }));
+        set((state) => {
+            // Only reset hasFetched when search or limit changes
+            const shouldResetCache = key === 'search' || key === 'limit';
+            const newState = {
+                filters: {
+                    ...state.filters,
+                    [key]: value,
+                    page: key === "page" ? value : 1,
+                },
+            };
+
+            // Reset hasFetched for states when search changes
+            if (shouldResetCache) {
+                newState.hasFetched = {
+                    ...state.hasFetched,
+                    states: false,
+                };
+            }
+
+            return newState;
+        });
     },
 
     resetFilters: () => {
@@ -84,13 +110,55 @@ export const useLocationStore = create((set, get) => ({
                 villageId: "",
                 wardId: "",
             },
+            hasFetched: {
+                states: false,
+                districts: false,
+                blocks: false,
+                nacs: false,
+                gps: false,
+                villages: false,
+                wards: false,
+                booths: false,
+            },
         });
+    },
+
+    // GET single location by ID
+    getLocationById: async (type, id) => {
+        try {
+            set({ actionLoading: true, error: null });
+
+            const res = await fetch(`${endpoints[type]}/${id}`);
+
+            const result = await res.json();
+
+            if (!res.ok || !result.success) {
+                throw new Error(result.message || "Failed to fetch location data");
+            }
+
+            return {
+                success: true,
+                data: result.data,
+                message: result.message,
+            };
+        } catch (error) {
+            set({ error: error.message });
+
+            return {
+                success: false,
+                data: null,
+                message: error.message,
+            };
+        } finally {
+            set({ actionLoading: false });
+        }
     },
 
     fetchLocations: async (type, force = false) => {
         try {
             const { filters, hasFetched } = get();
 
+            // Skip if already fetched and not forced
             if (hasFetched[type] && !force) {
                 return;
             }
@@ -120,13 +188,24 @@ export const useLocationStore = create((set, get) => ({
                     ...state.hasFetched,
                     [type]: true,
                 },
+                loading: false,
             }));
+
+            return {
+                success: true,
+                data: result.data,
+                message: result.message,
+            };
         } catch (error) {
             set({
                 error: error.message,
+                loading: false,
             });
-        } finally {
-            set({ loading: false });
+
+            return {
+                success: false,
+                message: error.message,
+            };
         }
     },
 
@@ -148,7 +227,16 @@ export const useLocationStore = create((set, get) => ({
                 throw new Error(result.message || "Failed to create");
             }
 
-            await get().fetchLocations(type);
+            // Reset hasFetched to force refresh
+            set((state) => ({
+                hasFetched: {
+                    ...state.hasFetched,
+                    [type]: false,
+                },
+            }));
+
+            // Force refresh after creating
+            await get().fetchLocations(type, true);
 
             return {
                 success: true,
@@ -185,7 +273,16 @@ export const useLocationStore = create((set, get) => ({
                 throw new Error(result.message || "Failed to update");
             }
 
-            await get().fetchLocations(type);
+            // Reset hasFetched to force refresh
+            set((state) => ({
+                hasFetched: {
+                    ...state.hasFetched,
+                    [type]: false,
+                },
+            }));
+
+            // Force refresh after updating
+            await get().fetchLocations(type, true);
 
             return {
                 success: true,
@@ -218,7 +315,16 @@ export const useLocationStore = create((set, get) => ({
                 throw new Error(result.message || "Failed to delete");
             }
 
-            await get().fetchLocations(type);
+            // Reset hasFetched to force refresh
+            set((state) => ({
+                hasFetched: {
+                    ...state.hasFetched,
+                    [type]: false,
+                },
+            }));
+
+            // Force refresh after deleting
+            await get().fetchLocations(type, true);
 
             return {
                 success: true,

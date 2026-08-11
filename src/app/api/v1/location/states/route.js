@@ -11,13 +11,9 @@ export async function POST(request) {
 
         const response = await createStateController(body);
 
-        return NextResponse.json(
-            response.data,
-            {
-                status: response.status,
-            }
-        );
-
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
     } catch (error) {
         console.error("CREATE STATE ERROR:", error);
 
@@ -43,16 +39,11 @@ export async function GET(request) {
             search: searchParams.get("search"),
         };
 
-        const response =
-            await getStatesController(query);
+        const response = await getStatesController(query);
 
-        return NextResponse.json(
-            response.data,
-            {
-                status: response.status,
-            }
-        );
-
+        return NextResponse.json(response.data, {
+            status: response.status,
+        });
     } catch (error) {
         console.error("GET STATES ERROR:", error);
 
