@@ -34,13 +34,13 @@ const LOCATION_ITEMS = [
   {
     href: "/location/districts",
     label: "Districts",
-    icon: "mdi:map-outline",
+    icon: "mdi:map-marker-outline",
     match: (path) => path.startsWith("/location/districts"),
   },
   {
     href: "/location/blocks",
     label: "Blocks",
-    icon: "mdi:home-group-outline",
+    icon: "mdi:map-outline",
     match: (path) => path.startsWith("/location/blocks"),
   },
   {
@@ -52,19 +52,19 @@ const LOCATION_ITEMS = [
   {
     href: "/location/gps",
     label: "GPs",
-    icon: "mdi:google-circles-communities",
+    icon: "mdi:account-group-outline",
     match: (path) => path.startsWith("/location/gps"),
   },
   {
     href: "/location/villages",
     label: "Villages",
-    icon: "mdi:home-outline",
+    icon: "mdi:home-group",
     match: (path) => path.startsWith("/location/villages"),
   },
   {
     href: "/location/wards",
     label: "Wards",
-    icon: "mdi:sign-direction-outline",
+    icon: "mdi:home-city-outline",
     match: (path) => path.startsWith("/location/wards"),
   },
   {
