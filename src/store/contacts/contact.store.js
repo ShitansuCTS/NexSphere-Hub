@@ -209,34 +209,34 @@ export const deleteContactStore = async (id) => {
 /**
  * List Contacts
  */
+import { buildContactWhere } from "@/store/contacts/contactFilters";
+
 export const getContactsStore = async ({
   page = 1,
   limit = 10,
   search = "",
+  stateId,
+  districtId,
+  blockId,
+  nacId,
+  gpId,
+  villageId,
+  wardId,
+  boothId,
 }) => {
   const skip = (page - 1) * limit;
 
-  const where = {
-    OR: [
-      {
-        name: {
-          contains: search,
-          mode: "insensitive",
-        },
-      },
-      {
-        mobile: {
-          contains: search,
-        },
-      },
-      {
-        designation: {
-          contains: search,
-          mode: "insensitive",
-        },
-      },
-    ],
-  };
+  const where = buildContactWhere({
+    search,
+    stateId,
+    districtId,
+    blockId,
+    nacId,
+    gpId,
+    villageId,
+    wardId,
+    boothId,
+  });
 
   const [contacts, total] = await prisma.$transaction([
     prisma.contact.findMany({

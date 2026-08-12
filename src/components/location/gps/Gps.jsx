@@ -9,6 +9,7 @@ import CreateGp from "@/components/location/gps/forms/CreateGp";
 import UpdateGp from "@/components/location/gps/forms/UpdateGp";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getGpHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -270,7 +271,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           {/* <Link
-                            href={`/location/gps/${gp.id}`}
+                            href={getGpHierarchyUrl(gp)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

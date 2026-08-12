@@ -9,6 +9,7 @@ import CreateVillage from "@/components/location/villages/forms/CreateVillage";
 import UpdateVillage from "@/components/location/villages/forms/UpdateVillage";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getVillageHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -265,7 +266,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           <Link
-                            href={`/location/villages/${village.id}`}
+                            href={getVillageHierarchyUrl(village)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

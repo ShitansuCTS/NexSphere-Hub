@@ -37,14 +37,18 @@ export const getContacts = async (req) => {
   try {
     const { searchParams } = new URL(req.url);
 
-    const page = searchParams.get("page") || 1;
-    const limit = searchParams.get("limit") || 10;
-    const search = searchParams.get("search") || "";
-
     const result = await getContactsService({
-      page,
-      limit,
-      search,
+      page: searchParams.get("page") || 1,
+      limit: searchParams.get("limit") || 12,
+      search: searchParams.get("search") || "",
+      stateId: searchParams.get("stateId") || "",
+      districtId: searchParams.get("districtId") || "",
+      blockId: searchParams.get("blockId") || "",
+      nacId: searchParams.get("nacId") || "",
+      gpId: searchParams.get("gpId") || "",
+      villageId: searchParams.get("villageId") || "",
+      wardId: searchParams.get("wardId") || "",
+      boothId: searchParams.get("boothId") || "",
     });
 
     return Response.json(result, {

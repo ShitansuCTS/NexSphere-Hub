@@ -42,7 +42,6 @@ export default function UpdateBooth({ boothId, onSuccess }) {
         fetchDropdown,
         getLocationById,
         updateLocation,
-        fetchLocations,
         actionLoading,
     } = useLocationStore();
 

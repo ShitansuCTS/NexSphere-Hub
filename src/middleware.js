@@ -17,11 +17,11 @@ export async function middleware(request) {
     const isPublicRoute =
         publicRoutes.includes(pathname);
 
-    // if (!token && !isPublicRoute) {
-    //     return NextResponse.redirect(
-    //         new URL("/sign-in", request.url)
-    //     );
-    // }
+    if (!token && !isPublicRoute) {
+        return NextResponse.redirect(
+            new URL("/sign-in", request.url)
+        );
+    }
 
     if (token && pathname === "/sign-in") {
         return NextResponse.redirect(

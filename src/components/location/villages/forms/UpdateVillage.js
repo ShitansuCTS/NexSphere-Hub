@@ -117,7 +117,7 @@ export default function UpdateVillage({ villageId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [gpId, villageId, name, updateLocation, fetchLocations, onSuccess]);
+    }, [gpId, villageId, name, updateLocation, onSuccess]);
 
     const handleRetry = useCallback(async () => {
         if (!villageId) {

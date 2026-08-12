@@ -39,6 +39,7 @@ export const useContactStore = create((set, get) => ({
     page: 1,
     limit: 12,
     search: "",
+    areaType: "",
     stateId: "",
     districtId: "",
     blockId: "",
@@ -54,7 +55,11 @@ export const useContactStore = create((set, get) => ({
     limit: 12,
     total: 0,
     totalPages: 1,
+    hasNext: false,
+    hasPrev: false,
   },
+
+  error: null,
 
   // -----------------------
   // Filters
@@ -66,6 +71,10 @@ export const useContactStore = create((set, get) => ({
         ...state.filters,
         ...data,
       },
+      hasFetched: {
+        ...state.hasFetched,
+        contacts: false,
+      },
     })),
 
   resetFilters: () =>
@@ -74,6 +83,7 @@ export const useContactStore = create((set, get) => ({
         page: 1,
         limit: 12,
         search: "",
+        areaType: "",
         stateId: "",
         districtId: "",
         blockId: "",
@@ -83,6 +93,9 @@ export const useContactStore = create((set, get) => ({
         wardId: "",
         boothId: "",
       },
+      hasFetched: {
+        contacts: false,
+      },
     }),
 
   // -----------------------
@@ -90,7 +103,7 @@ export const useContactStore = create((set, get) => ({
   // -----------------------
 
   fetchContacts: async () => {
-    set({ loading: true });
+    set({ loading: true, error: null });
 
     try {
       const { filters } = get();
@@ -103,30 +116,36 @@ export const useContactStore = create((set, get) => ({
 
       const response = await res.json();
 
-      if (response.success) {
-        set({
-          contacts: response.data || response.contacts || [],
-          pagination:
-            response.pagination || {
-              page: response.page || 1,
-              limit: response.limit || 12,
-              total: response.total || 0,
-              totalPages: response.totalPages || 1,
-            },
-          hasFetched: {
-            ...get().hasFetched,
-            contacts: true,
-          },
-        });
+      if (!res.ok || !response.success) {
+        throw new Error(response.message || "Failed to load contacts");
       }
+
+      set({
+        contacts: response.data || response.contacts || [],
+        pagination: {
+          total: response.total ?? response.pagination?.total ?? 0,
+          page: response.page ?? response.pagination?.page ?? filters.page,
+          limit: response.limit ?? response.pagination?.limit ?? filters.limit,
+          totalPages: response.totalPages ?? response.pagination?.totalPages ?? 1,
+          hasNext:
+            (response.page ?? filters.page) <
+            (response.totalPages ?? 1),
+          hasPrev: (response.page ?? filters.page) > 1,
+        },
+        hasFetched: {
+          ...get().hasFetched,
+          contacts: true,
+        },
+      });
 
       return response;
     } catch (error) {
       console.error(error);
+      set({ error: error.message || "Failed to load contacts" });
 
       return {
         success: false,
-        message: "Failed to load contacts",
+        message: error.message || "Failed to load contacts",
       };
     } finally {
       set({ loading: false });

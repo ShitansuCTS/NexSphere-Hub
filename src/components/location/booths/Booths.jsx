@@ -9,6 +9,7 @@ import CreateBooth from "@/components/location/booths/forms/CreateBooth";
 import UpdateBooth from "@/components/location/booths/forms/UpdateBooth";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getBoothHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -272,7 +273,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           <Link
-                            href={`/location/booths/${booth.id}`}
+                            href={getBoothHierarchyUrl(booth)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

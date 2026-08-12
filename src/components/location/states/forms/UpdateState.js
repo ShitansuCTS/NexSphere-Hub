@@ -15,7 +15,6 @@ export default function EditState({ stateId, onSuccess }) {
         getLocationById,
         updateLocation,
         actionLoading,
-        fetchLocations,
         states,
     } = useLocationStore();
 
@@ -112,7 +111,6 @@ export default function EditState({ stateId, onSuccess }) {
 
             if (response.success) {
                 toast.success(response.message || "State updated successfully");
-                await fetchLocations("states", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update state";
@@ -125,7 +123,7 @@ export default function EditState({ stateId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [stateId, name, updateLocation, fetchLocations, onSuccess, validateName]);
+    }, [stateId, name, updateLocation, onSuccess, validateName]);
 
     // Handle retry
     const handleRetry = useCallback(async () => {

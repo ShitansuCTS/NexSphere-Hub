@@ -9,6 +9,7 @@ import CreateNac from "@/components/location/nacs/forms/CreateNac";
 import UpdateNac from "@/components/location/nacs/forms/UpdateNac";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getNacHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -270,7 +271,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           <Link
-                            href={`/location/nacs/${nac.id}`}
+                            href={getNacHierarchyUrl(nac)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

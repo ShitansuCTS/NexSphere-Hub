@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { useContactStore } from "@/store/useContactStore";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
@@ -8,6 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateContact from "@/components/contacts/forms/CreateContact";
 import UpdateContact from "@/components/contacts/forms/UpdateContact";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
+import ContactFilters from "@/components/contacts/ContactFilters";
 import toast from "react-hot-toast";
 
 const ContactTable = () => {
@@ -38,21 +39,6 @@ const ContactTable = () => {
   );
 
   const hasVisibleData = contacts.length > 0 || hasFetched.contacts;
-
-  useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.contacts ||
-      filters.page !== 1 ||
-      filters.limit !== 12 ||
-      Boolean(filters.search);
-
-    if (
-      shouldRefetch &&
-      (!hasVisibleData || filters.page !== 1 || filters.limit !== 12 || Boolean(filters.search))
-    ) {
-      fetchContacts();
-    }
-  }, [fetchContacts, filters.limit, filters.page, filters.search, hasFetched.contacts, hasVisibleData]);
 
   const handleEditClick = useCallback((contactId) => {
     setEditingContactId(contactId);
@@ -147,6 +133,8 @@ const ContactTable = () => {
 
   return (
     <>
+      <ContactFilters />
+
       <div className="card h-100 p-0 radius-12 mb-4">
         <div className="card-header border-bottom bg-base py-16 px-24 d-flex align-items-center flex-wrap gap-3 justify-content-between">
           <div className="d-flex align-items-center flex-wrap gap-3">
@@ -162,18 +150,6 @@ const ContactTable = () => {
               <option value={24}>24</option>
               <option value={64}>64</option>
             </select>
-
-            <form className="navbar-search">
-              <input
-                type="text"
-                className="bg-base h-40-px w-auto"
-                name="search"
-                placeholder="Search"
-                value={filters.search}
-                onChange={(e) => setFilters({ search: e.target.value, page: 1 })}
-              />
-              <Icon icon="ion:search-outline" className="icon" />
-            </form>
           </div>
 
           <div className="d-flex flex-wrap gap-2">

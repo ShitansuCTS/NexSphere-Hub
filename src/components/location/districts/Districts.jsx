@@ -9,6 +9,7 @@ import CreateDistrict from "@/components/location/districts/forms/CreateDistrict
 import UpdateDistrict from "@/components/location/districts/forms/UpdateDistrict";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getDistrictHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -355,7 +356,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           {/* <Link
-                            href={`/location/districts/${district.id}`}
+                            href={getDistrictHierarchyUrl(district)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

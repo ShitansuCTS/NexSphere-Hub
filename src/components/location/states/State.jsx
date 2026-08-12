@@ -9,6 +9,7 @@ import CreateState from "@/components/location/states/forms/CreateState";
 import UpdateState from "@/components/location/states/forms/UpdateState";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
 import toast from "react-hot-toast";
+import { getStateHierarchyUrl } from "@/utils/locationHierarchyUrl";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -297,7 +298,7 @@ const ProductInfoOne = () => {
                         </small>
                         <div className="d-flex align-items-center gap-2">
                           {/* <Link
-                            href={`/location/states/${state.id}`}
+                            href={getStateHierarchyUrl(state)}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >

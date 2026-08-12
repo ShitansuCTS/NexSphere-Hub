@@ -118,7 +118,7 @@ export default function UpdateNac({ nacId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [districtId, name, nacId, updateLocation, fetchLocations, onSuccess]);
+    }, [districtId, name, nacId, updateLocation, onSuccess]);
 
     const handleRetry = useCallback(async () => {
         if (!nacId) {
