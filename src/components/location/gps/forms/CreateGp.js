@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -12,18 +12,17 @@ export default function CreateGp({ onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        blocks,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const blocks = dropdownCache.blocks;
+
     useEffect(() => {
-        if (!hasFetched.blocks) {
-            fetchLocations("blocks", true);
-        }
-    }, [fetchLocations, hasFetched.blocks]);
+        fetchDropdown("blocks");
+    }, [fetchDropdown]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -47,7 +46,7 @@ export default function CreateGp({ onSuccess }) {
         setFieldError("");
 
         const response = await createLocation("gps", {
-            blockId: parseInt(blockId),
+            blockId: blockId,
             name: trimmedName,
         });
 

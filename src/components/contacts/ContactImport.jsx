@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { Icon } from "@iconify/react";
 import { useLocationStore } from "@/store/useLocationStore";
 

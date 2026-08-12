@@ -8,7 +8,6 @@ import {
 export async function POST(request) {
   try {
     const body = await request.json();
-
     const response = await createWardController(body);
 
     return NextResponse.json(response.data, {
@@ -37,6 +36,7 @@ export async function GET(request) {
       search: searchParams.get("search"),
       villageId: searchParams.get("villageId"),
       nacId: searchParams.get("nacId"),
+      gpId: searchParams.get("gpId"),
     };
 
     const response = await getWardsController(query);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -11,15 +11,17 @@ export default function CreateBlock({ onSuccess }) {
     const [name, setName] = useState("");
 
     const {
-        districts,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
     } = useLocationStore();
 
+    const districts = dropdownCache.districts;
+
     useEffect(() => {
-        fetchLocations("districts");
-    }, [fetchLocations]);
+        fetchDropdown("districts");
+    }, [fetchDropdown]);
 
     async function handleSubmit(e) {
         e.preventDefault();

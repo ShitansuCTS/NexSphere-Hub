@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -14,19 +14,18 @@ export default function UpdateVillage({ villageId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
+        dropdownCache,
         getLocationById,
         updateLocation,
-        fetchLocations,
+        fetchDropdown,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+
     useEffect(() => {
-        if (!hasFetched.gps) {
-            fetchLocations("gps", true);
-        }
-    }, [fetchLocations, hasFetched.gps]);
+        fetchDropdown("gps");
+    }, [fetchDropdown]);
 
     useEffect(() => {
         let isMounted = true;
@@ -100,13 +99,12 @@ export default function UpdateVillage({ villageId, onSuccess }) {
 
         try {
             const response = await updateLocation("villages", villageId, {
-                gpId: parseInt(gpId),
+                gpId: gpId,
                 name: trimmedName,
             });
 
             if (response.success) {
                 toast.success(response.message || "Village updated successfully");
-                await fetchLocations("villages", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update village";

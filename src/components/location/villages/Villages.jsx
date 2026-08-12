@@ -8,7 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateVillage from "@/components/location/villages/forms/CreateVillage";
 import UpdateVillage from "@/components/location/villages/forms/UpdateVillage";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -21,6 +21,7 @@ const ProductInfoOne = () => {
     loading,
     error,
     fetchLocations,
+    initListView,
     pagination,
     filters,
     setFilter,
@@ -42,26 +43,19 @@ const ProductInfoOne = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilter("search", search);
+      setFilter("search", search, "villages");
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
 
   useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.villages ||
-      filters.page !== 1 ||
-      Boolean(filters.search) ||
-      filters.limit !== 10;
+    initListView("villages");
+  }, [initListView]);
 
-    if (
-      shouldRefetch &&
-      (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)
-    ) {
-      fetchLocations("villages", true);
-    }
-  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.villages, hasVisibleData]);
+  useEffect(() => {
+    fetchLocations("villages", true);
+  }, [fetchLocations, filters.page, filters.limit, filters.search]);
 
   const handleEditClick = useCallback((villageId) => {
     setEditingVillageId(villageId);
@@ -87,42 +81,35 @@ const ProductInfoOne = () => {
     fetchLocations("villages", true);
   }, [fetchLocations]);
 
-  const handleDelete = useCallback((villageId, villageName) => {
-    let confirmToastId;
+  const handleDelete = useCallback(
+    async (villageId, villageName) => {
+      const confirmed = window.confirm(
+        `Are you sure you want to delete ${villageName}?`
+      );
 
-    const confirmDelete = async () => {
-      toast.dismiss(confirmToastId);
-      const response = await deleteLocation("villages", villageId);
-      if (response.success) {
-        toast.success(response.message || "Village deleted successfully");
-        fetchLocations("villages", true);
-      } else {
-        toast.error(response.message || "Failed to delete village");
+      if (!confirmed) return;
+
+      try {
+        const response = await deleteLocation("villages", villageId);
+
+        if (response?.success) {
+          toast.success(
+            response.message || "Village deleted successfully"
+          );
+
+          await fetchLocations("villages", true);
+        } else {
+          toast.error(
+            response?.message || "Failed to delete village"
+          );
+        }
+      } catch (error) {
+        console.error("DELETE ERROR:", error);
+        toast.error("Failed to delete village");
       }
-    };
-
-    confirmToastId = toast(
-      <div className="p-2">
-        <h6 className="mb-2">Delete Village?</h6>
-        <p className="mb-3 text-secondary-light">
-          Are you sure you want to delete <strong>{villageName}</strong>?
-        </p>
-        <div className="d-flex justify-content-end gap-2">
-          <button type="button" className="btn btn-sm btn-light" onClick={() => toast.dismiss(confirmToastId)}>
-            Cancel
-          </button>
-          <button type="button" className="btn btn-sm btn-danger" onClick={confirmDelete}>
-            Delete
-          </button>
-        </div>
-      </div>,
-      {
-        autoClose: false,
-        closeButton: false,
-        position: "top-center",
-      },
-    );
-  }, [deleteLocation, fetchLocations]);
+    },
+    [deleteLocation, fetchLocations]
+  );
 
   if (loading && !hasVisibleData) {
     return (
@@ -187,7 +174,7 @@ const ProductInfoOne = () => {
               <select
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
-                onChange={(e) => setFilter("limit", Number(e.target.value))}
+                onChange={(e) => setFilter("limit", Number(e.target.value), "villages")}
                 aria-label="Select page size"
               >
                 <option value={8}>8</option>
@@ -339,7 +326,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasPrev}
-                onClick={() => setFilter("page", pagination.page - 1)}
+                onClick={() => setFilter("page", pagination.page - 1, "villages")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-left" className="text-xl" />
@@ -350,12 +337,11 @@ const ProductInfoOne = () => {
               <li key={page} className="page-item">
                 <button
                   type="button"
-                  onClick={() => setFilter("page", page)}
-                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${
-                    page === pagination.page
-                      ? "bg-primary-600 text-white"
-                      : "bg-primary-50 text-secondary-light"
-                  }`}
+                  onClick={() => setFilter("page", page, "villages")}
+                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${page === pagination.page
+                    ? "bg-primary-600 text-white"
+                    : "bg-primary-50 text-secondary-light"
+                    }`}
                 >
                   {page}
                 </button>
@@ -366,7 +352,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasNext}
-                onClick={() => setFilter("page", pagination.page + 1)}
+                onClick={() => setFilter("page", pagination.page + 1, "villages")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-right" className="text-xl" />

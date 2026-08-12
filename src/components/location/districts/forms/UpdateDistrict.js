@@ -12,20 +12,18 @@ export default function EditDistrict({ districtId, onSuccess }) {
     const [error, setError] = useState(null);
 
     const {
-        states,
+        dropdownCache,
+        fetchDropdown,
         getLocationById,
         updateLocation,
-        fetchLocations,
         actionLoading,
-        hasFetched
     } = useLocationStore();
 
-    // Fetch states if not already fetched
+    const states = dropdownCache.states;
+
     useEffect(() => {
-        if (!hasFetched.states) {
-            fetchLocations("states", true);
-        }
-    }, [fetchLocations, hasFetched.states]);
+        fetchDropdown("states");
+    }, [fetchDropdown]);
 
     // Fetch district data when districtId changes
     useEffect(() => {
@@ -106,7 +104,6 @@ export default function EditDistrict({ districtId, onSuccess }) {
 
             if (response.success) {
                 toast.success(response.message || "District updated successfully");
-                await fetchLocations("districts", true);
                 onSuccess?.();
             } else {
                 toast.error(response.message || "Failed to update district");
@@ -115,7 +112,7 @@ export default function EditDistrict({ districtId, onSuccess }) {
             console.error("Error updating district:", error);
             toast.error("An error occurred while updating the district");
         }
-    }, [districtId, stateId, name, updateLocation, fetchLocations, onSuccess]);
+    }, [districtId, stateId, name, updateLocation, onSuccess]);
 
     // Handle retry
     const handleRetry = useCallback(async () => {

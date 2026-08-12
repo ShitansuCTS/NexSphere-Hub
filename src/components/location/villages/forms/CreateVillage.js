@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -12,18 +12,17 @@ export default function CreateVillage({ onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+
     useEffect(() => {
-        if (!hasFetched.gps) {
-            fetchLocations("gps", true);
-        }
-    }, [fetchLocations, hasFetched.gps]);
+        fetchDropdown("gps");
+    }, [fetchDropdown]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -47,7 +46,7 @@ export default function CreateVillage({ onSuccess }) {
         setFieldError("");
 
         const response = await createLocation("villages", {
-            gpId: parseInt(gpId),
+            gpId: gpId,
             name: trimmedName,
         });
 

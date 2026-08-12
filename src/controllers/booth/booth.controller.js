@@ -19,7 +19,7 @@ const handleZodError = (error) => {
         data: {
             success: false,
             message: "Validation failed",
-            errors: error.errors.map((err) => ({
+            errors: error.issues.map((err) => ({
                 field: err.path.join("."),
                 message: err.message,
             })),
@@ -178,6 +178,17 @@ export const deleteBoothController = async (id) => {
                 data: {
                     success: false,
                     message: "Booth not found",
+                },
+            };
+        }
+
+        if (error.message === "BOOTH_HAS_CONTACTS") {
+            return {
+                status: 400,
+                data: {
+                    success: false,
+                    message:
+                        "Cannot delete booth because contacts are linked with this booth",
                 },
             };
         }

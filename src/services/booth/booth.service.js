@@ -196,6 +196,16 @@ export const deleteBoothService = async (id) => {
         throw new Error("BOOTH_NOT_FOUND");
     }
 
+    const contactCount = await prisma.contact.count({
+        where: {
+            boothId: id,
+        },
+    });
+
+    if (contactCount > 0) {
+        throw new Error("BOOTH_HAS_CONTACTS");
+    }
+
     await prisma.booth.delete({
         where: {
             id,

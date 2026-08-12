@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -14,19 +14,18 @@ export default function UpdateGp({ gpId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        blocks,
+        dropdownCache,
         getLocationById,
         updateLocation,
-        fetchLocations,
+        fetchDropdown,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const blocks = dropdownCache.blocks;
+
     useEffect(() => {
-        if (!hasFetched.blocks) {
-            fetchLocations("blocks", true);
-        }
-    }, [fetchLocations, hasFetched.blocks]);
+        fetchDropdown("blocks");
+    }, [fetchDropdown]);
 
     useEffect(() => {
         let isMounted = true;
@@ -100,13 +99,12 @@ export default function UpdateGp({ gpId, onSuccess }) {
 
         try {
             const response = await updateLocation("gps", gpId, {
-                blockId: parseInt(blockId),
+                blockId: blockId,
                 name: trimmedName,
             });
 
             if (response.success) {
                 toast.success(response.message || "GP updated successfully");
-                await fetchLocations("gps", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update GP";
@@ -119,7 +117,7 @@ export default function UpdateGp({ gpId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [blockId, gpId, name, updateLocation, fetchLocations, onSuccess]);
+    }, [blockId, gpId, name, updateLocation, onSuccess]);
 
     const handleRetry = useCallback(async () => {
         if (!gpId) {
@@ -237,7 +235,7 @@ export default function UpdateGp({ gpId, onSuccess }) {
 
                 <div className="col-12 mb-3">
                     <label className="form-label" htmlFor="edit-gp-name">
-                        <span class="text-dark fw-semibold">* GP Name:</span>
+                        <span className="text-dark fw-semibold">* GP Name:</span>
                     </label>
                     <input
                         id="edit-gp-name"

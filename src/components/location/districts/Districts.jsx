@@ -21,6 +21,7 @@ const ProductInfoOne = () => {
     loading,
     error,
     fetchLocations,
+    initListView,
     pagination,
     filters,
     setFilter,
@@ -43,23 +44,19 @@ const ProductInfoOne = () => {
   // Debounce search
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilter("search", search);
+      setFilter("search", search, "districts");
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
 
   useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.districts ||
-      filters.page !== 1 ||
-      Boolean(filters.search) ||
-      filters.limit !== 10;
+    initListView("districts");
+  }, [initListView]);
 
-    if (shouldRefetch && (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)) {
-      fetchLocations("districts", true);
-    }
-  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.districts, hasVisibleData]);
+  useEffect(() => {
+    fetchLocations("districts", true);
+  }, [fetchLocations, filters.page, filters.limit, filters.search]);
 
   const handleEditClick = useCallback((districtId) => {
     setEditingDistrictId(districtId);
@@ -260,7 +257,7 @@ const ProductInfoOne = () => {
               <select
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
-                onChange={(e) => setFilter("limit", Number(e.target.value))}
+                onChange={(e) => setFilter("limit", Number(e.target.value), "districts")}
                 aria-label="Select page size"
               >
                 <option value={8}>8</option>
@@ -420,7 +417,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasPrev}
-                onClick={() => setFilter("page", pagination.page - 1)}
+                onClick={() => setFilter("page", pagination.page - 1, "districts")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-left" className="text-xl" />
@@ -431,7 +428,7 @@ const ProductInfoOne = () => {
               <li key={page} className="page-item">
                 <button
                   type="button"
-                  onClick={() => setFilter("page", page)}
+                  onClick={() => setFilter("page", page, "districts")}
                   className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${page === pagination.page
                     ? "bg-primary-600 text-white"
                     : "bg-primary-50 text-secondary-light"
@@ -447,7 +444,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasNext}
-                onClick={() => setFilter("page", pagination.page + 1)}
+                onClick={() => setFilter("page", pagination.page + 1, "districts")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-right" className="text-xl" />

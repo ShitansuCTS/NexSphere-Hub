@@ -8,7 +8,8 @@ import {
 
 export async function GET(request, { params }) {
     try {
-        const response = await getWardByIdController(params.id);
+        const { id } = await params;
+        const response = await getWardByIdController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -28,9 +29,10 @@ export async function GET(request, { params }) {
 
 export async function PATCH(request, { params }) {
     try {
+        const { id } = await params;
         const body = await request.json();
 
-        const response = await updateWardController(params.id, body);
+        const response = await updateWardController(id, body);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -50,7 +52,8 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
     try {
-        const response = await deleteWardController(params.id);
+        const { id } = await params;
+        const response = await deleteWardController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,

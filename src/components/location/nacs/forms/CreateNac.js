@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -12,18 +12,17 @@ export default function CreateNac({ onSuccess }) {
     const [errors, setErrors] = useState({ districtId: "", name: "" });
 
     const {
-        districts,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const districts = dropdownCache.districts;
+
     useEffect(() => {
-        if (!hasFetched.districts) {
-            fetchLocations("districts", true);
-        }
-    }, [fetchLocations, hasFetched.districts]);
+        fetchDropdown("districts");
+    }, [fetchDropdown]);
 
     const validateForm = useCallback(() => {
         const nextErrors = { districtId: "", name: "" };
@@ -52,7 +51,7 @@ export default function CreateNac({ onSuccess }) {
         }
 
         const response = await createLocation("nacs", {
-            districtId: parseInt(districtId),
+            districtId: districtId,
             name: name.trim(),
         });
 
@@ -94,7 +93,7 @@ export default function CreateNac({ onSuccess }) {
         <form onSubmit={handleSubmit} className="p-2">
             <div className="card border-0 shadow-none">
                 <div className="card-body p-0">
-                    
+
 
                     <div className="mb-3">
                         <SearchSelect

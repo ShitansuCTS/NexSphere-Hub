@@ -8,7 +8,8 @@ import {
 
 export async function GET(request, { params }) {
     try {
-        const response = await getNacByIdController(params.id);
+        const { id } = await params;
+        const response = await getNacByIdController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -28,10 +29,12 @@ export async function GET(request, { params }) {
 
 export async function PATCH(request, { params }) {
     try {
+        const { id } = await params;
         const body = await request.json();
 
+
         const response = await updateNacController(
-            params.id,
+            id,
             body
         );
 
@@ -53,7 +56,8 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
     try {
-        const response = await deleteNacController(params.id);
+        const { id } = await params;
+        const response = await deleteNacController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,

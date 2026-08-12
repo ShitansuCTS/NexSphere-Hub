@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -15,7 +15,7 @@ const getBoothSelectionState = (boothData) => {
     const ward = boothData?.ward || null;
     const wardId = normalizeId(boothData?.wardId || ward?.id);
     const gpId = normalizeId(ward?.village?.gp?.id || boothData?.gpId);
-    const nacId = normalizeId(ward?.nac?.id || boothData?.nacId);
+    const nacId = normalizeId(ward?.nacId || ward?.nac?.id || boothData?.nacId);
     const nextAreaType = nacId ? "urban" : "rural";
 
     return {
@@ -38,27 +38,33 @@ export default function UpdateBooth({ boothId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
-        nacs,
-        wards,
+        dropdownCache,
+        fetchDropdown,
         getLocationById,
         updateLocation,
         fetchLocations,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+    const nacs = dropdownCache.nacs;
+    const wards = dropdownCache.wards;
+
     useEffect(() => {
-        if (!hasFetched.gps) {
-            fetchLocations("gps", true);
+        fetchDropdown("gps");
+        fetchDropdown("nacs");
+    }, [fetchDropdown]);
+
+    useEffect(() => {
+        if (areaType === "rural" && gpId) {
+            fetchDropdown("wards", { gpId });
+            return;
         }
-        if (!hasFetched.nacs) {
-            fetchLocations("nacs", true);
+
+        if (areaType === "urban" && nacId) {
+            fetchDropdown("wards", { nacId });
         }
-        if (!hasFetched.wards) {
-            fetchLocations("wards", true);
-        }
-    }, [fetchLocations, hasFetched.gps, hasFetched.nacs, hasFetched.wards]);
+    }, [areaType, gpId, nacId, fetchDropdown]);
 
     useEffect(() => {
         let isMounted = true;
@@ -84,6 +90,12 @@ export default function UpdateBooth({ boothId, onSuccess }) {
                     setNacId(selectionState.nacId);
                     setWardId(selectionState.wardId);
                     setName(selectionState.name);
+
+                    if (selectionState.gpId) {
+                        await fetchDropdown("wards", { gpId: selectionState.gpId });
+                    } else if (selectionState.nacId) {
+                        await fetchDropdown("wards", { nacId: selectionState.nacId });
+                    }
                 } else {
                     const errorMsg = response.message || "Failed to load booth data";
                     setError(errorMsg);
@@ -107,14 +119,7 @@ export default function UpdateBooth({ boothId, onSuccess }) {
         return () => {
             isMounted = false;
         };
-    }, [boothId, getLocationById]);
-
-    const filteredWards = (wards ?? []).filter((ward) => {
-        if (areaType === "rural") {
-            return String(ward.gpId) === String(gpId);
-        }
-        return String(ward.nacId) === String(nacId);
-    });
+    }, [boothId, getLocationById, fetchDropdown]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -133,7 +138,6 @@ export default function UpdateBooth({ boothId, onSuccess }) {
         }
 
         const payload = {
-            areaType,
             wardId,
             name: trimmedName,
         };
@@ -158,7 +162,6 @@ export default function UpdateBooth({ boothId, onSuccess }) {
             const response = await updateLocation("booths", boothId, payload);
             if (response.success) {
                 toast.success(response.message || "Booth updated successfully");
-                await fetchLocations("booths", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update booth";
@@ -171,7 +174,7 @@ export default function UpdateBooth({ boothId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [areaType, boothId, fetchLocations, gpId, nacId, name, onSuccess, updateLocation, wardId]);
+    }, [areaType, boothId, gpId, nacId, name, onSuccess, updateLocation, wardId]);
 
     const handleRetry = useCallback(async () => {
         if (!boothId) {
@@ -191,6 +194,12 @@ export default function UpdateBooth({ boothId, onSuccess }) {
                 setNacId(selectionState.nacId);
                 setWardId(selectionState.wardId);
                 setName(selectionState.name);
+
+                if (selectionState.gpId) {
+                    await fetchDropdown("wards", { gpId: selectionState.gpId });
+                } else if (selectionState.nacId) {
+                    await fetchDropdown("wards", { nacId: selectionState.nacId });
+                }
             } else {
                 setError(response.message || "Failed to load booth data");
                 toast.error(response.message || "Failed to load booth data");
@@ -202,7 +211,7 @@ export default function UpdateBooth({ boothId, onSuccess }) {
         } finally {
             setIsLoading(false);
         }
-    }, [boothId, getLocationById]);
+    }, [boothId, getLocationById, fetchDropdown]);
 
     const handleCancel = useCallback(() => {
         setFieldError("");
@@ -356,7 +365,7 @@ export default function UpdateBooth({ boothId, onSuccess }) {
                                 * Ward:
                             </span>
                         )}
-                        options={filteredWards.map((ward) => ({
+                        options={wards.map((ward) => ({
                             value: normalizeId(ward.id),
                             label: ward.name,
                         }))}

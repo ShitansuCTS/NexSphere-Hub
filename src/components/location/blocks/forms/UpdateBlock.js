@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -14,19 +14,18 @@ export default function UpdateBlock({ blockId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        districts,
+        dropdownCache,
         getLocationById,
         updateLocation,
-        fetchLocations,
+        fetchDropdown,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const districts = dropdownCache.districts;
+
     useEffect(() => {
-        if (!hasFetched.districts) {
-            fetchLocations("districts", true);
-        }
-    }, [fetchLocations, hasFetched.districts]);
+        fetchDropdown("districts");
+    }, [fetchDropdown]);
 
     useEffect(() => {
         let isMounted = true;
@@ -100,13 +99,12 @@ export default function UpdateBlock({ blockId, onSuccess }) {
 
         try {
             const response = await updateLocation("blocks", blockId, {
-                districtId: parseInt(districtId),
+                districtId: districtId,
                 name: trimmedName,
             });
 
             if (response.success) {
                 toast.success(response.message || "Block updated successfully");
-                await fetchLocations("blocks", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update block";
@@ -119,7 +117,7 @@ export default function UpdateBlock({ blockId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [blockId, districtId, name, updateLocation, fetchLocations, onSuccess]);
+    }, [blockId, districtId, name, updateLocation, onSuccess]);
 
     const handleRetry = useCallback(async () => {
         if (!blockId) {

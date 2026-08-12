@@ -10,7 +10,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import UpdateContact from "@/components/contacts/forms/UpdateContact";
 import ContactProfileSkeleton from "@/components/loader/ContactProfileSkeleton";
 import ProfileDetailsSkeleton from "@/components/loader/ProfileDetailsSkeleton";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 export default function ContactProfilePage() {
   const params = useParams();

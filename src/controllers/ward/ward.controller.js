@@ -19,7 +19,7 @@ const handleZodError = (error) => {
         data: {
             success: false,
             message: "Validation failed",
-            errors: error.errors.map((err) => ({
+            errors: error.issues.map((err) => ({
                 field: err.path.join("."),
                 message: err.message,
             })),
@@ -213,6 +213,17 @@ export const deleteWardController = async (id) => {
                     success: false,
                     message:
                         "Cannot delete ward because booth records are linked with this ward",
+                },
+            };
+        }
+
+        if (error.message === "WARD_HAS_CONTACTS") {
+            return {
+                status: 400,
+                data: {
+                    success: false,
+                    message:
+                        "Cannot delete ward because contacts are linked with this ward",
                 },
             };
         }

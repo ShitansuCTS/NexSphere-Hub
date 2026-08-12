@@ -19,7 +19,7 @@ const handleZodError = (error) => {
         data: {
             success: false,
             message: "Validation failed",
-            errors: error.errors.map((err) => ({
+            errors: error.issues.map((err) => ({
                 field: err.path.join("."),
                 message: err.message,
             })),
@@ -65,14 +65,15 @@ export const createStateController = async (body) => {
 export const getStatesController = async (query) => {
     const result = await getStatesService(query);
 
-    return {
-        status: 200,
-        data: {
-            success: true,
-            message: "States fetched successfully",
-            ...result,
-        },
-    };
+        return {
+            status: 200,
+            data: {
+                success: true,
+                message: "States fetched successfully",
+                data: result.data,
+                pagination: result.pagination,
+            },
+        };
 };
 
 export const getStateByIdController = async (id) => {

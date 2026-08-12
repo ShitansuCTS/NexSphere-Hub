@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -13,13 +13,15 @@ const normalizeId = (value) => {
 
 const getWardSelectionState = (wardData) => {
     const village = wardData?.village || null;
-    const gpId = normalizeId(village?.gp?.id || wardData?.gpId || wardData?.villageId);
+    const villageId = normalizeId(village?.id || wardData?.villageId);
+    const gpId = normalizeId(village?.gp?.id || village?.gpId);
     const nacId = normalizeId(wardData?.nacId || wardData?.nac?.id);
     const nextAreaType = nacId ? "urban" : "rural";
 
     return {
         areaType: nextAreaType,
         gpId,
+        villageId,
         nacId,
         name: wardData?.name || "",
     };
@@ -28,6 +30,7 @@ const getWardSelectionState = (wardData) => {
 export default function UpdateWard({ wardId, onSuccess }) {
     const [areaType, setAreaType] = useState("rural");
     const [gpId, setGpId] = useState("");
+    const [villageId, setVillageId] = useState("");
     const [nacId, setNacId] = useState("");
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
@@ -35,23 +38,37 @@ export default function UpdateWard({ wardId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
-        nacs,
+        dropdownCache,
+        fetchDropdown,
         getLocationById,
         updateLocation,
-        fetchLocations,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+    const nacs = dropdownCache.nacs;
+    const villages = dropdownCache.villages;
+
     useEffect(() => {
-        if (!hasFetched.gps) {
-            fetchLocations("gps", true);
+        fetchDropdown("gps");
+        fetchDropdown("nacs");
+    }, [fetchDropdown]);
+
+    useEffect(() => {
+        if (areaType === "rural" && gpId) {
+            fetchDropdown("villages", { gpId });
         }
-        if (!hasFetched.nacs) {
-            fetchLocations("nacs", true);
+    }, [areaType, gpId, fetchDropdown]);
+
+    const filteredVillages = useMemo(() => {
+        if (areaType !== "rural" || !gpId) {
+            return villages;
         }
-    }, [fetchLocations, hasFetched.gps, hasFetched.nacs]);
+
+        return villages.filter(
+            (village) => String(village.gpId) === String(gpId)
+        );
+    }, [areaType, gpId, villages]);
 
     useEffect(() => {
         let isMounted = true;
@@ -74,8 +91,13 @@ export default function UpdateWard({ wardId, onSuccess }) {
                     const selectionState = getWardSelectionState(response.data);
                     setAreaType(selectionState.areaType);
                     setGpId(selectionState.gpId);
+                    setVillageId(selectionState.villageId);
                     setNacId(selectionState.nacId);
                     setName(selectionState.name);
+
+                    if (selectionState.gpId) {
+                        await fetchDropdown("villages", { gpId: selectionState.gpId });
+                    }
                 } else {
                     const errorMsg = response.message || "Failed to load ward data";
                     setError(errorMsg);
@@ -99,7 +121,7 @@ export default function UpdateWard({ wardId, onSuccess }) {
         return () => {
             isMounted = false;
         };
-    }, [wardId, getLocationById]);
+    }, [wardId, getLocationById, fetchDropdown]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -117,19 +139,22 @@ export default function UpdateWard({ wardId, onSuccess }) {
             return;
         }
 
-        const payload = {
-            areaType,
-            name: trimmedName,
-        };
-
         if (areaType === "rural") {
-            payload.gpId = gpId;
-        } else {
-            payload.nacId = nacId;
-        }
+            if (!gpId) {
+                const errorMsg = "Please select a GP";
+                setFieldError(errorMsg);
+                toast.error(errorMsg);
+                return;
+            }
 
-        if ((areaType === "rural" && !gpId) || (areaType === "urban" && !nacId)) {
-            const errorMsg = areaType === "rural" ? "Please select a GP" : "Please select a NAC";
+            if (!villageId) {
+                const errorMsg = "Please select a village";
+                setFieldError(errorMsg);
+                toast.error(errorMsg);
+                return;
+            }
+        } else if (!nacId) {
+            const errorMsg = "Please select a NAC";
             setFieldError(errorMsg);
             toast.error(errorMsg);
             return;
@@ -137,11 +162,15 @@ export default function UpdateWard({ wardId, onSuccess }) {
 
         setFieldError("");
 
+        const payload =
+            areaType === "rural"
+                ? { name: trimmedName, villageId }
+                : { name: trimmedName, nacId };
+
         try {
             const response = await updateLocation("wards", wardId, payload);
             if (response.success) {
                 toast.success(response.message || "Ward updated successfully");
-                await fetchLocations("wards", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update ward";
@@ -154,7 +183,7 @@ export default function UpdateWard({ wardId, onSuccess }) {
             setFieldError(serverError);
             toast.error(serverError);
         }
-    }, [areaType, gpId, nacId, name, onSuccess, updateLocation, fetchLocations, wardId]);
+    }, [areaType, gpId, nacId, name, onSuccess, updateLocation, villageId, wardId]);
 
     const handleRetry = useCallback(async () => {
         if (!wardId) {
@@ -171,8 +200,13 @@ export default function UpdateWard({ wardId, onSuccess }) {
                 const selectionState = getWardSelectionState(response.data);
                 setAreaType(selectionState.areaType);
                 setGpId(selectionState.gpId);
+                setVillageId(selectionState.villageId);
                 setNacId(selectionState.nacId);
                 setName(selectionState.name);
+
+                if (selectionState.gpId) {
+                    await fetchDropdown("villages", { gpId: selectionState.gpId });
+                }
             } else {
                 setError(response.message || "Failed to load ward data");
                 toast.error(response.message || "Failed to load ward data");
@@ -184,7 +218,7 @@ export default function UpdateWard({ wardId, onSuccess }) {
         } finally {
             setIsLoading(false);
         }
-    }, [wardId, getLocationById]);
+    }, [wardId, getLocationById, fetchDropdown]);
 
     const handleCancel = useCallback(() => {
         setFieldError("");
@@ -195,6 +229,7 @@ export default function UpdateWard({ wardId, onSuccess }) {
         const nextType = e.target.value;
         setAreaType(nextType);
         setGpId("");
+        setVillageId("");
         setNacId("");
         if (fieldError) {
             setFieldError("");
@@ -271,32 +306,62 @@ export default function UpdateWard({ wardId, onSuccess }) {
                 </div>
 
                 {areaType === "rural" && (
-                    <div className="col-12 mb-3">
-                        <SearchSelect
-                            label={(
-                                <span className="fw-semibold">
-                                    * Gram Panchayat:
-                                </span>
+                    <>
+                        <div className="col-12 mb-3">
+                            <SearchSelect
+                                label={(
+                                    <span className="fw-semibold">
+                                        * Gram Panchayat:
+                                    </span>
+                                )}
+                                options={gps.map((gp) => ({
+                                    value: normalizeId(gp.id),
+                                    label: gp.name,
+                                }))}
+                                value={gpId}
+                                onChange={(value) => {
+                                    setGpId(normalizeId(value));
+                                    setVillageId("");
+                                    if (fieldError) {
+                                        setFieldError("");
+                                    }
+                                }}
+                                placeholder="Search & Select GP"
+                                isDisabled={actionLoading}
+                                required
+                            />
+                            {fieldError && !gpId && (
+                                <div className="invalid-feedback d-block mt-2">{fieldError}</div>
                             )}
-                            options={(gps ?? []).map((gp) => ({
-                                value: normalizeId(gp.id),
-                                label: gp.name,
-                            }))}
-                            value={gpId}
-                            onChange={(value) => {
-                                setGpId(normalizeId(value));
-                                if (fieldError) {
-                                    setFieldError("");
-                                }
-                            }}
-                            placeholder="Search & Select GP"
-                            isDisabled={actionLoading}
-                            required
-                        />
-                        {fieldError && !gpId && (
-                            <div className="invalid-feedback d-block mt-2">{fieldError}</div>
-                        )}
-                    </div>
+                        </div>
+
+                        <div className="col-12 mb-3">
+                            <SearchSelect
+                                label={(
+                                    <span className="fw-semibold">
+                                        * Village:
+                                    </span>
+                                )}
+                                options={filteredVillages.map((village) => ({
+                                    value: normalizeId(village.id),
+                                    label: village.name,
+                                }))}
+                                value={villageId}
+                                onChange={(value) => {
+                                    setVillageId(normalizeId(value));
+                                    if (fieldError) {
+                                        setFieldError("");
+                                    }
+                                }}
+                                placeholder="Search & Select Village"
+                                isDisabled={actionLoading || !gpId}
+                                required
+                            />
+                            {fieldError && gpId && !villageId && (
+                                <div className="invalid-feedback d-block mt-2">{fieldError}</div>
+                            )}
+                        </div>
+                    </>
                 )}
 
                 {areaType === "urban" && (
@@ -307,7 +372,7 @@ export default function UpdateWard({ wardId, onSuccess }) {
                                     * NAC:
                                 </span>
                             )}
-                            options={(nacs ?? []).map((nac) => ({
+                            options={nacs.map((nac) => ({
                                 value: normalizeId(nac.id),
                                 label: nac.name,
                             }))}
@@ -357,7 +422,15 @@ export default function UpdateWard({ wardId, onSuccess }) {
                 <button type="button" className="btn btn-outline-secondary" onClick={handleCancel} disabled={actionLoading}>
                     Cancel
                 </button>
-                <button type="submit" className="btn btn-primary d-flex align-items-center" disabled={actionLoading || (areaType === "rural" ? !gpId : !nacId) || !name.trim()}>
+                <button
+                    type="submit"
+                    className="btn btn-primary d-flex align-items-center"
+                    disabled={
+                        actionLoading ||
+                        !name.trim() ||
+                        (areaType === "rural" ? !gpId || !villageId : !nacId)
+                    }
+                >
                     {actionLoading ? (
                         <>
                             <span className="spinner-border spinner-border-sm me-2" />

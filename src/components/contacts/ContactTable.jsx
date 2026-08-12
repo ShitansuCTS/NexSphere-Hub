@@ -8,7 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateContact from "@/components/contacts/forms/CreateContact";
 import UpdateContact from "@/components/contacts/forms/UpdateContact";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ContactTable = () => {
   const [showCreate, setShowCreate] = useState(false);

@@ -8,7 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateWard from "@/components/location/wards/forms/CreateWard";
 import UpdateWard from "@/components/location/wards/forms/UpdateWard";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -21,6 +21,7 @@ const ProductInfoOne = () => {
     loading,
     error,
     fetchLocations,
+    initListView,
     pagination,
     filters,
     setFilter,
@@ -42,26 +43,19 @@ const ProductInfoOne = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilter("search", search);
+      setFilter("search", search, "wards");
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
 
   useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.wards ||
-      filters.page !== 1 ||
-      Boolean(filters.search) ||
-      filters.limit !== 10;
+    initListView("wards");
+  }, [initListView]);
 
-    if (
-      shouldRefetch &&
-      (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)
-    ) {
-      fetchLocations("wards", true);
-    }
-  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.wards, hasVisibleData]);
+  useEffect(() => {
+    fetchLocations("wards", true);
+  }, [fetchLocations, filters.page, filters.limit, filters.search]);
 
   const handleEditClick = useCallback((wardId) => {
     setEditingWardId(wardId);
@@ -187,7 +181,7 @@ const ProductInfoOne = () => {
               <select
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
-                onChange={(e) => setFilter("limit", Number(e.target.value))}
+                onChange={(e) => setFilter("limit", Number(e.target.value), "wards")}
                 aria-label="Select page size"
               >
                 <option value={8}>8</option>
@@ -339,7 +333,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasPrev}
-                onClick={() => setFilter("page", pagination.page - 1)}
+                onClick={() => setFilter("page", pagination.page - 1, "wards")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-left" className="text-xl" />
@@ -350,7 +344,7 @@ const ProductInfoOne = () => {
               <li key={page} className="page-item">
                 <button
                   type="button"
-                  onClick={() => setFilter("page", page)}
+                  onClick={() => setFilter("page", page, "wards")}
                   className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${
                     page === pagination.page
                       ? "bg-primary-600 text-white"
@@ -366,7 +360,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasNext}
-                onClick={() => setFilter("page", pagination.page + 1)}
+                onClick={() => setFilter("page", pagination.page + 1, "wards")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-right" className="text-xl" />

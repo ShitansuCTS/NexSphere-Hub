@@ -8,7 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateGp from "@/components/location/gps/forms/CreateGp";
 import UpdateGp from "@/components/location/gps/forms/UpdateGp";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -21,6 +21,7 @@ const ProductInfoOne = () => {
     loading,
     error,
     fetchLocations,
+    initListView,
     pagination,
     filters,
     setFilter,
@@ -42,26 +43,19 @@ const ProductInfoOne = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilter("search", search);
+      setFilter("search", search, "gps");
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
 
   useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.gps ||
-      filters.page !== 1 ||
-      Boolean(filters.search) ||
-      filters.limit !== 10;
+    initListView("gps");
+  }, [initListView]);
 
-    if (
-      shouldRefetch &&
-      (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)
-    ) {
-      fetchLocations("gps", true);
-    }
-  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.gps, hasVisibleData]);
+  useEffect(() => {
+    fetchLocations("gps", true);
+  }, [fetchLocations, filters.page, filters.limit, filters.search]);
 
   const handleEditClick = useCallback((gpId) => {
     setEditingGpId(gpId);
@@ -87,42 +81,35 @@ const ProductInfoOne = () => {
     fetchLocations("gps", true);
   }, [fetchLocations]);
 
-  const handleDelete = useCallback((gpId, gpName) => {
-    let confirmToastId;
+  const handleDelete = useCallback(
+    async (gpId, gpName) => {
+      const confirmed = window.confirm(
+        `Are you sure you want to delete ${gpName}?`
+      );
 
-    const confirmDelete = async () => {
-      toast.dismiss(confirmToastId);
-      const response = await deleteLocation("gps", gpId);
-      if (response.success) {
-        toast.success(response.message || "GP deleted successfully");
-        fetchLocations("gps", true);
-      } else {
-        toast.error(response.message || "Failed to delete GP");
+      if (!confirmed) return;
+
+      try {
+        const response = await deleteLocation("gps", gpId);
+
+        if (response?.success) {
+          toast.success(
+            response.message || "GP deleted successfully"
+          );
+
+          await fetchLocations("gps", true);
+        } else {
+          toast.error(
+            response?.message || "Failed to delete GP"
+          );
+        }
+      } catch (error) {
+        console.error("DELETE ERROR:", error);
+        toast.error("Failed to delete GP");
       }
-    };
-
-    confirmToastId = toast(
-      <div className="p-2">
-        <h6 className="mb-2">Delete GP?</h6>
-        <p className="mb-3 text-secondary-light">
-          Are you sure you want to delete <strong>{gpName}</strong>?
-        </p>
-        <div className="d-flex justify-content-end gap-2">
-          <button type="button" className="btn btn-sm btn-light" onClick={() => toast.dismiss(confirmToastId)}>
-            Cancel
-          </button>
-          <button type="button" className="btn btn-sm btn-danger" onClick={confirmDelete}>
-            Delete
-          </button>
-        </div>
-      </div>,
-      {
-        autoClose: false,
-        closeButton: false,
-        position: "top-center",
-      },
-    );
-  }, [deleteLocation, fetchLocations]);
+    },
+    [deleteLocation, fetchLocations]
+  );
 
   if (loading && !hasVisibleData) {
     return (
@@ -138,6 +125,18 @@ const ProductInfoOne = () => {
             </div>
           </div>
         ))}
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="card border-danger-subtle p-4 text-center">
+        <h6 className="mb-2">Unable to load GPs</h6>
+        <p className="text-secondary-light mb-3">{error}</p>
+        <button type="button" className="btn btn-primary btn-sm" onClick={handleRetry}>
+          Try Again
+        </button>
       </div>
     );
   }
@@ -177,7 +176,7 @@ const ProductInfoOne = () => {
               <select
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
-                onChange={(e) => setFilter("limit", Number(e.target.value))}
+                onChange={(e) => setFilter("limit", Number(e.target.value), "gps")}
                 aria-label="Select page size"
               >
                 <option value={8}>8</option>
@@ -270,13 +269,13 @@ const ProductInfoOne = () => {
                           )}
                         </small>
                         <div className="d-flex align-items-center gap-2">
-                          <Link
+                          {/* <Link
                             href={`/location/gps/${gp.id}`}
                             className="bg-info-focus text-info-600 bg-hover-info-200 w-36-px h-36-px rounded-circle d-flex align-items-center justify-content-center"
                             title="View"
                           >
                             <Icon icon="lucide:eye" />
-                          </Link>
+                          </Link> */}
 
                           <button
                             type="button"
@@ -333,7 +332,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasPrev}
-                onClick={() => setFilter("page", pagination.page - 1)}
+                onClick={() => setFilter("page", pagination.page - 1, "gps")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-left" className="text-xl" />
@@ -344,12 +343,11 @@ const ProductInfoOne = () => {
               <li key={page} className="page-item">
                 <button
                   type="button"
-                  onClick={() => setFilter("page", page)}
-                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${
-                    page === pagination.page
+                  onClick={() => setFilter("page", page, "gps")}
+                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${page === pagination.page
                       ? "bg-primary-600 text-white"
                       : "bg-primary-50 text-secondary-light"
-                  }`}
+                    }`}
                 >
                   {page}
                 </button>
@@ -360,7 +358,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasNext}
-                onClick={() => setFilter("page", pagination.page + 1)}
+                onClick={() => setFilter("page", pagination.page + 1, "gps")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-right" className="text-xl" />

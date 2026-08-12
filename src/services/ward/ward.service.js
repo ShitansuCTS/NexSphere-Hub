@@ -89,6 +89,7 @@ export const getWardsService = async (query) => {
     const search = query.search?.trim();
     const villageId = query.villageId?.trim();
     const nacId = query.nacId?.trim();
+    const gpId = query.gpId?.trim();
 
     const where = {
         ...(search && {
@@ -99,6 +100,11 @@ export const getWardsService = async (query) => {
         }),
         ...(villageId && { villageId }),
         ...(nacId && { nacId }),
+        ...(gpId && {
+            village: {
+                gpId,
+            },
+        }),
     };
 
     const [wards, total] = await prisma.$transaction([
@@ -227,6 +233,16 @@ export const deleteWardService = async (id) => {
 
     if (boothCount > 0) {
         throw new Error("WARD_HAS_BOOTHS");
+    }
+
+    const contactCount = await prisma.contact.count({
+        where: {
+            wardId: id,
+        },
+    });
+
+    if (contactCount > 0) {
+        throw new Error("WARD_HAS_CONTACTS");
     }
 
     await prisma.ward.delete({

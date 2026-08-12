@@ -8,7 +8,7 @@ import Offcanvas from "@/components/sidebar/offcanvas";
 import CreateNac from "@/components/location/nacs/forms/CreateNac";
 import UpdateNac from "@/components/location/nacs/forms/UpdateNac";
 import SkeletonLoader from "@/components/loader/SkeletonLoader";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ProductInfoOne = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -21,6 +21,7 @@ const ProductInfoOne = () => {
     loading,
     error,
     fetchLocations,
+    initListView,
     pagination,
     filters,
     setFilter,
@@ -42,26 +43,19 @@ const ProductInfoOne = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFilter("search", search);
+      setFilter("search", search, "nacs");
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search, setFilter]);
 
   useEffect(() => {
-    const shouldRefetch =
-      !hasFetched.nacs ||
-      filters.page !== 1 ||
-      Boolean(filters.search) ||
-      filters.limit !== 10;
+    initListView("nacs");
+  }, [initListView]);
 
-    if (
-      shouldRefetch &&
-      (!hasVisibleData || filters.page !== 1 || Boolean(filters.search) || filters.limit !== 10)
-    ) {
-      fetchLocations("nacs", true);
-    }
-  }, [fetchLocations, filters.limit, filters.page, filters.search, hasFetched.nacs, hasVisibleData]);
+  useEffect(() => {
+    fetchLocations("nacs", true);
+  }, [fetchLocations, filters.page, filters.limit, filters.search]);
 
   const handleEditClick = useCallback((nacId) => {
     setEditingNacId(nacId);
@@ -87,51 +81,52 @@ const ProductInfoOne = () => {
     fetchLocations("nacs", true);
   }, [fetchLocations]);
 
-  const handleDelete = useCallback((nacId, nacName) => {
-    let confirmToastId;
 
-    const confirmDelete = async () => {
-      toast.dismiss(confirmToastId);
 
-      const response = await deleteLocation("nacs", nacId);
-      if (response.success) {
-        toast.success(response.message || "NAC deleted successfully");
-        fetchLocations("nacs", true);
-      } else {
-        toast.error(response.message || "Failed to delete NAC");
+
+  const handleDelete = useCallback(
+    async (nacId, nacName) => {
+
+      const confirmed = window.confirm(
+        `Are you sure you want to delete ${nacName}?`
+      );
+
+      if (!confirmed) return;
+
+      try {
+        const response = await deleteLocation(
+          "nacs",
+          nacId
+        );
+
+        console.log("DELETE RESPONSE:", response);
+
+        if (response?.success) {
+          toast.success(
+            response.message || "NAC deleted successfully"
+          );
+
+          await fetchLocations("nacs", true);
+        } else {
+          toast.error(
+            response?.message || "Failed to delete NAC"
+          );
+        }
+      } catch (error) {
+        console.error("DELETE ERROR:", error);
+        toast.error("Failed to delete NAC");
       }
-    };
+    },
+    [deleteLocation, fetchLocations]
+  );
 
-    confirmToastId = toast(
-      <div className="p-2">
-        <h6 className="mb-2">Delete NAC?</h6>
-        <p className="mb-3 text-secondary-light">
-          Are you sure you want to delete <strong>{nacName}</strong>?
-        </p>
-        <div className="d-flex justify-content-end gap-2">
-          <button
-            type="button"
-            className="btn btn-sm btn-light"
-            onClick={() => toast.dismiss(confirmToastId)}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="btn btn-sm btn-danger"
-            onClick={confirmDelete}
-          >
-            Delete
-          </button>
-        </div>
-      </div>,
-      {
-        autoClose: false,
-        closeButton: false,
-        position: "top-center",
-      },
-    );
-  }, [deleteLocation, fetchLocations]);
+
+
+
+
+
+
+
 
   if (loading && !hasVisibleData) {
     return (
@@ -196,7 +191,7 @@ const ProductInfoOne = () => {
               <select
                 className="form-select form-select-sm w-auto radius-12"
                 value={filters.limit}
-                onChange={(e) => setFilter("limit", Number(e.target.value))}
+                onChange={(e) => setFilter("limit", Number(e.target.value), "nacs")}
                 aria-label="Select page size"
               >
                 <option value={8}>8</option>
@@ -333,7 +328,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasPrev}
-                onClick={() => setFilter("page", pagination.page - 1)}
+                onClick={() => setFilter("page", pagination.page - 1, "nacs")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-left" className="text-xl" />
@@ -344,12 +339,11 @@ const ProductInfoOne = () => {
               <li key={page} className="page-item">
                 <button
                   type="button"
-                  onClick={() => setFilter("page", page)}
-                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${
-                    page === pagination.page
-                      ? "bg-primary-600 text-white"
-                      : "bg-primary-50 text-secondary-light"
-                  }`}
+                  onClick={() => setFilter("page", page, "nacs")}
+                  className={`page-link fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px ${page === pagination.page
+                    ? "bg-primary-600 text-white"
+                    : "bg-primary-50 text-secondary-light"
+                    }`}
                 >
                   {page}
                 </button>
@@ -360,7 +354,7 @@ const ProductInfoOne = () => {
               <button
                 type="button"
                 disabled={!pagination.hasNext}
-                onClick={() => setFilter("page", pagination.page + 1)}
+                onClick={() => setFilter("page", pagination.page + 1, "nacs")}
                 className="page-link text-secondary-light fw-medium radius-4 border-0 px-10 py-10 d-flex align-items-center justify-content-center h-32-px me-8 w-32-px bg-base"
               >
                 <Icon icon="ep:d-arrow-right" className="text-xl" />

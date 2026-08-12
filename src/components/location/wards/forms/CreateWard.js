@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -9,27 +9,43 @@ import { Icon } from "@iconify/react";
 export default function CreateWard({ onSuccess }) {
     const [areaType, setAreaType] = useState("rural");
     const [gpId, setGpId] = useState("");
+    const [villageId, setVillageId] = useState("");
     const [nacId, setNacId] = useState("");
     const [name, setName] = useState("");
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
-        nacs,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+    const nacs = dropdownCache.nacs;
+    const villages = dropdownCache.villages;
+
     useEffect(() => {
-        if (!hasFetched.gps) {
-            fetchLocations("gps", true);
+        fetchDropdown("gps");
+        fetchDropdown("nacs");
+    }, [fetchDropdown]);
+
+    useEffect(() => {
+        if (areaType === "rural" && gpId) {
+            fetchDropdown("villages", { gpId });
+            setVillageId("");
         }
-        if (!hasFetched.nacs) {
-            fetchLocations("nacs", true);
+    }, [areaType, gpId, fetchDropdown]);
+
+    const filteredVillages = useMemo(() => {
+        if (areaType !== "rural" || !gpId) {
+            return villages;
         }
-    }, [fetchLocations, hasFetched.gps, hasFetched.nacs]);
+
+        return villages.filter(
+            (village) => String(village.gpId) === String(gpId)
+        );
+    }, [areaType, gpId, villages]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -42,19 +58,22 @@ export default function CreateWard({ onSuccess }) {
             return;
         }
 
-        const payload = {
-            areaType,
-            name: trimmedName,
-        };
-
         if (areaType === "rural") {
-            payload.gpId = gpId;
-        } else {
-            payload.nacId = nacId;
-        }
+            if (!gpId) {
+                const errorMsg = "Please select a GP";
+                setFieldError(errorMsg);
+                toast.error(errorMsg);
+                return;
+            }
 
-        if ((areaType === "rural" && !gpId) || (areaType === "urban" && !nacId)) {
-            const errorMsg = areaType === "rural" ? "Please select a GP" : "Please select a NAC";
+            if (!villageId) {
+                const errorMsg = "Please select a village";
+                setFieldError(errorMsg);
+                toast.error(errorMsg);
+                return;
+            }
+        } else if (!nacId) {
+            const errorMsg = "Please select a NAC";
             setFieldError(errorMsg);
             toast.error(errorMsg);
             return;
@@ -62,12 +81,18 @@ export default function CreateWard({ onSuccess }) {
 
         setFieldError("");
 
+        const payload =
+            areaType === "rural"
+                ? { name: trimmedName, villageId }
+                : { name: trimmedName, nacId };
+
         const response = await createLocation("wards", payload);
 
         if (response.success) {
             toast.success(response.message || "Ward created successfully");
             setAreaType("rural");
             setGpId("");
+            setVillageId("");
             setNacId("");
             setName("");
             onSuccess?.();
@@ -76,12 +101,13 @@ export default function CreateWard({ onSuccess }) {
             setFieldError(errorMsg);
             toast.error(errorMsg);
         }
-    }, [areaType, createLocation, gpId, nacId, name, onSuccess]);
+    }, [areaType, createLocation, gpId, nacId, name, onSuccess, villageId]);
 
     const handleAreaTypeChange = useCallback((e) => {
         const nextType = e.target.value;
         setAreaType(nextType);
         setGpId("");
+        setVillageId("");
         setNacId("");
         if (fieldError) {
             setFieldError("");
@@ -115,32 +141,62 @@ export default function CreateWard({ onSuccess }) {
                 </div>
 
                 {areaType === "rural" && (
-                    <div className="col-12 mb-3">
-                        <SearchSelect
-                            label={(
-                                <span className="text-dark fw-semibold">
-                                    * Gram Panchayat:
-                                </span>
+                    <>
+                        <div className="col-12 mb-3">
+                            <SearchSelect
+                                label={(
+                                    <span className="text-dark fw-semibold">
+                                        * Gram Panchayat:
+                                    </span>
+                                )}
+                                options={gps.map((gp) => ({
+                                    value: gp.id,
+                                    label: gp.name,
+                                }))}
+                                value={gpId}
+                                onChange={(value) => {
+                                    setGpId(value || "");
+                                    setVillageId("");
+                                    if (fieldError) {
+                                        setFieldError("");
+                                    }
+                                }}
+                                placeholder="Search & Select GP"
+                                isDisabled={actionLoading}
+                                required
+                            />
+                            {fieldError && !gpId && (
+                                <div className="invalid-feedback d-block mt-2">{fieldError}</div>
                             )}
-                            options={(gps ?? []).map((gp) => ({
-                                value: gp.id,
-                                label: gp.name,
-                            }))}
-                            value={gpId}
-                            onChange={(value) => {
-                                setGpId(value || "");
-                                if (fieldError) {
-                                    setFieldError("");
-                                }
-                            }}
-                            placeholder="Search & Select GP"
-                            isDisabled={actionLoading}
-                            required
-                        />
-                        {fieldError && !gpId && (
-                            <div className="invalid-feedback d-block mt-2">{fieldError}</div>
-                        )}
-                    </div>
+                        </div>
+
+                        <div className="col-12 mb-3">
+                            <SearchSelect
+                                label={(
+                                    <span className="text-dark fw-semibold">
+                                        * Village:
+                                    </span>
+                                )}
+                                options={filteredVillages.map((village) => ({
+                                    value: village.id,
+                                    label: village.name,
+                                }))}
+                                value={villageId}
+                                onChange={(value) => {
+                                    setVillageId(value || "");
+                                    if (fieldError) {
+                                        setFieldError("");
+                                    }
+                                }}
+                                placeholder="Search & Select Village"
+                                isDisabled={actionLoading || !gpId}
+                                required
+                            />
+                            {fieldError && gpId && !villageId && (
+                                <div className="invalid-feedback d-block mt-2">{fieldError}</div>
+                            )}
+                        </div>
+                    </>
                 )}
 
                 {areaType === "urban" && (
@@ -151,7 +207,7 @@ export default function CreateWard({ onSuccess }) {
                                     * NAC:
                                 </span>
                             )}
-                            options={(nacs ?? []).map((nac) => ({
+                            options={nacs.map((nac) => ({
                                 value: nac.id,
                                 label: nac.name,
                             }))}
@@ -210,7 +266,11 @@ export default function CreateWard({ onSuccess }) {
                 <button
                     type="submit"
                     className="btn btn-primary d-flex align-items-center"
-                    disabled={actionLoading || (areaType === "rural" ? !gpId : !nacId) || !name.trim()}
+                    disabled={
+                        actionLoading ||
+                        !name.trim() ||
+                        (areaType === "rural" ? !gpId || !villageId : !nacId)
+                    }
                 >
                     {actionLoading ? (
                         <>

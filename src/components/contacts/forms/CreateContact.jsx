@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useContactStore } from "@/store/useContactStore";
 import { useLocationStore } from "@/store/useLocationStore";
 import { Icon } from "@iconify/react";

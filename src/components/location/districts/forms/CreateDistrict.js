@@ -12,19 +12,17 @@ export default function CreateDistrict({ onSuccess }) {
     const [errors, setErrors] = useState({ stateId: "", name: "" });
 
     const {
-        states,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
-        hasFetched
     } = useLocationStore();
 
-    // Fetch states only if not already fetched
+    const states = dropdownCache.states;
+
     useEffect(() => {
-        if (!hasFetched.states) {
-            fetchLocations("states", true);
-        }
-    }, [fetchLocations, hasFetched.states]);
+        fetchDropdown("states");
+    }, [fetchDropdown]);
 
     const validateForm = useCallback(() => {
         const nextErrors = { stateId: "", name: "" };

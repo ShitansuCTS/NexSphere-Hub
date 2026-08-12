@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -14,19 +14,18 @@ export default function UpdateNac({ nacId, onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        districts,
+        dropdownCache,
         getLocationById,
         updateLocation,
-        fetchLocations,
+        fetchDropdown,
         actionLoading,
-        hasFetched,
     } = useLocationStore();
 
+    const districts = dropdownCache.districts;
+
     useEffect(() => {
-        if (!hasFetched.districts) {
-            fetchLocations("districts", true);
-        }
-    }, [fetchLocations, hasFetched.districts]);
+        fetchDropdown("districts");
+    }, [fetchDropdown]);
 
     useEffect(() => {
         let isMounted = true;
@@ -101,13 +100,12 @@ export default function UpdateNac({ nacId, onSuccess }) {
 
         try {
             const response = await updateLocation("nacs", nacId, {
-                districtId: parseInt(districtId),
+                districtId: districtId,
                 name: trimmedName,
             });
 
             if (response.success) {
                 toast.success(response.message || "NAC updated successfully");
-                await fetchLocations("nacs", true);
                 onSuccess?.();
             } else {
                 const serverError = response.message || "Failed to update NAC";

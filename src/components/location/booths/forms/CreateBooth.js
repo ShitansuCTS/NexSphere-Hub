@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useMemo, useState, useCallback } from "react";
+import toast from "react-hot-toast";
 import { useLocationStore } from "@/store/useLocationStore";
 import SearchSelect from "@/components/ui/searchselect/SearchSelect";
 import { Icon } from "@iconify/react";
@@ -15,32 +15,42 @@ export default function CreateBooth({ onSuccess }) {
     const [fieldError, setFieldError] = useState("");
 
     const {
-        gps,
-        nacs,
-        wards,
-        fetchLocations,
+        dropdownCache,
+        fetchDropdown,
         createLocation,
         actionLoading,
     } = useLocationStore();
 
+    const gps = dropdownCache.gps;
+    const nacs = dropdownCache.nacs;
+    const wards = dropdownCache.wards;
+
     useEffect(() => {
-        fetchLocations("gps");
-        fetchLocations("nacs");
-        fetchLocations("wards");
-    }, [fetchLocations]);
+        fetchDropdown("gps");
+        fetchDropdown("nacs");
+    }, [fetchDropdown]);
 
-    const filteredWards = useMemo(() => {
-        return (wards ?? []).filter((ward) => {
-            const wardGp = String(ward.gpId ?? "");
-            const wardNac = String(ward.nacId ?? "");
-            if (areaType === "rural") {
-                return wardGp === String(gpId);
-            }
-            return wardNac === String(nacId);
-        });
-    }, [areaType, gpId, nacId, wards]);
+    useEffect(() => {
+        setWardId("");
 
-    async function handleSubmit(e) {
+        if (areaType === "rural" && gpId) {
+            fetchDropdown("wards", { gpId });
+            return;
+        }
+
+        if (areaType === "urban" && nacId) {
+            fetchDropdown("wards", { nacId });
+        }
+    }, [areaType, gpId, nacId, fetchDropdown]);
+
+    const wardOptions = useMemo(() => {
+        return wards.map((ward) => ({
+            value: ward.id,
+            label: ward.name,
+        }));
+    }, [wards]);
+
+    const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
 
         const trimmedName = name.trim();
@@ -68,7 +78,6 @@ export default function CreateBooth({ onSuccess }) {
         setFieldError("");
 
         const response = await createLocation("booths", {
-            areaType,
             wardId,
             name: trimmedName,
         });
@@ -89,16 +98,16 @@ export default function CreateBooth({ onSuccess }) {
             setFieldError(errorMessage);
             toast.error(errorMessage);
         }
-    }
+    }, [areaType, createLocation, gpId, nacId, name, onSuccess, wardId]);
 
-    const handleAreaTypeChange = (e) => {
+    const handleAreaTypeChange = useCallback((e) => {
         const nextType = e.target.value;
         setAreaType(nextType);
         setGpId("");
         setNacId("");
         setWardId("");
         setFieldError("");
-    };
+    }, []);
 
     return (
         <form onSubmit={handleSubmit}>
@@ -128,7 +137,7 @@ export default function CreateBooth({ onSuccess }) {
                                     * Gram Panchayat:
                                 </span>
                             )}
-                            options={(gps ?? []).map((gp) => ({
+                            options={gps.map((gp) => ({
                                 value: gp.id,
                                 label: gp.name,
                             }))}
@@ -156,7 +165,7 @@ export default function CreateBooth({ onSuccess }) {
                                     * NAC:
                                 </span>
                             )}
-                            options={(nacs ?? []).map((nac) => ({
+                            options={nacs.map((nac) => ({
                                 value: nac.id,
                                 label: nac.name,
                             }))}
@@ -183,10 +192,7 @@ export default function CreateBooth({ onSuccess }) {
                                 * Ward:
                             </span>
                         )}
-                        options={filteredWards.map((ward) => ({
-                            value: ward.id,
-                            label: ward.name,
-                        }))}
+                        options={wardOptions}
                         value={wardId}
                         onChange={(value) => {
                             setWardId(value || "");

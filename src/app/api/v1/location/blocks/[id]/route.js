@@ -8,8 +8,9 @@ import {
 
 export async function GET(request, { params }) {
     try {
+        const { id } = await params;
         const response =
-            await getBlockByIdController(params.id);
+            await getBlockByIdController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,
@@ -30,11 +31,14 @@ export async function GET(request, { params }) {
 
 export async function PATCH(request, { params }) {
     try {
+        const { id } = await params;
         const body = await request.json();
+
+        // console.log("The body is :",body)
 
         const response =
             await updateBlockController(
-                params.id,
+                id,
                 body
             );
 
@@ -57,8 +61,9 @@ export async function PATCH(request, { params }) {
 
 export async function DELETE(request, { params }) {
     try {
+        const { id } = await params;
         const response =
-            await deleteBlockController(params.id);
+            await deleteBlockController(id);
 
         return NextResponse.json(response.data, {
             status: response.status,
